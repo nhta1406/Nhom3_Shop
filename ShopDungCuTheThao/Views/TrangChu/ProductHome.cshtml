@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ShopDungCuTheThao.Models.SanPham>
+<div class="position-relative">
+    <h3 style="font-family: Arial, sans-serif; font-size: 24px; color: #333;text-align:center">@ViewBag.CatName</h3>
+    <hr style="border-color:red; border-width: 1px; opacity: 0.5">
+</div>
+@foreach (var pro in Model)
+{
+    <style>
+        .thumbnail {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+            .thumbnail .caption {
+                text-align: center;
+            }
+
+            .thumbnail img {
+                max-width: 100%;
+                height: auto;
+                margin-bottom: 10px;
+            }
+    </style>
+    <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
+        <div class="thumbnail">
+            <a href="#"><img src="~/Public/img/@pro.IMG" style="height: 170px; object-fit: cover;" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook"></a>
+            <div class="caption">
+                <a href="#"><h4 class="text-center" style="text-decoration:none">@pro.Name</h4></a>
+                @if (pro.PriceSale != 0)
+                {
+                    <div class="price text-center">
+                        <span class="price-old" style="color:red" id="salePrice_@pro.ID"></span>
+                        <del class="price-new" style="color:dimgray" id="originalPrice_@pro.ID"></del>
+                    </div>
+                }
+                else
+                {
+                    <span class="price-old" style="color:red" id="originalPrice_@pro.ID"></span>
+                }
+                <script>
+                        var originalPriceValue = @pro.Price;
+                        var salePriceValue = @pro.PriceSale;
+                        var originalPriceElement = document.getElementById("originalPrice_@pro.ID");
+                        var salePriceElement = document.getElementById("salePrice_@pro.ID");
+                        originalPriceElement.textContent = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(originalPriceValue);
+                        salePriceElement.textContent = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(salePriceValue);
+                </script>
+                <p class="text-center">
+                    <a href="#" class="btn btn-primary" role="button">
+                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,135 @@
+﻿@model ShopDungCuTheThao.Models.SanPham
+@using System.Globalization
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4>Chi Tiết Sản Phẩm</h4>
+<table class="table table-striped">
+    <tr>
+        <th>
+            ID SẢN PHẨM
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CateID)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            TÊN SẢN PHẨM
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Name)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            CHI TIẾT SẢN PHẨM
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Detail)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            TỪ KHÓA
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.MetaKey)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            MÔ TẢ SẢN PHẨM
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.MetaDesc)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Slug)
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Slug)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            HÌNH ẢNH
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.IMG)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            SỐ LƯỢNG
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Number)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            GIÁ
+        </th>
+        <td>
+            @(Model.Price.ToString("N0") + " VNĐ")
+        </td>
+    </tr>
+    <tr>
+        <th>
+            GIÁ KHUYẾN MÃI
+        </th>
+        <td>
+            @(Model.PriceSale.ToString("N0") + " VNĐ")
+        </td>
+    </tr>
+    <tr>
+        <th>
+            TẠO BỞI
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CreateBy)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            TẠO VÀO LÚC
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.CreateAt)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            CẬP NHẬT BỞI
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.UpdateBy)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            CẬP NHẬT LÚC
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.UpdateAt)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            TÌNH TRẠNG
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.Status)
+        </td>
+    </tr>
+</table>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng Nhập Shop</title>
+    <link href="~/Public/css/StyleSheet1.css" rel="stylesheet" />
+</head>
+<body style="display:flex; align-items:center; justify-content:center;">
+    <div class="login-page">
+        <div class="form">
+            @using (Html.BeginForm())
+            {
+                <h2>Login</h2>
+                <input type="text" placeholder="Username" name="username" />
+                <input type="password" placeholder="Password" name="password" />
+                <a class="btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <input type="submit" value="Sign in" />
+                </a>
+                <p class="message">Not registered? <a href="@Url.Action("Register","TaiKhoan")">Create an account</a></p>
+            }
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/Content/js/JavaScript.js"></script>
+</body>
+</html>
+

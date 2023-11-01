@@ -1,0 +1,64 @@
+﻿@model ShopDungCuTheThao.Models.LoaiSanPham
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h4>Xóa Sản Phẩm</h4>
+<table class="table">
+    <tr>
+        <th>TÊN LOẠI SẢN PHẨM</th>
+        <td>@Html.DisplayFor(model => model.Name)</td>
+    </tr>
+    <tr>
+        <th>ID</th>
+        <td>@Html.DisplayFor(model => model.ParentID)</td>
+    </tr>
+    <tr>
+        <th> THỨ TỰ</th>
+        <td>@Html.DisplayFor(model => model.Orders)</td>
+    </tr>
+    <tr>
+        <th> TỪ KHÓA</th>
+        <td>@Html.DisplayFor(model => model.MetaKey)</td>
+    </tr>
+    <tr>
+        <th>MÔ TẢ </th>
+        <td>@Html.DisplayFor(model => model.MetaDesc)</td>
+    </tr>
+    <tr>
+        <th>TẠO BỞI</th>
+        <td>@Html.DisplayFor(model => model.CreateBy)</td>
+    </tr>
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Slug)</th>
+        <td>@Html.DisplayFor(model => model.Slug)</td>
+    </tr>
+    <tr>
+        <th>TẠO VÀO LÚC</th>
+        <td>@Html.DisplayFor(model => model.CreateAt)</td>
+    </tr>
+    <tr>
+        <th> CẬP NHẬT BỞI</th>
+        <td>@Html.DisplayFor(model => model.UpdateBy)</td>
+    </tr>
+    <tr>
+        <th>CẬP NHẬT LÚC</th>
+        <td>@Html.DisplayFor(model => model.UpdateAt)</td>
+    </tr>
+    <tr>
+        <th>TÌNH TRẠNG</th>
+        <td>@Html.DisplayFor(model => model.Status)</td>
+    </tr>
+</table>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}
