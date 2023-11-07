@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html class="h-100">
+<head>
+    <title>@Page.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Public/css/cssAdmin.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    @RenderSection("head", required: false)
+</head>
+<body class="h-100">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="@Url.Action("Index","Dashboard")">Nhóm 3</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sản Phẩm
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="@Url.Action("Index","SanPham")">Danh Sách Sản Phẩm</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Create","SanPham")">Thêm Sản Phẩm</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Index","LoaiSanPham")">Danh Sách Loại Sản Phẩm</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Create","LoaiSanPham")">Thêm Loại Sản Phẩm</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bài Viết
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Danh Sách Bài Viết</a></li>
+                            <li><a class="dropdown-item" href="#">Thêm Bài Viết</a></li>
+                            <li><a class="dropdown-item" href="#">Danh Sách Chủ Đề</a></li>
+                            <li><a class="dropdown-item" href="#">Thêm Chủ Đề</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Admin/Logout">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <style>
+        li .nav-link{
+            color:white;
+            
+        }
+        li .nav-link {
+          padding-left:75px;
+        }
+        .avatar-container {
+            width: 100px; 
+            height: 100px; 
+            border-radius: 50%; 
+            overflow: hidden; 
+        }
+            .avatar-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover; 
+            }
+    </style>
+    <div class="row" style="height: 100%;">
+        <div class="col-lg-2" style="background-color:darkslateblue">
+            <div id="layoutSidenav" class="mt-3">
+                <div id="layoutSidenav_nav">
+                    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                        <ul class="nav flex-column flex-fill">
+                            <li class="nav-item d-flex justify-content-center align-items-center" style="height: 100px;">
+                                <div class="avatar-container">
+                                    <img src="~/Areas/Admin/Content/img/AVATAR.jpg" alt="Avatar">
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="padding-left:105px">@ViewBag.UserName</a>
+                                <a class="nav-link" href="#" style="padding-left:65px">Chào Mừng Bạn Trở Lại</a>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#collapseSanPham" role="button" aria-expanded="false" aria-controls="collapseSanPham">Quản Lý Sản Phẩm</a>
+                                <div class="collapse" id="collapseSanPham" style="padding-left: 10px;">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Index","SanPham")">Danh Sách Sản Phẩm</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Create","SanPham")">Thêm Sản Phâm</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#collapseLoaiSanPham" role="button" aria-expanded="false" aria-controls="collapseLoaiSanPham" style="padding-top:30px">Quản Lý Loại Sản Phẩm</a>
+                                <div class="collapse" id="collapseLoaiSanPham" style="padding-left: 10px;">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Index","LoaiSanPham")">Danh Sách Loại Sản Phẩm</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Create","LoaiSanPham")">Thêm Loại Sản Phâm</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#collapseTaiKhoan" role="button" aria-expanded="false" aria-controls="collapseTaiKhoan" style="padding-top:30px">Quản Lý Tài Khoản</a>
+                                <div class="collapse" id="collapseTaiKhoan" style="padding-left: 10px;">
+                                    <ul class="nav flex-column">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="@Url.Action("Index","Users")">Danh Sách Tài Khoản</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Phân quyền</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Đơn hàng</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Thống kê</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Bài Viết</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-10" style="background-color: lightgray;">
+            @RenderSection("Index", required: false)
+            @RenderSection("IndexSanPham", required: false)
+            @RenderSection("EditSanPham", required: false)
+            @RenderSection("DetailsSanPham", required: false)
+            @RenderSection("CreateSanPham", required: false)
+            @RenderSection("DeleteSanPham", required: false)
+            @RenderSection("IndexUser", required: false)
+            @RenderSection("EditUser", required: false)
+            @RenderSection("DetailsUser", required: false)
+            @RenderSection("DeleteUser", required: false)
+            @RenderSection("IndexLoaiSanPham", required: false)
+            @RenderSection("EditLoaiSanPham", required: false)
+            @RenderSection("DetailsLoaiSanPham", required: false)
+            @RenderSection("CreateLoaiSanPham", required: false)
+            @RenderSection("DeleteLoaiSanPham", required: false)
+        </div>
+    </div>
+    @RenderBody()
+</body>
+</html>

@@ -56,8 +56,13 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 loaiSanPham.Slug= slug;
                 loaiSanPham.CreateAt = DateTime.Now;
                 loaiSanPham.CreateBy = int.Parse(Session["UserAdmin"].ToString());
-                loaiSanPham.UpdateAt = DateTime.Now;
-                loaiSanPham.UpdateBy = int.Parse(Session["UserAdmin"].ToString());
+                int userId;
+                if (Session["UserAdmin"] != null && int.TryParse(Session["UserAdmin"].ToString(), out userId))
+                {
+                    loaiSanPham.CreateBy = userId;
+                    loaiSanPham.UpdateBy = userId;
+                }
+
                 ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "ID", "Name", 0);
                 ViewBag.ListOrder = new SelectList(db.loaiSanPham.ToList(), "Orders", "Name", 0);
                 db.loaiSanPham.Add(loaiSanPham);

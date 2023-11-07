@@ -2,103 +2,113 @@
 
 @{
     ViewBag.Title = "Details";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutHomecshtml.cshtml";
 }
+@section DetailsLoaiSanPham {
+    <div class="card">
+        <div class="card-header">
+            <div class="text-center">
+                <strong class="text-uppercase text-danger text-center">Chi Tiết Loại Sản Phẩm</strong>
+            </div>
+        </div>
+        <div class="card-body p-3 bg-white">
+            <div class="card-body p-3 bg-white">
+                <table class="table">
+                    <tr>
+                        <th>
+                            Tên Loại Sản Phẩm
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.Name)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            ID
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.ParentID)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Thứ Tự
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.Orders)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            TỪ KHÓA
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.MetaKey)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Mô Tả Loại Sản Phẩm
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.MetaDesc)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Tạo Bởi
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.CreateBy)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Slug)
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.Slug)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Tạo Vào Lúc
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.CreateAt)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Cập Nhật Bởi
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.UpdateBy)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Cập Nhật Lúc
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.UpdateAt)
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Tình Trạng
+                        </th>
+                        <td>
+                            @Html.DisplayFor(model => model.Status)
+                        </td>
+                    </tr>
+                </table>
 
-<h4>Chi Tiết Loại Sản Phẩm</h4>
-
-<table class="table">
-    <tr>
-        <th>
-            Tên Loại Sản Phẩm
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Name)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            ID
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.ParentID)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Thứ Tự
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Orders)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            TỪ KHÓA
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.MetaKey)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Mô Tả Loại Sản Phẩm
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.MetaDesc)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Tạo Bởi
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.CreateBy)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Slug)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Slug)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Tạo Vào Lúc
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.CreateAt)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Cập Nhật Bởi
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.UpdateBy)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Cập Nhật Lúc
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.UpdateAt)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            Tình Trạng
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Status)
-        </td>
-    </tr>
-</table>
-
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+                <p>
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+                    @Html.ActionLink("Back to List", "Index")
+                </p>
+            </div>
+            </div>
+        </div>
+}

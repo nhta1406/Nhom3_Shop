@@ -16,5 +16,18 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 System.Web.HttpContext.Current.Response.Redirect("~/Admin/Login");
             }
         }
+        protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        {
+            if (Session["UserAdmin"] != null)
+            {
+                ViewBag.UserName = Session["UserAdmin"].ToString();
+            }
+            else
+            {
+                ViewBag.UserName = "";
+            }
+
+            base.OnActionExecuted(filterContext);
+        }
     }
 }

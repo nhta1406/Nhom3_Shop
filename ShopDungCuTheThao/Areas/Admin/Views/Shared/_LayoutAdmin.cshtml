@@ -10,7 +10,7 @@
 <body class="h-100">
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark-subtle">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">#</a>
+            <a class="navbar-brand" href="@Url.Action("Index","Dashboard")">Nhóm 3</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -53,12 +53,58 @@
             </div>
         </div>
     </nav>
+    @*<div class="row" style="height: 100%;">
+            <div class="col-lg-3">
+                <div id="layoutSidenav" class="mt-3">
+                    <div id="layoutSidenav_nav">
+                        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                            <ul class="nav flex-column flex-fill">
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="collapse" href="#collapseSanPham" role="button" aria-expanded="false" aria-controls="collapseSanPham">Sản Phẩm</a>
+                                    <div class="collapse" id="collapseSanPham">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index","SanPham")">Danh Sách Sản Phẩm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Create","SanPham")">Thêm Sản Phâm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index","LoaiSanPham")">Danh Sách Loại Sản Phẩm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Create","LoaiSanPham")">Thêm Loại Sản Phâm</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Nhà cung cấp</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Loại hàng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Tài khoản</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Phân quyền</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Đơn hàng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Thống kê</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Tin tức</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>*@
     @RenderBody()
-    <footer class="bg-light text-center text-lg-start">
-        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
-            <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-        </div>
-    </footer>
 </body>
 </html>
