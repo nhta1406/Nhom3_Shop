@@ -10,14 +10,7 @@
     <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <style>
-        .navbar-fixed-top {
-            position: fixed;
-            top: 0;
-            width: 100%;
-        }
 
-<<<<<<< HEAD
     <style>
         .top-navbar {
             background-color: #e52222;
@@ -30,20 +23,18 @@
                 padding: 0;
                 display: flex;
                 justify-content: flex-end;
-
             }
 
             .top-navbar li {
                 margin-right: 10px;
-                
             }
 
             .top-navbar a {
                 color: #333;
                 text-decoration: none;
                 height: 50px;
-
             }
+
         .navbar-brand {
             margin-right: auto;
         }
@@ -67,10 +58,23 @@
                 width: 700px;
             }
     </style>
+    <style>
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
 
+        .navbar-fixed-top {
+            position: sticky;
+            top: 70px;
+            z-index: 98;
+        }
+    </style>
 </head>
+
 <body style="background-color:gainsboro">
-    <nav class="top-navbar">
+    <nav class="top-navbar navbar-fixed">
         <div class="container">
             <a href="@Url.Action("Index","TrangChu")" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
@@ -95,16 +99,7 @@
             </ul>
         </div>
     </nav>
-    <nav class="navbar navbar-inverse" style="background-color: aliceblue;">
-=======
-        .sticky-top {
-            z-index: 1030;
-        }
-    </style>
-</head>
-<body style="background-color:gainsboro">
     <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: aliceblue;">
->>>>>>> 2abfffd9e3263102707920697efc861ce013934e
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
