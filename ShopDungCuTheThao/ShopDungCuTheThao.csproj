@@ -410,6 +410,7 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\css\Style.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="lib\font-awesome\css\all.css" />
     <Content Include="lib\font-awesome\css\all.min.css" />
@@ -473,6 +474,7 @@
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Controllers\TinTucController.cs" />
     <Compile Include="Controllers\TrangChuController.cs" />
+    <Compile Include="Controllers\VanChuyenController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -557,6 +559,11 @@
     <Content Include="Views\TaiKhoan\Register.cshtml" />
     <Content Include="Views\TrangChu\ProductName.cshtml" />
     <Content Include="Views\TrangChu\CategoryName.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
+    <Content Include="Views\GioiThieu\Index.cshtml" />
+    <Content Include="Views\LienHe\Index.cshtml" />
+    <Content Include="Views\VanChuyen\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -570,9 +577,6 @@
     <Folder Include="Areas\Admin\Views\Base\" />
     <Folder Include="Public\fontawesome\" />
     <Folder Include="Public\js\" />
-    <Folder Include="Views\GioiThieu\" />
-    <Folder Include="Views\LienHe\" />
-    <Folder Include="Views\TinTuc\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
