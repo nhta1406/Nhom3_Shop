@@ -2,142 +2,151 @@
 
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutHomecshtml.cshtml";
 }
+@section DeleteSanPham {
+    <br />
+    <div class="card">
+        <div class="card-header">
+            <div class="text-center">
+                <strong class="text-uppercase text-danger text-center">Xóa Sản Phẩm</strong>
+            </div>
+        </div>
+        <div class="card-body p-3 bg-white">
+            <table class="table">
+                <h4>Sản Phẩm</h4>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CateID)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CateID)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Name)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Detail)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Detail)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MetaKey)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.MetaKey)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.MetaDesc)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.MetaDesc)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Slug)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Slug)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.IMG)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.IMG)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Number)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Number)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Price)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Price)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PriceSale)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.PriceSale)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreateBy)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreateBy)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CreateAt)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.CreateAt)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UpdateBy)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.UpdateBy)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.UpdateAt)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.UpdateAt)
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(model => model.Status)
+                    </td>
+                </tr>
+            </table>
 
-<h4>Xóa Sản Phẩm</h4>
-<table class="table">
-    <h4>Sản Phẩm</h4>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CateID)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.CateID)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Name)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Detail)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Detail)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaKey)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.MetaKey)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.MetaDesc)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.MetaDesc)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Slug)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Slug)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.IMG)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.IMG)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Number)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Number)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Price)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Price)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PriceSale)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.PriceSale)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateBy)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.CreateBy)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CreateAt)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.CreateAt)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdateBy)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.UpdateBy)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.UpdateAt)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.UpdateAt)
-        </td>
-    </tr>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Status)
-        </th>
-        <td>
-            @Html.DisplayFor(model => model.Status)
-        </td>
-    </tr>
-</table>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-actions no-color">
-        <input type="submit" value="Delete" class="btn btn-default" />
-        |
-        @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" />
+                    |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
+        </div>
     </div>
 }
-</div>

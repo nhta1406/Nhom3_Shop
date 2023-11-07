@@ -10,107 +10,107 @@ using ShopDungCuTheThao.Models;
 
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
-    public class SanPhamsController : Controller
+    public class UsersController : Controller
     {
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
 
-        // GET: Admin/SanPhams
+        // GET: Admin/Users
         public ActionResult Index()
         {
-            return View(db.sanPham.ToList());
+            return View(db.NguoiDung.ToList());
         }
 
-        // GET: Admin/SanPhams/Details/5
+        // GET: Admin/Users/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SanPham sanPham = db.sanPham.Find(id);
-            if (sanPham == null)
+            User user = db.NguoiDung.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(sanPham);
+            return View(user);
         }
 
-        // GET: Admin/SanPhams/Create
+        // GET: Admin/Users/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Admin/SanPhams/Create
+        // POST: Admin/Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,CateID,Name,Detail,MetaKey,MetaDesc,Slug,IMG,Number,Price,PriceSale,CreateBy,CreateAt,UpdateBy,UpdateAt,Status")] SanPham sanPham)
+        public ActionResult Create([Bind(Include = "ID,Name,Email,Phone,UserName,Password,Roles,CreateBy,CreateAt,UpdateBy,UpdateAt,Status")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.sanPham.Add(sanPham);
+                db.NguoiDung.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(sanPham);
+            return View(user);
         }
 
-        // GET: Admin/SanPhams/Edit/5
+        // GET: Admin/Users/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SanPham sanPham = db.sanPham.Find(id);
-            if (sanPham == null)
+            User user = db.NguoiDung.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(sanPham);
+            return View(user);
         }
 
-        // POST: Admin/SanPhams/Edit/5
+        // POST: Admin/Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,CateID,Name,Detail,MetaKey,MetaDesc,Slug,IMG,Number,Price,PriceSale,CreateBy,CreateAt,UpdateBy,UpdateAt,Status")] SanPham sanPham)
+        public ActionResult Edit([Bind(Include = "ID,Name,Email,Phone,UserName,Password,Roles,CreateBy,CreateAt,UpdateBy,UpdateAt,Status")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(sanPham).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(sanPham);
+            return View(user);
         }
 
-        // GET: Admin/SanPhams/Delete/5
+        // GET: Admin/Users/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            SanPham sanPham = db.sanPham.Find(id);
-            if (sanPham == null)
+            User user = db.NguoiDung.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(sanPham);
+            return View(user);
         }
 
-        // POST: Admin/SanPhams/Delete/5
+        // POST: Admin/Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            SanPham sanPham = db.sanPham.Find(id);
-            db.sanPham.Remove(sanPham);
+            User user = db.NguoiDung.Find(id);
+            db.NguoiDung.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

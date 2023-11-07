@@ -87,8 +87,12 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 model.Slug = slug;
                 model.CreateAt = DateTime.Now;
                 model.CreateBy = int.Parse(Session["UserAdmin"].ToString());
-                model.UpdateAt = DateTime.Now;
-                model.UpdateBy = int.Parse(Session["UserAdmin"].ToString());
+                int userId;
+                if (Session["UserAdmin"] != null && int.TryParse(Session["UserAdmin"].ToString(), out userId))
+                {
+                    model.CreateBy = userId;
+                    model.UpdateBy = userId;
+                }
                 var Img = Request.Files["fileimg"];
                 string[] FileExtension = { ".jpg", ".png", ".gif" };
                 if (Img.ContentLength != 0)

@@ -393,6 +393,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Areas\Admin\Content\img\AVATAR.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -468,6 +469,7 @@
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
@@ -518,7 +520,6 @@
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
-    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Create.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\SanPham\Details.cshtml" />
@@ -539,6 +540,13 @@
     <Content Include="lib\font-awesome\webfonts\fa-v4compatibility.ttf" />
     <Content Include="lib\font-awesome\webfonts\fa-v4compatibility.woff2" />
     <Content Include="Areas\Admin\Views\Auth\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutHomecshtml.cshtml" />
+    <Content Include="Areas\Admin\Views\Dashboard\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

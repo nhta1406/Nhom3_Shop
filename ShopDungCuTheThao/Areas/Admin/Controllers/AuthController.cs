@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
-    public class AuthController : Controller
+    public class AuthController : BaseController
     {
         protected ShopDungCuTheThaoDB db=new ShopDungCuTheThaoDB();
         public ActionResult Login()
@@ -33,10 +33,12 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             else
             {
                 Session["UserAdmin"] = username;
+                ViewBag.UserName = password;
                 Session["User_ID"] = user.ID;
                return RedirectToAction("Index", "Dashboard");
             }
             ViewBag.Error = error;
+            ViewBag.UserName= password;
             return View();
         }
         public ActionResult Logout()
