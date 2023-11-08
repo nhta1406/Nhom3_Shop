@@ -394,6 +394,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Content\img\AVATAR.jpg" />
+    <Content Include="bin\ShopDungCuTheThao.dll" />
+    <Content Include="bin\ShopDungCuTheThao.pdb" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -412,6 +414,7 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\css\Style.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\StyleTinTuc.css" />
     <Content Include="Global.asax" />
     <Content Include="lib\font-awesome\css\all.css" />
     <Content Include="lib\font-awesome\css\all.min.css" />
@@ -450,6 +453,35 @@
     <Content Include="lib\font-awesome\sprites\solid.svg" />
     <Content Include="Public\css\LayoutAdmin.css" />
     <Content Include="Public\css\StyleSheet1.css" />
+    <Content Include="Public\ImageTinTuc\AnhDa1.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhDa2.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhDa3.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhDa4.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhDa5.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhKm1.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhKm2.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhKm3.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhKm4.png" />
+    <Content Include="Public\ImageTinTuc\AnhKm5.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost1.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost2.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost3.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost4.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost5.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost6.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost7.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhpost8.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTt1.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTt2.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTt3.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTt4.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTt5.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTv1.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTv2.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhtv3.jpg" />
+    <Content Include="Public\ImageTinTuc\AnhTv4.jpg" />
+    <Content Include="Public\ImageTinTuc\Anhtv5.jpg" />
+    <Content Include="Public\ImageTinTuc\Logo.png" />
     <Content Include="Public\img\ban-bong-ban.jpg" />
     <Content Include="Public\img\ghe-massage.jpg" />
     <Content Include="Public\img\gian-ta-da-nang-cao-cap.jpg" />
@@ -495,6 +527,8 @@
     <Compile Include="Models\ShopDungCuTheThaoDB.cs" />
     <Compile Include="Models\Slider.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -568,10 +602,11 @@
     <Content Include="Views\TrangChu\ProductName.cshtml" />
     <Content Include="Views\TrangChu\CategoryName.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\TinTuc\Index.cshtml" />
     <Content Include="Views\GioiThieu\Index.cshtml" />
     <Content Include="Views\LienHe\Index.cshtml" />
     <Content Include="Views\VanChuyen\Index.cshtml" />
+    <Content Include="Views\TinTuc\Index2.cshtml" />
+    <Content Include="Views\TinTuc\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

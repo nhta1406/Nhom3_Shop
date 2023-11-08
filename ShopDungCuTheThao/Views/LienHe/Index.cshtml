@@ -59,9 +59,11 @@
                     height: 50px;
                     border-radius: 5px;
                 }
+
         .top-navbar {
             background-color: #e52222;
             padding: 10px;
+
         }
 
             .top-navbar ul {
@@ -81,6 +83,7 @@
                 text-decoration: none;
                 height: 50px;
             }
+
         .navbar-brand {
             margin-right: auto;
         }
@@ -104,9 +107,25 @@
                 width: 700px;
             }
     </style>
+
+    <style>
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .navbar-fixed-top {
+            position: sticky;
+            top: 70px;
+            z-index: 98;
+        }
+
+    </style>
+
 </head>
 <body style="background-color:gainsboro">
-    <nav class="top-navbar">
+    <nav class="top-navbar navbar-fixed custom-height" >
         <div class="container">
             <a href="@Url.Action("Index","TrangChu")" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
@@ -131,7 +150,7 @@
             </ul>
         </div>
     </nav>
-    <nav class="navbar navbar-inverse" style="background-color: aliceblue;">
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: aliceblue;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -140,7 +159,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @*<a class="navbar-brand" href="#">NHÓM 3</a>*@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse" style="padding:0;">
                 <ul class="nav navbar-nav">
