@@ -13,7 +13,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
-    public class SanPhamController : BaseController
+    [RedirectToLogin]
+    public class SanPhamController : Controller
     {
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
 
@@ -23,7 +24,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             var list = db.sanPham.Join(
                 db.loaiSanPham,
                 p => p.CateID,
-                c => c.ID,
+                c => c.CateID,
                 (p, c) => new ProductCatogory
                 {
                     ID = p.ID,
@@ -70,7 +71,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
         // GET: Admin/SanPham/Create
         public ActionResult Create()
         {
-            ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "ID", "Name", 0);
+            ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "CateID", "Name", 0);
             return View();
         }
 
@@ -86,9 +87,9 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug = XString.Str_Slug(model.Name);
                 model.Slug = slug;
                 model.CreateAt = DateTime.Now;
-                model.CreateBy = int.Parse(Session["UserAdmin"].ToString());
+                model.CreateBy = int.Parse(Session["UserNameAdmin"].ToString());
                 int userId;
-                if (Session["UserAdmin"] != null && int.TryParse(Session["UserAdmin"].ToString(), out userId))
+                if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out userId))
                 {
                     model.CreateBy = userId;
                     model.UpdateBy = userId;
@@ -105,7 +106,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                         Img.SaveAs(PathImg);
                     }
                 }
-                ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "ID", "Name", 0);
+                ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "CateID", "Name", 0);
                 db.sanPham.Add(model);
                 db.SaveChanges();
                 return RedirectToAction("Index");

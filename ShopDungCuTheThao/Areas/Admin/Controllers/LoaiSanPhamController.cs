@@ -10,7 +10,8 @@ using ShopDungCuTheThao.Models;
 
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
-    public class LoaiSanPhamController : BaseController
+    [RedirectToLogin]
+    public class LoaiSanPhamController : Controller
     {
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
 
@@ -38,7 +39,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
         // GET: Admin/LoaiSanPham/Create
         public ActionResult Create()
         {
-            ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "ID", "Name", 0);
+            ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "CateID", "Name", 0);
             ViewBag.ListOrder = new SelectList(db.loaiSanPham.ToList(), "Orders", "Name", 0);
             return View();
         }
@@ -55,15 +56,14 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug=XString.Str_Slug(loaiSanPham.Name);
                 loaiSanPham.Slug= slug;
                 loaiSanPham.CreateAt = DateTime.Now;
-                loaiSanPham.CreateBy = int.Parse(Session["UserAdmin"].ToString());
+                loaiSanPham.CreateBy = int.Parse(Session["UserNameAdmin"].ToString());
                 int userId;
-                if (Session["UserAdmin"] != null && int.TryParse(Session["UserAdmin"].ToString(), out userId))
+                if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out userId))
                 {
                     loaiSanPham.CreateBy = userId;
                     loaiSanPham.UpdateBy = userId;
                 }
-
-                ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "ID", "Name", 0);
+                ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "CateID", "Name", 0);
                 ViewBag.ListOrder = new SelectList(db.loaiSanPham.ToList(), "Orders", "Name", 0);
                 db.loaiSanPham.Add(loaiSanPham);
                 db.SaveChanges();
@@ -92,7 +92,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,ParentID,Orders,MetaKey,MetaDesc,CreateBy,Slug,CreateAt,UpdateBy,UpdateAt,Status")] LoaiSanPham loaiSanPham)
+        public ActionResult Edit([Bind(Include = "CateID,Name,ParentID,Orders,MetaKey,MetaDesc,CreateBy,Slug,CreateAt,UpdateBy,UpdateAt,Status")] LoaiSanPham loaiSanPham)
         {
             if (ModelState.IsValid)
             {

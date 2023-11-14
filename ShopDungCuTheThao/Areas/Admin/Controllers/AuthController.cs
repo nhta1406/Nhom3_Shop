@@ -1,50 +1,50 @@
 ﻿using ShopDungCuTheThao.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Helpers;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
-    public class AuthController : BaseController
+    public class AuthController : Controller
     {
         protected ShopDungCuTheThaoDB db=new ShopDungCuTheThaoDB();
         public ActionResult Login()
         {
             return View();
         }
-        private bool IsValidLogin(string username, string password)
-        {
-            ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
-            User account = db.NguoiDung.FirstOrDefault(a => a.UserName == username && a.Password == password);
-            return (account != null);
-        }
         [HttpPost]
-        public ActionResult Login(string username,string password)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(Models.LoginViewModel model, string returnUrl)
         {
-            string error = null;
-            User user = db.NguoiDung.FirstOrDefault(m => m.Status == 1 && m.Roles == "admin" && (m.UserName == username || m.Email == username) && m.Password == password);
-            if (user == null) 
+            if (ModelState.IsValid)
             {
-                error = "Thông tin đăng nhập không chính xác";
+                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == model.UserName && a.Password == model.Password && a.RoleID == 1);
+                if (user != null)
+                {
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    Session["AdminID"] = user.AccountID.ToString();
+                    Session["UserNameAdmin"] = user.UserName.ToString();
+                    return RedirectToAction("Index", "Dashboard");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid username or password.");
+                }
             }
-            else
-            {
-                Session["UserAdmin"] = username;
-                ViewBag.UserName = password;
-                Session["User_ID"] = user.ID;
-               return RedirectToAction("Index", "Dashboard");
-            }
-            ViewBag.Error = error;
-            ViewBag.UserName= password;
-            return View();
+            return View(model);
         }
         public ActionResult Logout()
         {
-            Session["UserAdmin"] = "";
-            Session["User_ID"] = "";
+            FormsAuthentication.SignOut();
+            //Session.Clear();
+            //Session.Abandon();
             return Redirect("~/Admin/Login");
         }
     }

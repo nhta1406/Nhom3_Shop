@@ -1,69 +1,112 @@
 ﻿using ShopDungCuTheThao.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using System.Web.Configuration;
+using Fluent.Infrastructure.FluentModel;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Data.Entity;
+using System.Web.Security;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Policy;
-using System.Web.Helpers;
-using System.Data.Entity.Validation;
+using System.Linq;
 
 namespace ShopDungCuTheThao.Controllers
 {
     public class TaiKhoanController : Controller
     {
         protected ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
+        private readonly Microsoft.AspNet.Identity.UserManager<ApplicationUser> UserManager;
+        private readonly SignInManager<ApplicationUser> SignInManager;
+
+        public TaiKhoanController(Microsoft.AspNet.Identity.UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        {
+            UserManager = userManager;
+            SignInManager = signInManager;
+        }
+
+        public TaiKhoanController()
+            : this(new Microsoft.AspNet.Identity.UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
+        {
+        }
+
+        public TaiKhoanController(Microsoft.AspNet.Identity.UserManager<ApplicationUser> userManager)
+        {
+            UserManager = userManager;
+        }
+        [Route("tai-khoan-cua-toi.html", Name = "Dashboard")]
+        public ActionResult Dashboard()
+        {
+            return View();
+        }
+        [AllowAnonymous]
+        [Route("dang-nhap.html",Name ="DangNhap")]
         public ActionResult Login()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Login(string username, string password)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Login(Models.LoginViewModel model, string returnUrl)
         {
-            string error = null;
-            User user = db.NguoiDung.FirstOrDefault(m => m.Status == 1 && m.Roles == "user" && (m.UserName == username || m.Email == username) && m.Password == password);
-            if (user == null)
+            if (ModelState.IsValid)
             {
-                error = "Thông tin đăng nhập không chính xác";
+                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == model.UserName && a.Password == model.Password);
+                if (user != null && user.RoleID == 2)
+                {
+                    FormsAuthentication.SetAuthCookie(model.UserName, false);
+                    Session["UserID"] =user.AccountID.ToString();
+                    Session["UserName"] = user.UserName.ToString();
+                    return RedirectToAction("Dashboard", "TaiKhoan");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid username or password.");
+                }
             }
-            else
-            {
-                Session["UserCustomer"] = username;
-                return RedirectToAction("Index", "TrangChu");
-            }
-            ViewBag.Error = error;
-            return View();
+            return View(model);
         }
         public ActionResult Register()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult Register(User user)
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Register(Models.RegisterViewModel1 model)
         {
             if (ModelState.IsValid)
             {
-                user.CreateAt = DateTime.Now;
-                user.CreateBy = int.Parse(Session["UserCustomer"].ToString());
-                user.Roles = "user";
-                user.Status = 1;
-                db.NguoiDung.Add(user);
-                db.SaveChanges();
+                var role = await db.phanQuyen.FirstOrDefaultAsync(r => r.RoleID == 2);
+
+                if (role == null)
+                {
+                    role = new Models.Roles { RoleID = 2, RoleName = "RoleName" };
+                    db.phanQuyen.Add(role);
+                    await db.SaveChangesAsync();
+                }
+                var account = new Accounts
+                {
+                    UserName = model.UserName,
+                    Password = model.Password
+                };
+                db.taiKhoan.Add(account);
+                await db.SaveChangesAsync();
                 return RedirectToAction("Index", "TrangChu");
             }
-            return View();
-        }
-        public ActionResult Logout()
-        {
-            Session["UserCustomer"] = null;
-            Session.Clear();
-            return RedirectToAction("Index", "Home");
+
+            return View(model);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Logout()
+        {
+            //HttpContext.Session.Remove("AccountID");
+            FormsAuthentication.SignOut();
+            //Session.Remove("UserName");
+            Session["UserName"] = null;
+            Session["UserID"] = null;
+            return RedirectToAction("Index", "TrangChu");
+        }
     }
 }

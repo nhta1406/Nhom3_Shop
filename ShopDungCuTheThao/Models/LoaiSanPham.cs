@@ -11,7 +11,7 @@ namespace ShopDungCuTheThao.Models
     public class LoaiSanPham
     {
         [Key]
-        public int ID { get; set; }
+        public int CateID { get; set; }
         [Required]
         public string Name { get; set; }
         public int? ParentID { get; set; }

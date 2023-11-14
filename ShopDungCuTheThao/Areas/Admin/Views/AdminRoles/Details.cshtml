@@ -1,0 +1,37 @@
+﻿@model ShopDungCuTheThao.Models.Roles
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
+}
+@section Index {
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Roles</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.RoleName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RoleName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Decripstion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Decripstion)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.RoleID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    }

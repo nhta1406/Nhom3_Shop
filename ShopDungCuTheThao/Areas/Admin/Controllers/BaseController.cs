@@ -8,26 +8,25 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
     public class BaseController : Controller
     {
-        // GET: Admin/Base
-        public BaseController() 
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (System.Web.HttpContext.Current.Session["UserAdmin"].Equals(""))
+            if (HttpContext != null && (Session["AccountID"] == null || Session["AccountID"].ToString() == "0"))
             {
-                System.Web.HttpContext.Current.Response.Redirect("~/Admin/Login");
+                filterContext.Result = new RedirectResult("~/Admin/Login");
             }
+            base.OnActionExecuting(filterContext);
         }
-        protected override void OnActionExecuted(ActionExecutedContext filterContext)
-        {
-            if (Session["UserAdmin"] != null)
-            {
-                ViewBag.UserName = Session["UserAdmin"].ToString();
-            }
-            else
-            {
-                ViewBag.UserName = "";
-            }
-
-            base.OnActionExecuted(filterContext);
-        }
+        //protected override void OnActionExecuted(ActionExecutedContext filterContext)
+        //{
+        //    if (Session["AccountID"] != null)
+        //    {
+        //        ViewBag.UserName = Session["UserName"].ToString();
+        //    }
+        //    else
+        //    {
+        //        ViewBag.UserName = string.Empty;
+        //    }
+        //    base.OnActionExecuted(filterContext);
+        //}
     }
 }

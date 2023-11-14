@@ -54,112 +54,130 @@
         </div>
     </nav>
     <style>
-        li .nav-link{
-            color:white;
-            
-        }
         li .nav-link {
-          padding-left:75px;
+            color: white;
         }
+
+        li .nav-link {
+            padding-left: 75px;
+        }
+
         .avatar-container {
-            width: 100px; 
-            height: 100px; 
-            border-radius: 50%; 
-            overflow: hidden; 
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
         }
+
             .avatar-container img {
                 width: 100%;
                 height: 100%;
-                object-fit: cover; 
+                object-fit: cover;
             }
     </style>
     <div class="row" style="height: 100%;">
-        <div class="col-lg-2" style="background-color:darkslateblue">
-            <div id="layoutSidenav" class="mt-3">
-                <div id="layoutSidenav_nav">
-                    <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                        <ul class="nav flex-column flex-fill">
-                            <li class="nav-item d-flex justify-content-center align-items-center" style="height: 100px;">
-                                <div class="avatar-container">
-                                    <img src="~/Areas/Admin/Content/img/AVATAR.jpg" alt="Avatar">
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="padding-left:105px">@ViewBag.UserName</a>
-                                <a class="nav-link" href="#" style="padding-left:65px">Chào Mừng Bạn Trở Lại</a>
-                            </li>
-                            <br />
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#collapseSanPham" role="button" aria-expanded="false" aria-controls="collapseSanPham">Quản Lý Sản Phẩm</a>
-                                <div class="collapse" id="collapseSanPham" style="padding-left: 10px;">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="@Url.Action("Index","SanPham")">Danh Sách Sản Phẩm</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="@Url.Action("Create","SanPham")">Thêm Sản Phâm</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#collapseLoaiSanPham" role="button" aria-expanded="false" aria-controls="collapseLoaiSanPham" style="padding-top:30px">Quản Lý Loại Sản Phẩm</a>
-                                <div class="collapse" id="collapseLoaiSanPham" style="padding-left: 10px;">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="@Url.Action("Index","LoaiSanPham")">Danh Sách Loại Sản Phẩm</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="@Url.Action("Create","LoaiSanPham")">Thêm Loại Sản Phâm</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#collapseTaiKhoan" role="button" aria-expanded="false" aria-controls="collapseTaiKhoan" style="padding-top:30px">Quản Lý Tài Khoản</a>
-                                <div class="collapse" id="collapseTaiKhoan" style="padding-left: 10px;">
-                                    <ul class="nav flex-column">
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="@Url.Action("Index","Users")">Danh Sách Tài Khoản</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Phân quyền</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Đơn hàng</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Thống kê</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Bài Viết</a>
-                            </li>
-                        </ul>
-                    </nav>
+            <div class="col-lg-2" style="background-color:darkslateblue">
+                <div id="layoutSidenav" class="mt-3">
+                    <div id="layoutSidenav_nav">
+                        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                            <ul class="nav flex-column flex-fill">
+                                <li class="nav-item d-flex justify-content-center align-items-center" style="height: 100px;">
+                                    <div class="avatar-container">
+                                        <img src="~/Areas/Admin/Content/img/AVATAR.jpg" alt="Avatar">
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" style="padding-left:105px">@Session["UserNameAdmin"]</a>
+                                    <a class="nav-link" href="#" style="padding-left:65px">Chào Mừng Bạn Trở Lại</a>
+                                </li>
+                                <br />
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="collapse" href="#collapseSanPham" role="button" aria-expanded="false" aria-controls="collapseSanPham">Quản Lý Sản Phẩm</a>
+                                    <div class="collapse" id="collapseSanPham" style="padding-left: 10px;">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index","SanPham")">Danh Sách Sản Phẩm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Create","SanPham")">Thêm Sản Phâm</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="collapse" href="#collapseLoaiSanPham" role="button" aria-expanded="false" aria-controls="collapseLoaiSanPham" style="padding-top:30px">Quản Lý Loại Sản Phẩm</a>
+                                    <div class="collapse" id="collapseLoaiSanPham" style="padding-left: 10px;">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index","LoaiSanPham")">Danh Sách Loại Sản Phẩm</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Create","LoaiSanPham")">Thêm Loại Sản Phâm</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="collapse" href="#collapseTaiKhoan" role="button" aria-expanded="false" aria-controls="collapseTaiKhoan" style="padding-top:30px">Quản Lý Tài Khoản</a>
+                                    <div class="collapse" id="collapseTaiKhoan" style="padding-left: 10px;">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index","Accounts")">Danh Sách Tài Khoản</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Create","Accounts")">Thêm Tài Khoản</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-bs-toggle="collapse" href="#collapseAdminRoles" role="button" aria-expanded="false" aria-controls="collapseAdminRoles" style="padding-top:30px">Quản Lý Phân quyền</a>
+                                    <div class="collapse" id="collapseAdminRoles" style="padding-left: 10px;">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Index","AdminRoles")">Danh Sách Quyền</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="@Url.Action("Create","AdminRoles")">Thêm Quyền</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Đơn hàng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Thống kê</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" style="padding-top:30px">Quản Lý Bài Viết</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-10" style="background-color: lightgray;">
+                @RenderSection("Index", required: false)
+                @RenderSection("IndexSanPham", required: false)
+                @RenderSection("EditSanPham", required: false)
+                @RenderSection("DetailsSanPham", required: false)
+                @RenderSection("CreateSanPham", required: false)
+                @RenderSection("DeleteSanPham", required: false)
+                @RenderSection("IndexUser", required: false)
+                @RenderSection("EditUser", required: false)
+                @RenderSection("DetailsUser", required: false)
+                @RenderSection("DeleteUser", required: false)
+                @RenderSection("IndexLoaiSanPham", required: false)
+                @RenderSection("EditLoaiSanPham", required: false)
+                @RenderSection("DetailsLoaiSanPham", required: false)
+                @RenderSection("CreateLoaiSanPham", required: false)
+                @RenderSection("DeleteLoaiSanPham", required: false)
+                @RenderSection("CreateRoles", required: false)
+                @RenderSection("DetailsRoles", required: false)
+                @RenderSection("IndexRoles", required: false)
+            </div>
         </div>
-        <div class="col-lg-10" style="background-color: lightgray;">
-            @RenderSection("Index", required: false)
-            @RenderSection("IndexSanPham", required: false)
-            @RenderSection("EditSanPham", required: false)
-            @RenderSection("DetailsSanPham", required: false)
-            @RenderSection("CreateSanPham", required: false)
-            @RenderSection("DeleteSanPham", required: false)
-            @RenderSection("IndexUser", required: false)
-            @RenderSection("EditUser", required: false)
-            @RenderSection("DetailsUser", required: false)
-            @RenderSection("DeleteUser", required: false)
-            @RenderSection("IndexLoaiSanPham", required: false)
-            @RenderSection("EditLoaiSanPham", required: false)
-            @RenderSection("DetailsLoaiSanPham", required: false)
-            @RenderSection("CreateLoaiSanPham", required: false)
-            @RenderSection("DeleteLoaiSanPham", required: false)
-        </div>
-    </div>
     @RenderBody()
 </body>
 </html>

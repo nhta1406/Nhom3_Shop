@@ -1,0 +1,50 @@
+﻿@model IEnumerable<ShopDungCuTheThao.Models.Roles>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
+}
+@section Index {
+
+    <div class="card">
+        <div class="card-header">
+            <div class="text-center">
+                <strong class="text-uppercase text-danger text-center">DANH SÁCH Quyền</strong>
+            </div>
+            <div class="col-md-12 text-end">
+                <a href="@Url.Action("Create","LoaiSanPham")" class="btn btn-sm btn-success ">Thêm</a>
+                <a href="@Url.Action("Delete","LoaiSanPham")" class="btn btn-sm btn-danger">Xóa</a>
+            </div>
+        </div>
+        <div class="card-body p-3 bg-white">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RoleName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Decripstion)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.RoleName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Decripstion)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.RoleID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.RoleID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.RoleID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+            </div>
+}

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.SessionState;
 
 namespace ShopDungCuTheThao
 {
@@ -16,9 +17,7 @@ namespace ShopDungCuTheThao
         }
         protected void Session_Start()
         {
-            Session["UserAdmin"] = "1";
-            Session["User_ID"] = "";
-            Session["UserCustomer"] = "";
+            //Session["AccountID"] = "1";
         }
     }
 }

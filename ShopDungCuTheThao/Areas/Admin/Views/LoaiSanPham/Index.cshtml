@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutHomecshtml.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
 }
 @section IndexLoaiSanPham {
     <div class="card">
@@ -34,17 +34,17 @@
                             <td class="text-center">
                                 <input name="checkID" type="checkbox" />
                             </td>
-                            <td class="text-center">@item.ID</td>
+                            <td class="text-center">@item.CateID</td>
                             <td class="text-center">@item.Name</td>
                             <td class="text-center"><a href="~/san~pham/@item.Slug">@item.Slug</a></td>
                             <td class="text-center">
-                                <a href="@Url.Action("Edit", "LoaiSanPham", new {@id=item.ID})" class="btn btn-sm btn-success">
+                                <a href="@Url.Action("Edit", "LoaiSanPham", new {@id=item.CateID})" class="btn btn-sm btn-success">
                                     Edit
                                 </a>
-                                <a href="@Url.Action("Delete", "LoaiSanPham", new {@id=item.ID})" class="btn btn-sm btn-success">
+                                <a href="@Url.Action("Delete", "LoaiSanPham", new {@id=item.CateID})" class="btn btn-sm btn-success">
                                     Delete
                                 </a>
-                                <a href="@Url.Action("Details", "LoaiSanPham", new {@id=item.ID})" class="btn btn-sm btn-success">
+                                <a href="@Url.Action("Details", "LoaiSanPham", new {@id=item.CateID})" class="btn btn-sm btn-success">
                                     View
                                 </a>
                             </td>
@@ -128,9 +128,9 @@
                             @Html.DisplayFor(modelItem => item.Status)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CateID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.CateID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CateID })
                         </td>
                     </tr>
                 }

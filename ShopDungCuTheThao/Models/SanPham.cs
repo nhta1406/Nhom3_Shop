@@ -31,5 +31,7 @@ namespace ShopDungCuTheThao.Models
         public int? UpdateBy { get; set; }
         public DateTime? UpdateAt { get; set; }
         public int Status { get; set; }
+        [ForeignKey("CateID")]
+        public LoaiSanPham LoaiSanPham { get; set; }
     }
 }

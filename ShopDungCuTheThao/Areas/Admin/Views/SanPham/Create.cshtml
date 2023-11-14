@@ -1,14 +1,23 @@
 ﻿@model ShopDungCuTheThao.Models.SanPham
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Areas/Admin/Views/Shared/_LayoutHomecshtml.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
+    <style>
+        .white-text {
+            color: white;
+        }
+
+        .text-danger {
+            color: black;
+        }
+    </style>
 }
 @section CreateSanPham {
     @using (Html.BeginForm("Create", "SanPham", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         <br />
         <div class="card">
-            <div class="card-header">
+            <div class="card-header" style="background-color:white">
                 <div class="text-center">
                     <strong class="text-uppercase text-danger text-center">Thêm Sản Phẩm</strong>
                 </div>
@@ -21,21 +30,21 @@
                     <div class="form-group">
                         <label>Tên Sản Phẩm</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger white-text" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Mô Tả Chi Tiết</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
                         Từ Khóa
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaKey, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.MetaKey, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.MetaKey, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -43,27 +52,27 @@
                     <div class="form-group">
                         Mô Tả
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaDesc, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.MetaDesc, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.MetaDesc, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-10">
                             <label>Hình Ảnh</label>
-                            <input type="file" name="fileimg" class="form-control" />
+                            <input type="file" name="fileimg" class="form-control" style="background-color:white" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Số Lượng</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Giá</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -71,25 +80,25 @@
                     <div class="form-group">
                         <label>Giá Khuyến Mãi</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.PriceSale, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.PriceSale, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.PriceSale, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
                         <label>Trạng Thái</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="col-md-5">
                         <label>Loại Sản Phẩm</label>
-                        @Html.DropDownListFor(model => model.CateID, (SelectList)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control" })
+                        @Html.DropDownListFor(model => model.CateID, (SelectList)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control white-text", style = "color: black; background-color: white;" })
                         @Html.ValidationMessageFor(model => model.CateID, "", new { @class = "text-danger" })
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Create" class="btn btn-default" />
+                            <input type="submit" value="Create" class="btn btn-default" style="background-color:black"/>
                         </div>
                     </div>
                 </div>

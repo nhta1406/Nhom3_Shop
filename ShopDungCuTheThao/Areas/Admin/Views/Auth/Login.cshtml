@@ -10,8 +10,9 @@
 <body style="display:flex; align-items:center; justify-content:center;">
     <div class="login-page">
         <div class="form">
-            @using(Html.BeginForm())
-            { 
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
                 <h2>Login</h2>
                 <input type="text" placeholder="Username" name="username" />
                 <input type="password" placeholder="Password" name="password" />

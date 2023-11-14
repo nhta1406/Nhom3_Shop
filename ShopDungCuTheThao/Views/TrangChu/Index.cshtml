@@ -17,6 +17,7 @@
             }
     </style>
 }
+@ViewBag.test
 <body>
     <div class="container"style="padding-top:10px">
         <div class="row" style="width:1305px">
@@ -35,7 +36,7 @@
                 {
                     <div class="row" >
                         <div class="col-lg-12 bg-white">
-                            @Html.Action("ProductHome", "TrangChu", new { catid = pro.ID, namecat = pro.Name })
+                            @Html.Action("ProductHome", "TrangChu", new { catid = pro.CateID, namecat = pro.Name })
                         </div>
                     </div>
                     <br />

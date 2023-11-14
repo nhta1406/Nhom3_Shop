@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model ShopDungCuTheThao.Models.LoginViewModel
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,23 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập Shop</title>
     <link href="~/Public/css/StyleSheet1.css" rel="stylesheet" />
+    <style>
+        .error-message {
+            color: red;
+            /* Các thuộc tính CSS khác bạn muốn áp dụng */
+            list-style-type: none;
+        }
+    </style>
 </head>
 <body style="display:flex; align-items:center; justify-content:center;">
     <div class="login-page">
         <div class="form">
             @using (Html.BeginForm())
             {
+                @Html.AntiForgeryToken()
+
                 <h2>Login</h2>
-                <input type="text" placeholder="Username" name="username" />
-                <input type="password" placeholder="Password" name="password" />
-                <a class="btn">
+                <input type="text" placeholder="Username" name="UserName" />
+                <input type="password" placeholder="Password" name="Password" />
+                <button type="submit" class="btn">
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
-                    <input type="submit" value="Sign in" />
-                </a>
-                <p class="message">Not registered? <a href="@Url.Action("Register","TaiKhoan")">Create an account</a></p>
+                    Sign in
+                </button>
+                <div class="error-message">
+                    @Html.ValidationSummary(true, "", new { @class = "error-list" })
+                </div>
+                <p class="message">Not registered? <a href="@Url.Action("Register", "TaiKhoan")">Create an account</a></p>
             }
         </div>
     </div>

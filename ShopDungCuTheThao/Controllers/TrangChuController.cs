@@ -12,10 +12,24 @@ namespace ShopDungCuTheThao.Controllers
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
         public ActionResult Index()
         {
-            var listproduct = db.loaiSanPham.Where(m => m.Status == 1)
-                                         .OrderByDescending(m => m.CreateAt)
-                                         .ToList();
-            return View(listproduct);
+            if (User.Identity.IsAuthenticated)
+            {
+                var username = User.Identity.Name;
+                ViewBag.Username = username;
+                var listproduct = db.loaiSanPham.Where(m => m.Status == 1)
+                         .OrderByDescending(m => m.CreateAt)
+                         .ToList();
+                ViewBag.test = db.loaiSanPham.Count();
+                return View(listproduct);
+            }
+            else
+            {
+                var listproduct = db.loaiSanPham.Where(m => m.Status == 1)
+                         .OrderByDescending(m => m.CreateAt)
+                         .ToList();
+                ViewBag.test = db.loaiSanPham.Count();
+                return View(listproduct);
+            }
         }
         public ActionResult ProductHome(int catid,string namecat)
         {

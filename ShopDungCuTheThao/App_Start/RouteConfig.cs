@@ -15,12 +15,12 @@ namespace ShopDungCuTheThao
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                "User_Login",
-               "User/Login",
+               "TaiKhoan/Login",
                new { Controller = "TaiKhoan", action = "Login", id = UrlParameter.Optional }
            );
             routes.MapRoute(
                "User_Logout",
-               "User/Logout",
+               "TaiKhoan/Logout",
                new { Controller = "TaiKhoan", action = "Logout", id = UrlParameter.Optional }
             );
             routes.MapRoute(
