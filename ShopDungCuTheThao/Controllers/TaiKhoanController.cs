@@ -2,12 +2,10 @@
 using System.Web.Mvc;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Fluent.Infrastructure.FluentModel;
-using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Web.Security;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using Fluent.Infrastructure.FluentModel;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace ShopDungCuTheThao.Controllers
 {
