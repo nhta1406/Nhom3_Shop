@@ -6,10 +6,7 @@ using System.Data.Entity;
 using System.Web.Security;
 using Fluent.Infrastructure.FluentModel;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using System;
-
 namespace ShopDungCuTheThao.Controllers
 {
     public class TaiKhoanController : Controller
@@ -51,8 +48,8 @@ namespace ShopDungCuTheThao.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == model.UserName && a.Password == model.Password);
-                if (user != null && user.RoleID == 2)
+                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == model.UserName);
+                if (user != null && user.RoleID == 2 && BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     Session["UserID"] =user.AccountID.ToString();
@@ -78,9 +75,8 @@ namespace ShopDungCuTheThao.Controllers
             if (ModelState.IsValid)
             {
                 string password = model.Password;
-                string salt = Guid.NewGuid().ToString();
-                string saltedPassword = password + salt;
-                string hashedPassword = saltedPassword.ToMD5();
+                string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, salt);
                 var account = new Accounts
                 {
                         Name = model.FullName,

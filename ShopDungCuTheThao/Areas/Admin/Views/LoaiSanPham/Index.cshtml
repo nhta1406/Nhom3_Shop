@@ -56,7 +56,7 @@
             <table class="table">
                 <tr>
                     <th>
-                        Tên Loại Sản Phẩm
+                        Tên Loại 
                     </th>
                     <th>
                         ID
@@ -68,7 +68,7 @@
                         TỪ KHÓA
                     </th>
                     <th>
-                        Mô Tả Loại Sản Phẩm
+                        Mô Tả Loại
                     </th>
                     <th>
                         Tạo Bởi
@@ -95,6 +95,7 @@
                 {
                     <tr>
                         <td>
+
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
@@ -116,13 +117,37 @@
                             @Html.DisplayFor(modelItem => item.Slug)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CreateAt)
+                            @if (item.CreateAt != null)
+                            {
+                                var CreateAtAtString = item.CreateAt.ToString();
+                                if (CreateAtAtString.Length > 10)
+                                {
+                                    <span>@CreateAtAtString.Substring(0, 10)</span>
+                                }
+                                else
+                                {
+                                    @CreateAtAtString
+                                }
+                            }
+                            @*@Html.DisplayFor(modelItem => item.CreateAt)*@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.UpdateBy)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.UpdateAt)
+                            @if (item.UpdateAt != null)
+                            {
+                                var UpdateAtAtString = item.CreateAt.ToString();
+                                if (UpdateAtAtString.Length > 10)
+                                {
+                                    <span>@UpdateAtAtString.Substring(0, 10)</span>
+                                }
+                                else
+                                {
+                                    @UpdateAtAtString
+                                }
+                            }
+                            @*@Html.DisplayFor(modelItem => item.UpdateAt)*@
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Status)

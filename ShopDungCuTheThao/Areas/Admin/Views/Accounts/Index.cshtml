@@ -78,31 +78,103 @@
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Email)
+                                @if(item.Email.Length > 4)
+                                 {
+                                    <span>@item.Email.Substring(0, 4)...</span> 
+                                 }
+                                else 
+                                { 
+                                    @item.Email
+                                }
+                                @*@Html.DisplayFor(modelItem => item.Email)*@
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Phone)
+                                @if (item.Phone.Length > 5)
+                                {
+                                    <span>@item.Phone.Substring(0, 5)...</span>
+                                }
+                                else
+                                {
+                                    @item.Phone
+                                }
+                                @*@Html.DisplayFor(modelItem => item.Phone)*@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.UserName)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Password)
+                                @if (item.Password.Length > 3)
+                                {
+                                    <span>@item.Password.Substring(0, 3)...</span>
+                                }
+                                else
+                                {
+                                    @item.Password
+                                }
+                                @*@Html.DisplayFor(modelItem => item.Password)*@
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Birthday)
+                                @if (item.Birthday != null)
+                                {
+                                    var BirthdayAtString = item.CreateAt.ToString();
+                                    if (BirthdayAtString.Length > 10)
+                                    {
+                                        <span>@BirthdayAtString.Substring(0, 10)</span>
+                                    }
+                                    else
+                                    {
+                                        @BirthdayAtString
+                                    }
+                                }
+                                @*@Html.DisplayFor(modelItem => item.Birthday)*@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Avatar)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Address)
+                                @if (item.Address != null)
+                                {
+                                    var AddressAtString = item.CreateAt.ToString();
+                                    if (AddressAtString.Length > 5)
+                                    {
+                                        <span>@AddressAtString.Substring(0, 5)...</span>
+                                    }
+                                    else
+                                    {
+                                        @AddressAtString
+                                    }
+                                }
+                                @*@Html.DisplayFor(modelItem => item.Address)*@
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Salt)
+                                @if (item.Salt != null)
+                                {
+                                    var saltString = item.Salt.ToString();
+                                    if (saltString.Length > 3)
+                                    {
+                                        <span>@saltString.Substring(0, 3)...</span>
+                                    }
+                                    else
+                                    {
+                                        @saltString
+                                    }
+                                }
+                                @*@Html.DisplayFor(modelItem => item.Salt)*@
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.CreateAt)
+                                @if (item.CreateAt != null)
+                                {
+                                    var CreateAtString = item.CreateAt.ToString();
+                                    if (CreateAtString.Length > 10)
+                                    {
+                                        <span>@CreateAtString.Substring(0, 10)</span>
+                                    }
+                                    else
+                                    {
+                                        @CreateAtString
+                                    }
+                                }
+                                @*@Html.DisplayFor(modelItem => item.CreateAt)*@
                             </td>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Status)
