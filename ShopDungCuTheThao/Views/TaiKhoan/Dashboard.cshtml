@@ -92,8 +92,8 @@
                 display: flex;
                 border-radius: 7px;
                 height: 750px;
-                position:relative;
-                top:-30px;
+                position: relative;
+                top: -30px;
             }
 
             body .container .content-left {
@@ -105,16 +105,18 @@
 
             body .container .content-right {
                 flex: 80%;
-                height:700px;
+                height: 700px;
                 background-color: white;
                 text-align: center;
                 position: relative;
                 left: 20px;
             }
+
         hr {
-            background-color:black;
+            background-color: black;
             border-width: 5px;
         }
+
         .ct-r-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -122,45 +124,91 @@
 
         .ct-r-l {
             flex: 60%;
-            text-align:right;
+            text-align: right;
         }
+
         .z {
             position: relative;
             left: -120px;
             opacity: 0.5;
         }
-         .c {
-                opacity: 0.5;
-                padding-top:20px;
-            }
+
+        .c {
+            opacity: 0.5;
+            padding-top: 20px;
+        }
+
         .ct-r-r {
             flex: 30%;
         }
+
         #luu {
             background-color: tomato;
             width: 80px;
             height: 50px;
             border-radius: 5px;
-            position:relative; left:-320px;
+            position: relative;
+            left: -320px;
         }
-        #form
-        {
-            height:600px;
+
+        #form {
+            height: 600px;
         }
+
         #name {
             width: 400px;
             height: 35px;
             border-radius: 5px;
         }
+
         #dob-day, #dob-month, #dob-year {
             width: 100px;
             height: 35px;
             border-radius: 5px;
         }
-        #em{position:relative;left:-230px}
-        #sdt {position: relative;left: -365px}
-        #gt{position:relative;left:-320px}
-        strong{margin-left:-20px;}
+
+        #em {
+            position: relative;
+            left: -230px
+        }
+
+        #sdt {
+            position: relative;
+            left: -365px
+        }
+
+        #gt {
+            position: relative;
+            left: -320px
+        }
+
+        strong {
+            margin-left: -20px;
+        }
+    </style>
+    <style>
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-button {
+            width: 75px;
+            height: 35px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+            .custom-button:hover {
+                background-color: #0056b3;
+            }
+
+        #image-upload-input {
+            display: none;
+        }
     </style>
 </head>
 
@@ -206,7 +254,6 @@
                 <h3>Hồ Sơ Của Tôi</h3>
                 <h4>Quản Lý Thông Tin Hồ Sơ Để Bảo Mật Tài Khoản</h4>
                 <hr />
-
                 <div class="ct-r-wrapper">
                     <div class="ct-r-l">
                         <form action="/process-contact" method="POST" id="form">
@@ -229,7 +276,6 @@
                             
                             <label for="dob-day">Ngày Sinh</label><span style="margin-right: 20px;"></span>
                             <select id="dob-day" name="dob-day">
-                                
                                 <option value="1">Ngày 1</option>
                                 <option value="1">Ngày 2</option>
                                 <option value="1">Ngày 3</option>
@@ -320,13 +366,14 @@
                             </button>
                         </form>
                     </div>
-
                     <div class="ct-r-r">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-bounding-box" viewBox="0 0 16 16">
-                            <path d="M1.5 1a.5.5 0 0 0-.5.5v3a.5.5 0 0 1-1 0v-3A1.5 1.5 0 0 1 1.5 0h3a.5.5 0 0 1 0 1h-3zM11 .5a.5.5 0 0 1 .5-.5h3A1.5 1.5 0 0 1 16 1.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 1-.5-.5zM.5 11a.5.5 0 0 1 .5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 1 0 1h-3A1.5 1.5 0 0 1 0 14.5v-3a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v3a1.5 1.5 0 0 1-1.5 1.5h-3a.5.5 0 0 1 0-1h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 1 .5-.5z" />
-                            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        </svg> <br /><br />
-                        <button id="image-upload-button">Chọn ảnh</button>
+                        <img id="avatar-image" src="~/Public/avatar/@Session["AvatarKH"]" alt="Avatar" width="300" height="300">
+                        <br>
+                        <br>
+                        <div class="center">
+                            <label for="image-upload-input" class="custom-button" style="padding-top:7px">Upload</label>
+                            <input type="file" id="image-upload-input">
+                        </div>
                         <h5 class="c">Dung Lượng File Tối Đa 1 MB</h5>
                         <h5 class="c">Định Dạng .JPG, .PNG</h5>
                     </div>

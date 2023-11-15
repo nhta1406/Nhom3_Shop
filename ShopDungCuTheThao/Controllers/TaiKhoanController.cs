@@ -7,6 +7,8 @@ using System.Web.Security;
 using Fluent.Infrastructure.FluentModel;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using Microsoft.AspNetCore.Mvc.Filters;
+
 namespace ShopDungCuTheThao.Controllers
 {
     public class TaiKhoanController : Controller
@@ -33,6 +35,10 @@ namespace ShopDungCuTheThao.Controllers
         [Route("tai-khoan-cua-toi.html", Name = "Dashboard")]
         public ActionResult Dashboard()
         {
+            if (Session["UserID"] == null)
+            {
+                return RedirectToAction("Login", "TaiKhoan");
+            }
             return View();
         }
         [AllowAnonymous]
@@ -48,12 +54,13 @@ namespace ShopDungCuTheThao.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == model.UserName);
+                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == model.UserName && a.RoleID == 2);
                 if (user != null && user.RoleID == 2 && BCrypt.Net.BCrypt.Verify(model.Password, user.Password))
                 {
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
-                    Session["UserID"] =user.AccountID.ToString();
+                    Session["UserID"] = user.AccountID.ToString();
                     Session["UserName"] = user.UserName.ToString();
+                    Session["AvatarKH"] = user.Avatar.ToString();
                     return RedirectToAction("Dashboard", "TaiKhoan");
                 }
                 else

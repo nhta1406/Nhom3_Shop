@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
-    <style>
+    @*<style>
         .white-text {
             color: white;
         }
@@ -10,13 +10,13 @@
         .text-danger {
             color: black;
         }
-    </style>
+    </style>*@
 }
 @section CreateSanPham {
     @using (Html.BeginForm("Create", "SanPham", FormMethod.Post, new { @enctype = "multipart/form-data" }))
     {
         <br />
-        <div class="card">
+        <div class="card bg-white">
             <div class="card-header" style="background-color:white">
                 <div class="text-center">
                     <strong class="text-uppercase text-danger text-center">Thêm Sản Phẩm</strong>
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        Từ Khóa
+                        <label>Từ Khóa</label>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.MetaKey, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.MetaKey, "", new { @class = "text-danger" })
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="form-group">
-                        Mô Tả
+                        <label>Mô Tả</label>
                         <div class="col-md-10">
                             @Html.EditorFor(model => model.MetaDesc, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
                             @Html.ValidationMessageFor(model => model.MetaDesc, "", new { @class = "text-danger" })
@@ -93,9 +93,10 @@
                     </div>
                     <div class="col-md-5">
                         <label>Loại Sản Phẩm</label>
-                        @Html.DropDownListFor(model => model.CateID, (SelectList)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control white-text", style = "color: black; background-color: white;" })
+                        @Html.DropDownListFor(model => model.CateID, (SelectList)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control white-text", style = "color: black; background-color: white;border: 1px solid black;" })
                         @Html.ValidationMessageFor(model => model.CateID, "", new { @class = "text-danger" })
                     </div>
+                    <br />
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
                             <input type="submit" value="Create" class="btn btn-default" style="background-color:black"/>

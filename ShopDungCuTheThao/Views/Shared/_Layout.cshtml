@@ -125,7 +125,7 @@
                         <li><a href="@Url.Action("Register", "TaiKhoan")">Đăng Kí</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("Login", "TaiKhoan")"><i class="fa-solid fa-right-to-bracket"></i></a></li>
+                        <li><a href="@Url.Action("Login", "TaiKhoan")"><i class="fa-solid fa-user"></i></a></li>
                     </ul>
                 }
                 else
@@ -134,7 +134,7 @@
                         <li>
                             <div class="hover-container" style="padding-top: 15px; padding-left: 20px;">
                                 <a class="hover-container" href="@Url.Action("Dashboard", "TaiKhoan")" style=" text-decoration: none;">
-                                    <img src="path_to_avatar_image" class="avatar">
+                                    <img src="~/Public/avatar/@Session["AvatarKH"]" class="img-xs rounded-circle" style="width:40px;height:30px">
                                     <span class="hover-text">@Session["UserName"]</span>
                                 </a>
                                 @*<a class="hover-text" href="@Url.Action("Dashboard", "TaiKhoan")">@Session["UserName"]</a>*@

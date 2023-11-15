@@ -42,16 +42,23 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             ViewBag.RoleID = new SelectList(db.phanQuyen, "RoleID", "RoleName");
             return View();
         }
-
+        //[Bind(Include = "AccountID,Name,Email,Phone,UserName,Password,RoleID,Birthday,Avatar,Address,Salt,CreateAt,Status")]
         // POST: Admin/Accounts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AccountID,Name,Email,Phone,UserName,Password,RoleID,Birthday,Avatar,Address,Salt,CreateAt,Status")] Accounts accounts)
+        public ActionResult Create(Accounts accounts)
         {
             if (ModelState.IsValid)
             {
+                string password = accounts.Password;
+                string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, salt);
+                accounts.Password = hashedPassword;
+                accounts.Salt = salt;
+                accounts.CreateAt = DateTime.Now;
+                accounts.Status = 1;
                 db.taiKhoan.Add(accounts);
                 db.SaveChanges();
                 return RedirectToAction("Index");

@@ -1306,6 +1306,8 @@
     <Content Include="Areas\Admin\Content\partials\_footer.html" />
     <Content Include="Areas\Admin\Content\partials\_navbar.html" />
     <Content Include="Areas\Admin\Content\partials\_sidebar.html" />
+    <Content Include="Areas\Admin\Public\img\avtadmin.jpg" />
+    <Content Include="Areas\Admin\Public\img\mnhincaichoagi.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -1361,6 +1363,8 @@
     <Content Include="lib\font-awesome\sprites\brands.svg" />
     <Content Include="lib\font-awesome\sprites\regular.svg" />
     <Content Include="lib\font-awesome\sprites\solid.svg" />
+    <Content Include="Public\avatar\avtadmin.jpg" />
+    <Content Include="Public\avatar\khachhangvip.jpg" />
     <Content Include="Public\css\LayoutAdmin.css" />
     <Content Include="Public\css\StyleSheet1.css" />
     <Content Include="Public\ImageTinTuc\AnhDa1.jpg" />
@@ -1417,7 +1421,6 @@
     <Compile Include="Areas\Admin\Controllers\RedirectToLoginAttribute.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Context\DbContextLocal.cs" />
-    <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
@@ -1435,7 +1438,6 @@
     <Compile Include="Models\ChiTietDonHang.cs" />
     <Compile Include="Models\ChuDe.cs" />
     <Compile Include="Models\DonHang.cs" />
-    <Compile Include="Models\Forum.cs" />
     <Compile Include="Models\LienHe.cs" />
     <Compile Include="Models\LoaiSanPham.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
@@ -1672,7 +1674,6 @@
     <Content Include="Views\VanChuyen\Index.cshtml" />
     <Content Include="Views\TinTuc\Index.cshtml" />
     <Content Include="Views\TaiKhoan\Dashboard.cshtml" />
-    <Content Include="Views\Shared\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

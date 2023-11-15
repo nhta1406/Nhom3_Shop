@@ -9,7 +9,7 @@
 {
     @Html.AntiForgeryToken()
     @section EditLoaiSanPham {
-        <div class="card">
+        <div class="card bg-white">
             <div class="card-header">
                 <div class="text-center">
                     <strong class="text-uppercase text-danger text-center">Chỉnh Sửa Loại Sản Phẩm</strong>
@@ -17,55 +17,53 @@
             </div>
             <div class="card-body p-3 bg-white">
                 <div class="form-horizontal">
-                    <h4>Loại Sản Phẩm</h4>
-                    <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.ID)
+                    @Html.HiddenFor(model => model.CateID)
 
                     <div class="form-group">
-                        TÊN LOẠI SẢN PHẨM
+                        <label>TÊN LOẠI SẢN PHẨM</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" ,style="color:black;background-color:white"} })
                             @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        ID
+                        <label>ID</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.ParentID, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.ParentID, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        THỨ TỰ
+                        <label>THỨ TỰ</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Orders, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Orders, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.Orders, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        TỪ KHÓA
+                        <label>TỪ KHÓA</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaKey, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.MetaKey, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.MetaKey, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        MÔ TẢ LOẠI SẢN PHẨM
+                        <label>MÔ TẢ LOẠI SẢN PHẨM</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.MetaDesc, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.MetaDesc, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.MetaDesc, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        TẠO BỞI
+                        <label>TẠO BỞI</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.CreateBy, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.CreateBy, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.CreateBy, "", new { @class = "text-danger" })
                         </div>
                     </div>
@@ -73,45 +71,45 @@
                     <div class="form-group">
                         @Html.LabelFor(model => model.Slug, htmlAttributes: new { @class = "control-label col-md-2" })
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Slug, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.Slug, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        TẠO VÀO LÚC
+                        <label>TẠO VÀO LÚC</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.CreateAt, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.CreateAt, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.CreateAt, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        CẬP NHẬT BỞI
+                        <label>CẬP NHẬT BỞI</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.UpdateBy, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.UpdateBy, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.UpdateBy, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        CẬP NHẬT LÚC
+                        <label>CẬP NHẬT LÚC</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.UpdateAt, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.UpdateAt, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.UpdateAt, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
                     <div class="form-group">
-                        TÌNH TRẠNG
+                        <label>TÌNH TRẠNG</label>
                         <div class="col-md-10">
-                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white" } })
                             @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <input type="submit" value="Save" class="btn btn-default" />
+                            <input type="submit" value="Save" class="btn btn-default"style="background-color:black" />
                         </div>
                     </div>
                 </div>

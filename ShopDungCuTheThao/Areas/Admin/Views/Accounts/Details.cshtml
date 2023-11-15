@@ -2,6 +2,11 @@
 
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
+    <style>
+        th,td{
+            background-color:white
+        }
+    </style>
 }
 
 <!DOCTYPE html>
@@ -12,10 +17,10 @@
     <title>Details</title>
 </head>
 @section DetailsAdminRoles {
-    <div class="card">
+    <div class="card bg-white">
         <div class="card-header">
             <div class="text-center">
-                <strong class="text-uppercase text-danger text-center">DANH SÁCH LOẠI SẢN PHẨM</strong>
+                <strong class="text-uppercase text-danger text-center">Chi tiết tài khoản</strong>
             </div>
             <div class="col-md-12 text-end">
                 <a href="@Url.Action("Create","LoaiSanPham")" class="btn btn-sm btn-success ">Thêm</a>
@@ -25,112 +30,74 @@
         <div class="card-body p-3 bg-white">
             <tbody>
                 <div>
-                    <h4>Accounts</h4>
-                    <hr />
-                    <dl class="dl-horizontal">
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Role.RoleName)
-                        </dt>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Role.RoleName)</th>
+                            <td>@Html.DisplayFor(model => model.Role.RoleName)</td>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Role.RoleName)
-                        </dd>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Name)</th>
+                            <td>@Html.DisplayFor(model => model.Name)</td>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </dt>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Email)</th>
+                            <td>@Html.DisplayFor(model => model.Email)</td>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Name)
-                        </dd>
+                        </tr>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Email)
-                        </dt>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                            <td>@Html.DisplayFor(model => model.Phone)</td>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Email)
-                        </dd>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                            <td>@Html.DisplayFor(model => model.UserName)</td>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Phone)
-                        </dt>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Password)</th>
+                            <td>@Html.DisplayFor(model => model.Password)</td>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Phone)
-                        </dd>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Birthday)</th>
+                            <td>@Html.DisplayFor(model => model.Birthday)</td>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.UserName)
-                        </dt>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Avatar)</th>
+                            <td>@Html.DisplayFor(model => model.Avatar)</td>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.UserName)
-                        </dd>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Address)</th>
+                            <td>@Html.DisplayFor(model => model.Address)</td>
 
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Password)
-                        </dt>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Salt)</th>
+                            <td>@Html.DisplayFor(model => model.Salt)</td>
 
-                        <dd>
-                            @Html.DisplayFor(model => model.Password)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Birthday)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Birthday)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Avatar)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Avatar)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Address)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Address)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Salt)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Salt)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.CreateAt)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.CreateAt)
-                        </dd>
-
-                        <dt>
-                            @Html.DisplayNameFor(model => model.Status)
-                        </dt>
-
-                        <dd>
-                            @Html.DisplayFor(model => model.Status)
-                        </dd>
-
-                    </dl>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.CreateAt)</th>
+                            <td>@Html.DisplayFor(model => model.CreateAt)</td>
+                        </tr>
+                        <tr>
+                            <th>@Html.DisplayNameFor(model => model.Status)</th>
+                            <td>@Html.DisplayFor(model => model.Status)</td>
+                        </tr>
+                    </table>
                 </div>
                 <p>
                     @Html.ActionLink("Edit", "Edit", new { id = Model.AccountID }) |
                     @Html.ActionLink("Back to List", "Index")
                 </p>
             </tbody>
+        </div>
         </div>
 }
 </html>

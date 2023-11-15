@@ -3,35 +3,38 @@
 @{
     ViewBag.Title = "Details";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
+    <style>
+        th, td {
+            background-color:white
+        }
+    </style>
 }
 @section Index {
 
-    <h2>Details</h2>
+    <div class="card bg-white">
+        <div class="card-header">
+            <div class="text-center">
+                <strong class="text-uppercase text-danger text-center">Chi Tiết Quyền</strong>
+            </div>
+        </div>
+        <div class="card-body p-3 bg-white">
+            <div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.RoleName)</th>
+                        <td>@Html.DisplayFor(model => model.RoleName)</td>
+                    </tr>
 
-    <div>
-        <h4>Roles</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.RoleName)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.RoleName)
-            </dd>
-
-            <dt>
-                @Html.DisplayNameFor(model => model.Decripstion)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.Decripstion)
-            </dd>
-
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.RoleID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
-    }
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Decripstion)</th>
+                        <td>@Html.DisplayFor(model => model.Decripstion)</td>
+                    </tr>
+                </table>
+            </div>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.RoleID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+            </div>
+        </div>
+}

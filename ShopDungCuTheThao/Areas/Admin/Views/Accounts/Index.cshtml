@@ -10,18 +10,15 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
-    <style>
-        #c{width:}
-    </style>
 </head>
 @section IndexAdminRoles {
-    <div class="card">
+    <div class="card bg-white">
         <div class="card-header">
             <div class="text-center">
                 <strong class="text-uppercase text-danger text-center">DANH SÁCH TÀI KHOẢN</strong>
             </div>
             <div class="col-md-12 text-end">
-                <a href="@Url.Action("Create","LoaiSanPham")" class="btn btn-sm btn-success ">Thêm</a>
+                <a href="@Url.Action("Create","Accounts")" class="btn btn-sm btn-success ">Thêm</a>
                 <a href="@Url.Action("Delete","LoaiSanPham")" class="btn btn-sm btn-danger">Xóa</a>
             </div>
         </div>
@@ -29,25 +26,25 @@
             <tbody>
                 <table class="table">
                     <tr>
-                        <th>
+                        <th width="3%">
                             @Html.DisplayNameFor(model => model.Role.RoleName)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Name)
                         </th>
-                        <th>
+                        <th width="5%">
                             @Html.DisplayNameFor(model => model.Email)
                         </th>
-                        <th>
+                        <th width="8%">
                             @Html.DisplayNameFor(model => model.Phone)
                         </th>
-                        <th>
+                        <th width="10%">
                             @Html.DisplayNameFor(model => model.UserName)
                         </th>
-                        <th>
+                        <th width="15%">
                             @Html.DisplayNameFor(model => model.Password)
                         </th>
-                        <th>
+                        <th width="8%">
                             @Html.DisplayNameFor(model => model.Birthday)
                         </th>
                         <th>
@@ -78,25 +75,18 @@
                                 @Html.DisplayFor(modelItem => item.Name)
                             </td>
                             <td>
-                                @if(item.Email.Length > 4)
-                                 {
-                                    <span>@item.Email.Substring(0, 4)...</span> 
-                                 }
-                                else 
-                                { 
+                                @if (item.Email.Length > 4 && item.Email.Length == 0)
+                                {
+                                    <span>@item.Email.Substring(0, 4)...</span>
+                                }
+                                else
+                                {
                                     @item.Email
                                 }
                                 @*@Html.DisplayFor(modelItem => item.Email)*@
                             </td>
                             <td>
-                                @if (item.Phone.Length > 5)
-                                {
-                                    <span>@item.Phone.Substring(0, 5)...</span>
-                                }
-                                else
-                                {
-                                    @item.Phone
-                                }
+                                @item.Phone
                                 @*@Html.DisplayFor(modelItem => item.Phone)*@
                             </td>
                             <td>
@@ -186,9 +176,11 @@
                             </td>
                         </tr>
                     }
-                    
+
                 </table>
             </tbody>
-            </div>
-            }
+        </div>
+    </div>
+ }
+
 </html>

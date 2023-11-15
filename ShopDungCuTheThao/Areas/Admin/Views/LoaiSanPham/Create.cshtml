@@ -5,12 +5,11 @@
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
 }
 @section CreateLoaiSanPham
-        {
+{
     @using (Html.BeginForm(Html.BeginForm("Create", "LoaiSanPham", FormMethod.Post, new { @enctype = "multipart/form-data" })))
     {
-
         @Html.AntiForgeryToken()
-        <div class="card">
+        <div class="card bg-white">
             <div class="card-header">
                 <div class="text-center">
                     <strong class="text-uppercase text-danger text-center">Thêm Loại Sản Phẩm</strong>
@@ -34,7 +33,7 @@
                                 <div class="form-group">
                                     <label>Chủ Đề Cha</label>
                                     <div class="col-md-5">
-                                        @Html.DropDownListFor(model => model.ParentID, (SelectList)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control white-text", style = "color: black; background-color: white;" })
+                                        @Html.DropDownListFor(model => model.ParentID, (SelectList)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control white-text", style = "color: black; background-color: white;border: 1px solid black;" })
                                         @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger" })
                                     </div>
                                 </div>
