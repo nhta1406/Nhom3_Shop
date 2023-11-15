@@ -87,8 +87,6 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug = XString.Str_Slug(model.Name);
                 model.Slug = slug;
                 model.CreateAt = DateTime.Now;
-                //model.CreateBy = int.Parse(Session["UserNameAdmin"].ToString());
-                //int userId;
                 if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out int userId))
                 {
                     model.CreateBy = userId;

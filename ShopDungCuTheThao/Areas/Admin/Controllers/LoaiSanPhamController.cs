@@ -56,8 +56,6 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug=XString.Str_Slug(loaiSanPham.Name);
                 loaiSanPham.Slug= slug;
                 loaiSanPham.CreateAt = DateTime.Now;
-                //loaiSanPham.CreateBy = int.Parse(Session["UserNameAdmin"].ToString());
-                //int userId;
                 if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out int userId))
                 {
                     loaiSanPham.CreateBy = userId;
