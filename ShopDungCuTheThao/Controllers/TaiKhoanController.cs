@@ -6,6 +6,9 @@ using System.Data.Entity;
 using System.Web.Security;
 using Fluent.Infrastructure.FluentModel;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System;
 
 namespace ShopDungCuTheThao.Controllers
 {
@@ -74,27 +77,28 @@ namespace ShopDungCuTheThao.Controllers
         {
             if (ModelState.IsValid)
             {
-                var role = await db.phanQuyen.FirstOrDefaultAsync(r => r.RoleID == 2);
-
-                if (role == null)
-                {
-                    role = new Models.Roles { RoleID = 2, RoleName = "RoleName" };
-                    db.phanQuyen.Add(role);
-                    await db.SaveChangesAsync();
-                }
+                string password = model.Password;
+                string salt = Guid.NewGuid().ToString();
+                string saltedPassword = password + salt;
+                string hashedPassword = saltedPassword.ToMD5();
                 var account = new Accounts
                 {
-                    UserName = model.UserName,
-                    Password = model.Password
+                        Name = model.FullName,
+                        UserName = model.UserName,
+                        Email = model.Email,
+                        Password = hashedPassword,
+                        RoleID = 2,
+                        Salt = salt,
+                        Phone = "",
+                        CreateAt = DateTime.Now,
+                        Status = 1,
                 };
                 db.taiKhoan.Add(account);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", "TrangChu");
             }
-
             return View(model);
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
