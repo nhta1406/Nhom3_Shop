@@ -1418,6 +1418,7 @@
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLBaiVietController.cs" />
     <Compile Include="Areas\Admin\Controllers\RedirectToLoginAttribute.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Context\DbContextLocal.cs" />
@@ -1685,6 +1686,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\QLBaiViet\" />
     <Folder Include="Public\fontawesome\" />
     <Folder Include="Public\js\" />
   </ItemGroup>
