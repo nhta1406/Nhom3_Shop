@@ -293,13 +293,13 @@
                                     }
                                     @if (@Session["Phone"] == null)
                                     {
-                                        
-                                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white;height:30px" } })<br />
-                                        
+
+                                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white;height:30px" } })<br />
+
                                     }
                                     else
                                     {
-                                        <div id="sdt"><label style="float:left;padding-top:12px">@Session["Phone"]</label></div>      
+                                        <div id="sdt"><label style="float:left;padding-top:12px">@Session["Phone"]</label></div>
                                     }
                                     <br /><br /><br /><br />
                                     <div style="display:flex">
@@ -320,12 +320,12 @@
                                 </button>
 
                             }
-                        <div id="lh"><h5>Mọi Thắc Mắc Xin Vui Lòng Liên Hệ Với Chung Tôi <a href="#">Tại Đây </a>!</h5></div>
+                            <div id="lh"><h5>Mọi Thắc Mắc Xin Vui Lòng Liên Hệ Với Chung Tôi <a href="#">Tại Đây </a>!</h5></div>
                         </div>
-                        
                     </div>
+                    <div style="border-right: 1px solid #ccc; height: 300px; padding-right: 25px"></div>
                     <div class="ct-r-r">
-                        <img id="avatar-image" src="~/Public/avatar/@Session["AvatarKH"]" alt="Avatar" width="300" height="300">
+                        <img class="img-xs rounded-circle " id="avatar-image" src="~/Public/avatar/@Session["AvatarKH"]" alt="Avatar" width="300" height="300">
                         <br>
                         <br>
                         <div class="center">
