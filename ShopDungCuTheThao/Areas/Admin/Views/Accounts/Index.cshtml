@@ -93,9 +93,9 @@
                                 @Html.DisplayFor(modelItem => item.UserName)
                             </td>
                             <td>
-                                @if (item.Password.Length > 3)
+                                @if (item.Password.Length > 8)
                                 {
-                                    <span>@item.Password.Substring(0, 3)...</span>
+                                    <span>@item.Password.Substring(0, 15)...</span>
                                 }
                                 else
                                 {

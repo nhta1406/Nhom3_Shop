@@ -1441,6 +1441,7 @@
     <Compile Include="Models\LienHe.cs" />
     <Compile Include="Models\LoaiSanPham.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\ManageUserViewModel.cs" />
     <Compile Include="Models\ProductCatogory.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\Roles.cs" />
@@ -1674,6 +1675,8 @@
     <Content Include="Views\VanChuyen\Index.cshtml" />
     <Content Include="Views\TinTuc\Index.cshtml" />
     <Content Include="Views\TaiKhoan\Dashboard.cshtml" />
+    <Content Include="Views\TaiKhoan\UpdatePassword.cshtml" />
+    <Content Include="Views\TaiKhoan\UpdateInfo.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

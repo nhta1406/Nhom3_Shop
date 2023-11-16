@@ -8,6 +8,7 @@ using Fluent.Infrastructure.FluentModel;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using Microsoft.AspNetCore.Mvc.Filters;
+using System.Linq;
 
 namespace ShopDungCuTheThao.Controllers
 {
@@ -60,6 +61,11 @@ namespace ShopDungCuTheThao.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     Session["UserID"] = user.AccountID.ToString();
                     Session["UserName"] = user.UserName.ToString();
+                    if(user.Phone!= null && user.Email!=null)
+                    {
+                        Session["Phone"] = user.Phone.ToString();
+                        Session["Email"] = user.Email.ToString();
+                    }
                     Session["AvatarKH"] = user.Avatar.ToString();
                     return RedirectToAction("Dashboard", "TaiKhoan");
                 }
@@ -106,12 +112,66 @@ namespace ShopDungCuTheThao.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Logout()
         {
-            //HttpContext.Session.Remove("AccountID");
             FormsAuthentication.SignOut();
-            //Session.Remove("UserName");
             Session["UserName"] = null;
             Session["UserID"] = null;
             return RedirectToAction("Index", "TrangChu");
+        }
+        public ActionResult UpdatePassword()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdatePassword(Models.ChangePassword model)
+       {
+                string userId = (string)Session["UserName"];
+                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == userId && a.RoleID == 2);
+                if (user != null && BCrypt.Net.BCrypt.Verify(model.OldPassword, user.Password))
+                {
+                    if (model.NewPassword == model.ConfirmPassword)
+                    {
+                        user.Password = BCrypt.Net.BCrypt.HashPassword(model.NewPassword);
+                        await db.SaveChangesAsync();
+                        return RedirectToAction("Login", "TaiKhoan");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("ConfirmPassword", "New password and confirm password do not match.");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("CurrentPassword", "Invalid current password.");
+                }
+            return RedirectToAction("Login", "TaiKhoan");
+        }
+        public ActionResult UpdateInfo()
+        {
+            return View();
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> UpdateInfo(Models.ChangeInfo model)
+        {
+            if (ModelState.IsValid)
+            {
+                string userId = (string)Session["UserName"];
+                var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == userId && a.RoleID == 2);
+                if (user != null)
+                {
+                    user.UserName = model.UserName;
+                    user.Name = model.FullName;
+                    user.Email = model.Email;
+                    user.Phone = model.Phone;
+                    user.Birthday= model.Birthday;
+                    await db.SaveChangesAsync();
+                }
+                return RedirectToAction("Dashboard", "TaiKhoan");
+            }
+            return View();
         }
     }
 }
