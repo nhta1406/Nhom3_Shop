@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ShopDungCuTheThao.Controllers
 {
@@ -36,7 +37,7 @@ namespace ShopDungCuTheThao.Controllers
         [Route("tai-khoan-cua-toi.html", Name = "Dashboard")]
         public ActionResult Dashboard()
         {
-            if (Session["UserID"] == null)
+            if (Session["UserID"] == null && Session["Cart"] == null) 
             {
                 return RedirectToAction("Login", "TaiKhoan");
             }
@@ -61,6 +62,7 @@ namespace ShopDungCuTheThao.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     Session["UserID"] = user.AccountID.ToString();
                     Session["UserName"] = user.UserName.ToString();
+                    Session["FullName"] = user.Name.ToString();
                     if(user.Phone!= null && user.Email!=null)
                     {
                         Session["Phone"] = user.Phone.ToString();
@@ -164,8 +166,23 @@ namespace ShopDungCuTheThao.Controllers
                 {
                     user.UserName = model.UserName;
                     user.Name = model.FullName;
-                    user.Email = model.Email;
-                    user.Phone = model.Phone;
+                    if (user.Email == null) 
+                    {
+                        user.Email = model.Email;
+                    }
+                    else
+                    {
+                        user.Email = Session["Email"].ToString();
+                    }
+                    var checkPhone = await db.taiKhoan.FirstOrDefaultAsync(a => a.Phone == null && a.RoleID == 2);
+                    if (user.Phone == null)
+                    {
+                        user.Phone = model.Phone;
+                    }
+                    else
+                    {
+                        user.Phone = Session["Phone"].ToString();
+                    }
                     user.Birthday= model.Birthday;
                     await db.SaveChangesAsync();
                 }

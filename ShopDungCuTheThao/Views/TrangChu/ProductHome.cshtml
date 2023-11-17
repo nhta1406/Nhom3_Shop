@@ -46,11 +46,22 @@
                         originalPriceElement.textContent = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(originalPriceValue);
                         salePriceElement.textContent = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(salePriceValue);
                 </script>
-                <p class="text-center">
-                    <a href="#" class="btn btn-primary" role="button">
-                        <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart
-                    </a>
-                </p>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <p class="text-center">
+                        <a href="@Url.Action("ThemGioHang","GioHang", new {@ID=pro.ID,@strURL=Request.Url.ToString()})" class="btn btn-primary" role="button">
+                            <input type="submit" value"Add To Cart" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </a>
+                    </p>
+                }
+                else
+                {
+                    <p class="text-center">
+                        <a href="@Url.Action("Login","TaiKhoan", new {@ID=pro.ID,@strURL=Request.Url.ToString()})" class="btn btn-primary" role="button">
+                            <input type="submit" value"Add To Cart" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </a>
+                    </p>
+                }
             </div>
         </div>
     </div>
