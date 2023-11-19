@@ -142,7 +142,10 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug = XString.Str_Slug(model.Name);
                 model.Slug = slug;
                 model.UpdateAt = DateTime.Now;
-                model.UpdateBy = int.Parse(Session["UserAdmin"].ToString());
+                if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out int userId))
+                {
+                    model.UpdateBy = userId;
+                }
                 if (fileimg != null && fileimg.ContentLength > 0)
                 {
                     string[] FileExtension = { ".jpg", ".png", ".gif" };

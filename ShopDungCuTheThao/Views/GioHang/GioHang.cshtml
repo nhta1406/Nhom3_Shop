@@ -1,11 +1,10 @@
-﻿@*@model IEnumerable<ShopDungCuTheThao.Models.Accounts>*@
+﻿@using ShopDungCuTheThao.Models;
+@model List<GioHang>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "GioHang";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
-@model ShopDungCuTheThao.Models.ChangeInfo
-
 <html>
 <head>
     <title>@Page.Title</title>
@@ -20,6 +19,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <style>
+        .table > tbody > tr > td {
+            border-top: none;
+            border-bottom: none;
+        }
 
         .top-navbar {
             background-color: #e52222;
@@ -129,7 +132,6 @@
         .ct-r-l {
             flex: 60%;
             text-align: right;
-            height:500px;
         }
 
         .z {
@@ -154,9 +156,8 @@
             border-radius: 5px;
             position: relative;
             left: -320px;
-            top:45px
         }
-        #lh{position:relative;top:130px;left:40px}
+
         #form {
             height: 600px;
         }
@@ -175,22 +176,22 @@
 
         #em {
             position: relative;
-            left: 0px;
-            top:12px
+            left: -230px
         }
-        .table > tbody > tr > td {
-            border-top: none;
-            border-bottom: none;
-        }
+
         #sdt {
             position: relative;
-            top:8px;
+            left: -365px
+        }
+
+        #gt {
+            position: relative;
+            left: -320px
         }
 
         strong {
             margin-left: -20px;
         }
-        #lh{position:relative;top:50px;left:-150px;}
     </style>
     <style>
         .center {
@@ -215,17 +216,9 @@
         #image-upload-input {
             display: none;
         }
-        #b{position:relative;right:100px;}
-        #t {position: relative; right: 70px; }
-        label
-        {
-            font-weight:200;
-        }
-        
     </style>
 </head>
-
-<body>
+<body style="background-color:gainsboro">
 
     <div style="clear: both;"></div>
     <br />
@@ -233,7 +226,6 @@
     @{
         var userName = User.Identity.Name;
     }
-
     <div class="container">
         <content>
             <style>
@@ -242,6 +234,7 @@
                     padding: 15px 0;
                     border-bottom: 1px solid #efefef;
                 }
+
                 .miwGmI {
                     flex: 1;
                     display: flex;
@@ -250,17 +243,20 @@
                     padding-left: 15px;
                     overflow: hidden;
                 }
+
                 ._78QHr1 {
                     color: #888;
                     text-transform: capitalize;
                 }
+
                 .\+1U02e {
                     color: rgba(0,0,0,.87);
                     display: flex;
                     align-items: center;
                     margin-bottom: 0.9375rem;
-                    text-decoration:none;
+                    text-decoration: none;
                 }
+
                 .bfikuD {
                     display: flex;
                     align-items: center;
@@ -274,24 +270,28 @@
                     flex-shrink: 0;
                     margin-right: 0.625rem;
                 }
+
                     .bfikuD > img {
                         width: 100%;
                         height: 100%;
                     }
+
                 .adF7Xs {
                     font-weight: 100;
                     margin-right: 0.3125rem;
-                    font-size:20px;
-                    cursor:default;
+                    font-size: 20px;
+                    cursor: default;
                 }
-                .FEE-3D
-                {
-                    font-size:15px
+
+                .FEE-3D {
+                    font-size: 15px
                 }
+
                 .stardust-dropdown__item-body--open {
                     height: auto;
                     opacity: 1;
                 }
+
                 .Yu7gVR {
                     display: block;
                     cursor: default;
@@ -321,42 +321,39 @@
                                 <img src="https://down-vn.img.susercontent.com/file/ba61750a46794d8847c3f463c5e71cc4" />
                             </div>
                             <div class="DlL0zX">
-                                <span class="adF7Xs"style="text-decoration: none;">Tài khoản của tôi</span>
+                                <span class="adF7Xs" style="text-decoration: none;">Tài khoản của tôi</span>
                             </div>
                         </a>
                     </div>
                     <div class="stardust-dropdown">
                         <div class="stardust-dropdown__item-body">
                             <div class="Yu7gVR">
-                                <a class="FEE-3D"style="text-decoration: none;">
+                                <a class="FEE-3D" style="text-decoration: none;">
                                     Hồ Sơ
                                 </a>
                             </div>
                             <div class="Yu7gVR">
-                                <a class="FEE-3D"style="text-decoration: none;">
+                                <a class="FEE-3D" style="text-decoration: none;">
                                     Ngân Hàng
                                 </a>
                             </div>
                             <div class="Yu7gVR">
-                                <a class="FEE-3D"style="text-decoration: none;">
+                                <a class="FEE-3D" style="text-decoration: none;">
                                     Địa Chỉ
                                 </a>
                             </div>
                             <div class="Yu7gVR">
-                                <a class="FEE-3D"style="text-decoration: none;" href="@Url.Action("UpdatePassword","TaiKhoan")">
+                                <a class="FEE-3D" style="text-decoration: none;" href="@Url.Action("UpdatePassword","TaiKhoan")">
                                     Đổi Mật Khẩu
                                 </a>
                             </div>
                             <div class="Yu7gVR">
-                                <a class="FEE-3D"style="text-decoration: none;">
+                                <a class="FEE-3D" style="text-decoration: none;">
                                     Cài Đặt Thông Báo
                                 </a>
                             </div>
                         </div>
                     </div>
-                
-                    <hr />
-                
                     <div class="stardust-dropdown__item-header">
                         <a class="+1U02e">
                             <div class="bfikuD">
@@ -400,93 +397,137 @@
                 </div>
             </div>
             <div class="content-right" style="height:550px">
-                <h3>Hồ Sơ Của Tôi</h3>
-                <h4>Quản Lý Thông Tin Hồ Sơ Để Bảo Mật Tài Khoản</h4>
-                <br />
                 <div class="ct-r-wrapper" style="height:300px">
                     <div class="ct-r-l" style="height:300px;">
-                        @using (Html.BeginForm("UpdateInfo", "TaiKhoan", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <div class="table-responsive" style="width:500px;padding-left:150px">
-                                <table class="table">
-                                    <tbody>
-                                        <tr>
-                                            <td><strong>Tên Đăng Nhập:</strong></td>
-                                            <td>
-                                                @*<input value="@Session["UserName"]" />*@
-                                                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white;height:30px" } })
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Tên:</strong></td>
-                                            <td>@Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white;height:30px" } })</td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Email:</strong></td>
-                                            <td>
-                                                @if (@Session["Email"] == null)
-                                                {
-                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white;height:30px" } })
-                                                }
-                                                else
-                                                {
-                                                    <label style="float:left">@Session["Email"]</label>
-                                                }
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Phone:</strong></td>
-                                            <td>
-                                                @if (@Session["Phone"] == null)
-                                                {
-                                                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", style = "color:black;background-color:white;height:30px" } })
-                                                }
-                                                else
-                                                {
-                                                    <label style="float:left;">@Session["Phone"]</label>
-                                                }
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><strong>Ngày Sinh:</strong></td>
-                                            <td>@Html.EditorFor(m => m.Birthday, new { htmlAttributes = new { @class = "datepicker", style = "float:left" } })</td>
-                                        </tr>
-                                        <tr>
-                                            <td></td>
-                                            <td>
-                                                <input type="submit" value="Lưu" class="btn btn-default" style="background-color:orange;float:left" />
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="row">
+                                <div class="col-md-8 cart">
+                                    <div class="title">
+                                        <div class="row">
+                                            <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                                            <div class="col align-self-center text-right text-muted">3 items</div>
+                                        </div>
+                                    </div>
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="row border-top border-bottom">
+                                            <div class="row main align-items-center">
+                                                <div class="col-2"><img class="img-fluid" src="~/Public/img/@item.iIMG"></div>
+                                                <div class="col">
+                                                    <div class="row text-muted">@item.iName</div>
+                                                </div>
+                                                <div class="col">
+                                                    <input type="number" id="txtSoLuong" name="txtSoLuong" value="@item.iQuantity" style="width:30px;" />
+                                                </div>
+                                                <div class="col">@String.Format("{0:0,0}", item.iPrice) <span class="close">&#10005;</span></div>
+                                            </div>
+                                        </div>
+                                    }
+                                        <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+                                    </div>
+                                <div class="col-md-4 summary">
+                                    <div><h5><b>Summary</b></h5></div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col" style="padding-left:0;">ITEMS 3</div>
+                                        <div class="col text-right">@String.Format("{0:0,0}", ViewBag.TongThanhTien)</div>
+                                    </div>
+                                    <form>
+                                        <p>SHIPPING</p>
+                                        <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>
+                                    </form>
+                                    <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                                        <div class="col">@String.Format("{0:0,0}", ViewBag.TongThanhTien)</div>
+                                        <div class="col text-right">@String.Format("{0:0,0}", ViewBag.TongThanhTien)</div>
+                                    </div>
+                                    <button class="btn">CHECKOUT</button>
+                                </div>
                             </div>
-                            <script>
-                                $(function () {
-                                    $(".datepicker").datepicker({
-                                        dateFormat: "dd/mm/yy"
-                                    });
-                                });
-                            </script>
-                        }
-                        <div id="lh"><h5>Mọi Thắc Mắc Xin Vui Lòng Liên Hệ Với Chúng Tôi <a href="@Url.Action("Index","LienHe")">Tại Đây </a>!</h5></div>
-                    </div>
-                    <div style="border-left: 1px solid grey;height:300px"></div>
 
-                    <div class="ct-r-r" style="height:300px">
-                        <img id="avatar-image" src="~/Public/avatar/@Session["AvatarKH"]" alt="Avatar" width="250" height="250" class="img-xs rounded-circle ">
-                        <br>
-                        <br>
-                        <div class="center">
-                            <label for="image-upload-input" class="custom-button" style="padding-top:7px">Upload</label>
-                            <input type="file" id="image-upload-input">
                         </div>
                     </div>
-                </div>
             </div>
         </content>
     </div>
-    <br />
 </body>
 
 </html>
+<style>
+.title{
+    margin-bottom: 5vh;
+}
+.cart{
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+
+.summary{
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65);
+}
+
+.summary .col-2{
+    padding: 0;
+}
+.summary .col-10
+{
+    padding: 0;
+}.row{
+    margin: 0;
+}
+.title b{
+    font-size: 1.5rem;
+}
+.main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+.col-2, .col{
+    padding: 0 1vh;
+}
+.close{
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+.back-to-shop{
+    margin-top: 4.5rem;
+}
+h5{
+    margin-top: 4vh;
+}
+hr{
+    margin-top: 1.25rem;
+}
+form{
+    padding: 2vh 0;
+}
+select{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+a{
+    color: black;
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+ #code{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+ .summary{
+     height:700px
+ }
+</style>
