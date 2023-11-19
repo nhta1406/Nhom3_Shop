@@ -130,33 +130,32 @@
                 }
                 else
                 {
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <div class="hover-container" style="padding-top: 15px; padding-left: 20px;">
+                        <a class="hover-container" href="@Url.Action("Dashboard", "TaiKhoan")" style=" text-decoration: none;">
+                            <img src="~/Public/avatar/@Session["AvatarKH"]" class="img-xs rounded-circle" style="width:25px;height:25px">
+                            <span class="hover-text" style="padding-left:5px">@Session["UserName"]</span>
+                        </a>
+                        <div class="tooltip">
+                            <a class="tooltip-link" href="@Url.Action("Dashboard", "TaiKhoan")" style="text-decoration: none;">Tài Khoản Của Tôi</a>
+                            @using (Html.BeginForm("Logout", "TaiKhoan", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <a class="tooltip-link" style="left:-60px;position:relative;text-decoration:none" href="javascript: document.getElementById('logoutForm').submit()">Đăng Xuất</a>
+                            }
+                            <script>
+                                function submitLogoutForm() {
+                                    document.getElementById('logoutForm').submit();
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </li>
+            </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <div class="hover-container" style="padding-top: 15px; padding-left: 20px;">
-                                <a class="hover-container" href="@Url.Action("Dashboard", "TaiKhoan")" style=" text-decoration: none;">
-                                    <img src="~/Public/avatar/@Session["AvatarKH"]" class="img-xs rounded-circle" style="width:25px;height:25px">
-                                    <span class="hover-text"style="padding-left:5px">@Session["UserName"]</span>
-                                </a>
-                                @*<a class="hover-text" href="@Url.Action("Dashboard", "TaiKhoan")">@Session["UserName"]</a>*@
-                                <div class="tooltip">
-                                    <a class="tooltip-link" href="@Url.Action("Dashboard", "TaiKhoan")">Tài Khoản Của Tôi</a>
-                                    @using (Html.BeginForm("Logout", "TaiKhoan", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-                                    {
-                                        @Html.AntiForgeryToken()
-                                        <a class="tooltip-link" style="left:-60px;position:relative" href="javascript: document.getElementById('logoutForm').submit()">Đăng Xuất</a>
-                                    }
-                                    <script>
-                                        function submitLogoutForm() {
-                                            document.getElementById('logoutForm').submit();
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("GioHang","GioHang")"><i class="fa-solid fa-cart-shopping"></i></a></li>
-                    </ul>
+                <li><a href="@Url.Action("GioHang","GioHang")"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
                 }
             </div>
         </div>

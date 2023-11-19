@@ -64,10 +64,17 @@ namespace ShopDungCuTheThao.Controllers
         }
         public ActionResult GioHang()
         {
-            List<GioHang> lstGioHang = LayGioHang(HttpContext);
-            ViewBag.TongSoLuong = TongSoLuong();
-            ViewBag.TongThanhTien = TongThanhTien();
-            return View(lstGioHang);
+            if (Session["UserID"] != null)
+            {
+                List<GioHang> lstGioHang = LayGioHang(HttpContext);
+                ViewBag.TongSoLuong = TongSoLuong();
+                ViewBag.TongThanhTien = TongThanhTien();
+                return View(lstGioHang);
+            }
+            else
+            {
+                return RedirectToAction("Login", "TaiKhoan");
+            }
         }
     }
 }
