@@ -1425,6 +1425,7 @@
     <Compile Include="Areas\Admin\Controllers\RedirectToLoginAttribute.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Context\DbContextLocal.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
@@ -1683,6 +1684,7 @@
     <Content Include="Views\TaiKhoan\Dashboard.cshtml" />
     <Content Include="Views\TaiKhoan\UpdatePassword.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\Category\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

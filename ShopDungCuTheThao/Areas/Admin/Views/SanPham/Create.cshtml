@@ -93,7 +93,7 @@
                     </div>
                     <div class="col-md-5">
                         <label>Loại Sản Phẩm</label>
-                        @Html.DropDownListFor(model => model.CateID, (SelectList)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control white-text", style = "color: black; background-color: white;border: 1px solid black;" })
+                        @Html.DropDownListFor(model => model.CateID, (IEnumerable<SelectListItem>)ViewBag.ListCat, "Chọn Cấp Cha", new { @class = "form-control white-text", style = "color: black; background-color: white;border: 1px solid black;" })
                         @Html.ValidationMessageFor(model => model.CateID, "", new { @class = "text-danger" })
                     </div>
                     <br />

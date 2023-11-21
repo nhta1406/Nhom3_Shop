@@ -1,0 +1,446 @@
+﻿@model List<ShopDungCuTheThao.Models.SanPham>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<html>
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="~/Public/css/cssAdmin.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+        body .container1 header {
+            margin: auto;
+        }
+
+        body .container {
+            width: 1500px;
+        }
+
+        body .container1 header h5 {
+            position: relative;
+            left: 110px;
+        }
+
+        body .container1 content {
+            display: flex;
+            background-color: white;
+            border-radius: 7px;
+            height: 600px;
+            width: 1300px;
+            margin: auto;
+        }
+
+            body .container1 content .content-left {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+                body .container1 content .content-left h5 {
+                    text-align: justify;
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                }
+
+                body .container1 content .content-left .r {
+                    text-align: right;
+                }
+
+        .top-navbar {
+            background-color: #e52222;
+            padding: 10px;
+        }
+
+            .top-navbar ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            .top-navbar li {
+                margin-right: 10px;
+            }
+
+            .top-navbar a {
+                color: #333;
+                text-decoration: none;
+                height: 50px;
+            }
+
+        .navbar-brand {
+            margin-right: auto;
+        }
+
+            .navbar-brand svg {
+                width: 20px;
+                height: 20px;
+            }
+
+        .navbar-form {
+            position: absolute;
+            right: 50%;
+            transform: translateX(50%);
+        }
+
+            .navbar-form .form-group {
+                margin-bottom: 0;
+            }
+
+            .navbar-form .form-control {
+                width: 700px;
+            }
+    </style>
+    <style>
+        .top-navbar {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+        }
+
+        .navbar-fixed-top {
+            position: sticky;
+            top: 70px;
+            z-index: 98;
+        }
+    </style>
+</head>
+<body style="background-color:gainsboro">
+
+    <div style="clear: both;"></div>
+    <div class="container1">
+        <header>
+            <h5>Trang Chủ / Thông tin giới thiệu về Công ty dụng cụ Thể thao Thiên Trường</h5>
+        </header>
+        <div class="container2" style="width:1330px">
+            <div class="product-view-top box">
+                <div class="product-detail box-content">
+                    <div class="product-content row">
+                        <div class="col-lg-9 col-md-9">
+                            <div class="row">
+                                @foreach (var item in Model)
+                                {
+                                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                                        <div class="product-images">
+                                            <a data-fancybox="gallery" title="Máy chạy bộ điện HQ-9900 đa năng, chính hãng, giá tốt nhất!" href="https://www.thethaothientruong.vn/uploads/2023/may-chay-bo-dien-da-nang-hq9900.jpg">
+                                                <img src="~/Public/img/@item.IMG" alt="Máy chạy bộ điện HQ-9900 đa năng, chính hãng, giá tốt nhất!" id="product_thumb" class="img-responsive" itemprop="image">
+                                            </a>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                                        <div class="product-info">
+                                            <div class="info-block">
+
+                                                <ul>
+                                                    <li>
+                                                        <h2><strong>@item.Name</strong></h2>
+                                                        <div class="stars"><div class="ratings"><div class="empty-stars"></div><div class="full-stars" style="width:100%"></div></div> (Điểm 5/5 trên 1 <a href="#ProductRating" rel="nofollow">đánh giá</a>)</div>
+                                                    </li>
+
+                                                    <li class="price-big">
+                                                        <div itemprop="description" class="hidden">Máy chạy bộ HQ-9900 thiết kế đa năng, công suất mạnh mẽ 4.0 HP hỗ trợ tập hiệu quả tại nhà và phòng tập. Mua máy tập chạy bộ HQ-9900 chính hãng giá tốt ☎0968650686!</div>
+                                                        <div itemprop="offers" itemscope="" itemtype="http://schema.org/Offer" class="hidden">
+
+                                                            <span itemprop="priceCurrency" content="VND">VND</span>
+                                                            <span itemprop="url" content="https://www.thethaothientruong.vn/may-chay-bo/may-chay-bo-dien-da-nang-hq-9900.html"></span>
+                                                            <span itemprop="price" content="21450000">21450000</span>
+                                                            <span itemprop="priceValidUntil" content="2023-12-30"></span>
+                                                            <link itemprop="availability" href="http://schema.org/InStock">Trong kho
+                                                        </div>
+                                                        <div class="price"><span class="price-old">32,900,000đ</span>  <span class="price-new">21,450,000đ</span></div>
+                                                    </li>
+                                                    <li>
+                                                        <ul class="list_attribute">
+                                                            <li>Hãng: <span itemprop="brand" itemtype="https://schema.org/Brand" itemscope=""><span itemprop="name"><strong>Thiên Trường Sport</strong></span></span></li>
+                                                            <li>Mã sản phẩm: <span itemprop="sku">@item.CateID</span></li>
+                                                            <li>Bảo hành: <strong>1 năm</strong></li>
+                                                            @if (item.Status == 1)
+                                                            {
+                                                                <li>Tình trạng: <span>Còn hàng</span></li>
+
+                                                            }
+                                                            else
+                                                            {
+                                                                <li>Tình trạng: <span>Hết hàng</span></li>
+
+                                                            }
+                                                            <li class="hidden" itemprop="gtin13">1234567892872</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="hidden"><label>Nhóm sản phẩm</label>: Máy chạy bộ điện đa năng HQ-9900</li>
+                                                </ul>
+                                                <script>
+
+                                                    function get_child_option_value(product_id, option_id, value_id, type) {
+                                                        // 		var var_selected_value = $(this).attr("id");
+                                                        $('#option_' + option_id + ' a').removeClass('active');
+                                                        $('#value_' + value_id).addClass('active');
+                                                        $('.reset_variations').css("visibility", "visible");
+                                                        //$('#option_label a').removeClass('active');
+                                                        var data = { product_id: product_id, option_id: option_id, value_id: value_id };
+                                                        $.ajax({
+                                                            method: 'post',
+                                                            url: "https://www.thethaothientruong.vn/product/ajax_get_child_option_value",
+                                                            data: data,
+                                                            dataType: 'json',
+                                                            success: function (response) {
+                                                                html = response.return_data;
+                                                                $('#option_' + response.return_option_id + ' .option_show').html(html);
+                                                            }
+                                                        });
+                                                    }
+                                                    function choose_variant(sku_id, option_id, value_id, type) {
+                                                        //var pos = $(this).attr("id");
+                                                        //alert(variant_id);
+                                                        if (type) {
+                                                            alert('Vui lòng chọn ' + type + ' trước!');
+                                                            return false;
+                                                        } else {
+                                                            $('.reset_variations').css("visibility", "visible");
+                                                            $('#option_' + option_id + ' a').removeClass('active');
+                                                            $('#value_' + value_id).addClass('active');
+                                                            var data = { sku_id: sku_id };
+                                                            var price = 32900000;
+                                                            $.ajax({
+                                                                method: 'post',
+                                                                url: "https://www.thethaothientruong.vn/product/ajax_choose_variant",
+                                                                data: data,
+                                                                dataType: 'json',
+                                                                success: function (response) {
+                                                                    //alert(response.return_data.price);
+                                                                    var product_price = response.return_data.price;
+                                                                    $('#input_option_text').text(response.return_data.params);
+                                                                    var input_variant = $('#input_price').val(product_price);
+                                                                    if (response.return_data.image) { $('#product_thumb').attr("src", response.return_data.image); }
+                                                                    if (price > 0) {
+                                                                        $('.price-big .price-new').text(addCommas(product_price));
+                                                                    } else {
+                                                                        $('.price-big .price-call').text('Liên hệ');
+                                                                    }
+                                                                }
+                                                            });
+                                                        }
+                                                    }
+                                                    $('.reset_variations').click(function () {
+                                                        $('.product_variants a').removeClass('active');
+                                                        $('.reset_variations').css("visibility", "hidden");
+                                                        $('#input_option_text').text('');
+                                                        var price = 21450000;
+                                                        var product_image = 'https://www.thethaothientruong.vn/uploads/2023/may-chay-bo-dien-da-nang-hq9900.jpg';
+                                                        var input_variant = $('#input_price').val(price);
+                                                        $('#product_thumb').attr("src", product_image);
+                                                        if (price > 0) {
+                                                            $('.price-big .price-new').text(addCommas(21450000));
+                                                        } else {
+                                                            $('.price-big .price-call').text('Liên hệ');
+                                                        }
+                                                    });
+
+
+                                                </script>
+                                                <div class="addtocart quantity-adder clearfix">
+                                                    <form action="https://www.thethaothientruong.vn/cart/add" id="addtocart" method="post" accept-charset="utf-8">
+                                                        <label>Số lượng</label>
+                                                        <input type="text" name="quantity" value="1" class="quantity">
+                                                        <textarea class="hidden" name="options" id="input_option_text">NULL</textarea>
+                                                        <div class="quantity-wrapper pull-left">
+                                                            <span class="add-up add-action fa fa-plus"></span>
+                                                            <span class="add-down add-action fa fa-minus"></span>
+                                                        </div>
+
+
+                                                        <input type="hidden" name="id" value="2872">
+
+                                                        <input type="hidden" name="name" value="Máy chạy bộ điện đa năng HQ-9900">
+
+                                                        <input type="hidden" name="sku" value="HQ9900">
+
+                                                        <input type="hidden" name="quantity" value="1">
+                                                        <input type="hidden" name="price" value="21450000" id="input_price">
+
+                                                        <a class="btn-buy" id="btn_buy"><i class="fa fa-shopping-cart"></i> Mua Ngay</a>
+                                                    </form>
+                                                </div>
+
+                                            </div>
+                                            <div id="widget-11" class="widget 0">
+                                                <div class="diachi hidden-md hidden-sm">
+                                                    <ul>
+                                                        <li><i class="fa fa-map-marker"></i> <strong>Hà Nội</strong>: 208D Lê Trọng Tấn, Q. Thanh Xuân - <i class="fa fa-phone"></i> <a href="tel:0915841888"><strong>0915 841 888</strong></a></li>
+                                                        <li><i class="fa fa-map-marker"></i> <strong>Tp Hồ Chí Minh</strong>: 323 Trần Văn Kiểu, Quận 6 - <i class="fa fa-phone"></i> <a href="tel:0972147205"><strong>0972 147 205</strong></a></li>
+                                                        <li><i class="fa fa-map-marker"></i> <strong>Đà Nẵng</strong>: 657 Trần Cao Vân, Q. Thanh Khê - <i class="fa fa-phone"></i> <a href="tel:0944086000"><strong>0944 086 000</strong></a></li>
+                                                        <li><i class="fa fa-map-marker"></i> <strong>Nam Định</strong>: 522 Trần Hưng Đạo, P Lộc Vượng - <i class="fa fa-phone"></i> <a href="tel:0987883956"><strong>0987 883 956</strong></a></li>
+                                                        <li><i class="fa fa-map-marker"></i> <strong>Hải Phòng</strong>: 238 Hàng Kênh, Quận Lê Chân - <i class="fa fa-phone"></i> <a href="tel:0968887488"><strong>0968 887 488</strong></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                }
+                                </div>
+                            <div class="product-info">
+                                <div id="widget-25" class="widget 0">
+                                    <div class="diachi visible-md visible-sm col-md-12 col-sm-12">
+                                        <ul>
+                                            <li><i class="fa fa-map-marker"></i> <strong>Hà Nội</strong>: 208D Lê Trọng Tấn, Q. Thanh Xuân - <i class="fa fa-phone"></i> <strong><a href="tel:0968650686">0915 841 888</a></strong></li>
+                                            <li><i class="fa fa-map-marker"></i> <strong>Tp Hồ Chí Minh</strong>: 323 Trần Văn Kiểu, Quận 6 - <i class="fa fa-phone"></i> <strong><a href="tel:0972147205">0972 147 205</a></strong></li>
+                                            <li><i class="fa fa-map-marker"></i> <strong>Đà Nẵng</strong>: 657 Trần Cao Vân, Q. Thanh Khê - <i class="fa fa-phone"></i> <strong><a href="tel:0944086000">0944 086 000</a></strong></li>
+                                            <li><i class="fa fa-map-marker"></i> <strong>Nam Định</strong>: 522 Trần Hưng Đạo, P Lộc Vượng - <i class="fa fa-phone"></i> <strong><a href="tel:0987883956">0987 883 956</a></strong></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                            <div id="widget-15" class="widget 0">
+                                <div class="additional hidden-xs">
+                                    <div class="contact">
+                                        <div class="item hidden-xs">
+                                            <i style="margin-top: 5px" class="tikicon icon-phone"></i>
+
+                                            <p>
+                                                <b>Liên hệ</b><br>
+                                                <i class="fa fa-phone"></i> Hotline đặt hàng <a href="tel:0968650686">09686 50686</a><br>
+                                                <small>(Làm việc cả T7, CN)</small>
+                                            </p>
+                                        </div>
+                                        <div class="item hidden-xs">
+                                            <i style="margin-top: -2px" class="tikicon icon-email"></i>
+                                            <p>
+                                                <i class="fa fa-envelope-o"></i> Email: <a href="mailto:info@thethaothientruong.vn">info@thethaothientruong.vn</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="register-to-sell">
+                                        Bạn muốn nhận tư vấn từ Thể thao Thiên Trường? <a href="/lien-he/">Đăng ký</a>
+                                    </div>
+                                </div>
+                            </div><div id="widget-5" class="widget 0">
+                                <div class="zlboxs">
+                                    <h5>Mua hàng tại Thiên Trường Sport</h5>
+                                    <ul>
+                                        <li>Đặt mua online hoặc đến trực tiếp cửa hàng</li>
+                                        <li>Cam kết hàng chính hãng</li>
+                                        <li>Hoàn 100% tiền cọc khi khách hàng muốn hủy đơn hàng</li>
+                                        <li>Bảo hành chính hãng từ nhà cung cấp</li>
+                                        <li>Dịch vụ vận chuyển và thu tiền tại nhà trên toàn quốc</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br />
+</body>
+
+
+</html>
+<style>
+    .box {
+        margin-bottom: 20px;
+        background: #FFF;
+        border-radius: 3px;
+    }
+
+    .container2 {
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .additional {
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ececec;
+        margin: 12px 0;
+        background: #FFF;
+    }
+
+    .zlboxs {
+        border-radius: 3px;
+        background-color: #FFF;
+        padding: 15px;
+        margin-bottom: 10px;
+        border: 1px solid #EEE;
+    }
+
+    .addtocart input.quantity, input.quantity {
+        width: 40px;
+        padding: 0;
+        text-align: center;
+        border: 1px solid #E5E5E5;
+        line-height: 36px;
+    }
+
+    .product-info .quantity-wrapper .add-action {
+        border-bottom: 1px solid #ebeef2;
+        border-right: 1px solid #ebeef2;
+        border-top: 1px solid #ebeef2;
+        color: #6f6f6f;
+        cursor: pointer;
+        display: block;
+        font-size: 7px;
+        height: 19px;
+        line-height: 15px;
+        position: relative;
+        text-align: center;
+        width: 27px;
+        background: #F5F5F5;
+    }
+
+    .pull-left {
+        float: left !important;
+    }
+
+    .addtocart input, .addtocart label {
+        float: left;
+        line-height: 36px;
+    }
+
+    .addtocart label {
+        margin-right: 20px;
+    }
+
+    .product-info label {
+        display: inline-block;
+    }
+
+    .btn-buy {
+        background: #c9252c;
+        border-radius: 2px;
+        color: #FFF;
+        line-height: 36px;
+        float: left;
+        font-weight: bold;
+        margin: 0 0 0 10px;
+        padding: 0;
+        text-align: center;
+        width: 115px;
+        border: none;
+        border-bottom: 3px solid #b72127;
+        text-transform: uppercase;
+        cursor: pointer;
+    }
+
+    .diachi {
+        border: 1px solid #EEE;
+        padding: 15px;
+        border-radius: 3px;
+    }
+</style>

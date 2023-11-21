@@ -26,7 +26,7 @@
         <div class="thumbnail">
             <a href="#"><img src="~/Public/img/@pro.IMG" style="height: 170px; object-fit: cover;" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook"></a>
             <div class="caption">
-                <a href="#"><h4 class="text-center" style="text-decoration:none">@pro.Name</h4></a>
+                <a href="@Url.Action("Details","Category", new { @ID = pro.ID })"><h4 class="text-center" style="text-decoration:none">@pro.Name</h4></a>
                 @if (pro.PriceSale != 0)
                 {
                     <div class="price text-center">

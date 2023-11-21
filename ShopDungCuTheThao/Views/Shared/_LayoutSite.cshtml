@@ -75,7 +75,7 @@
 
 <body style="background-color:gainsboro">
     <nav class="top-navbar navbar-fixed">
-        <div class="container">
+        <div class="container" >
             <a href="@Url.Action("Index","TrangChu")" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
@@ -99,6 +99,7 @@
             </ul>
         </div>
     </nav>
+    <div style="clear: both;"></div>
     <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: aliceblue;">
         <div class="container">
             <div class="navbar-header">
@@ -134,7 +135,7 @@
                         <li>
                             <div class="hover-container" style="padding-top: 15px; padding-left: 20px;">
                                 <a class="hover-container" href="@Url.Action("Dashboard", "TaiKhoan")" style=" text-decoration: none;">
-                                    <img class="img-xs rounded-circle" src="~/Public/avatar/@Session["AvatarKH"]" alt="" style="width: 40px; height: 30px">
+                                    <img class="img-xs rounded-circle" src="~/Public/avatar/@Session["AvatarKH"]" alt="" style="width: 25px; height: 25px">
                                     <span class="hover-text">@Session["UserName"]</span>
                                 </a>
                                 <div class="tooltip">
@@ -145,8 +146,7 @@
                                         <a class="tooltip-link" style="left:-60px;position:relative" href="javascript: document.getElementById('logoutForm').submit()">Đăng Xuất</a>
                                     }
                                     <script>
-                                        function submitLogoutForm()
-                                        {
+                                        function submitLogoutForm() {
                                             document.getElementById('logoutForm').submit();
                                         }
                                     </script>
@@ -166,7 +166,7 @@
             .hover-container {
                 position: relative;
                 display: inline-block;
-                text-decoration:none;
+                text-decoration: none;
             }
 
             .tooltip {
@@ -189,8 +189,9 @@
                 opacity: 1;
                 visibility: visible;
             }
-            .avatar{
-                border-radius:8px
+
+            .avatar {
+                border-radius: 8px
             }
         </style>
     </nav>
