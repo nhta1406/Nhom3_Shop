@@ -37,6 +37,18 @@
                             <td class="text-center"><img src="~/Public/img/@item.IMG" class="img-fluid" /></td>
                             <td class="text-center">@item.Name</td>
                             <td class="text-center">
+                                @if (item.Status == 1)
+                                {
+                                    <a href="@Url.Action("Status", "SanPham", new {@id=item.ID})" class="btn btn-sm btn-success">
+                                        <i class="fas fa-toggle-on"></i>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Status", "SanPham", new {@id=item.ID})" class="btn btn-sm btn-inverse-danger">
+                                        <i class="fas fa-toggle-off"></i>
+                                    </a>
+                                }
                                 <a href="@Url.Action("Edit", "SanPham", new { @id = item.ID })" class="btn btn-sm btn-success">
                                     Edit
                                 </a>

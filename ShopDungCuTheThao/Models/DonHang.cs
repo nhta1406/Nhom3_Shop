@@ -11,25 +11,20 @@ namespace ShopDungCuTheThao.Models
     public class DonHang
     {
         [Key]
-        public int ID { get; set; }
+        public int OrderID { get; set; }
         [Required]
-        public int UserID { get; set; }
-        [Required]
+        public int AccountID { get; set; }
         public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        public string Note { get; set; }
-        [Required]
-        public int ParentID { get; set; }
-        [Required]
-        public int Orders { get; set; }
-        [Required]
-        public string MetaKey { get; set; }
-        [Required]
-        public string MetaDesc { get; set; }
-        public DateTime? CreateAt { get; set; }
-        public int? UpdateBy { get; set; }
-        public DateTime? UpdateAt { get; set; }
-        public int Status { get; set; }
+        public int Deleted { get; set; }
+        public string Address { get; set; }
+        public int TransactStatusID { get; set; }
+        public double TotalMoney { get; set; }
+        public int Paid { get; set; }
+        public DateTime? ShipDate { get; set; }
+        public DateTime? OrderDate { get; set; }
+        [ForeignKey("AccountID")]
+        public Accounts Accounts { get; set; }
+        [ForeignKey("TransactStatusID")]
+        public TransactStatus TransactStatus { get; set; }
     }
 }

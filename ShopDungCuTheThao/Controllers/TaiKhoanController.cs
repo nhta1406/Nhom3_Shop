@@ -63,12 +63,12 @@ namespace ShopDungCuTheThao.Controllers
                     Session["UserID"] = user.AccountID.ToString();
                     Session["UserName"] = user.UserName.ToString();
                     Session["FullName"] = user.Name.ToString();
-                    if(user.Phone!= null && user.Email!=null)
+                    if (user.Phone != null && user.Email != null && user.Avatar != null) 
                     {
                         Session["Phone"] = user.Phone.ToString();
                         Session["Email"] = user.Email.ToString();
+                        Session["AvatarKH"] = user.Avatar.ToString();
                     }
-                    Session["AvatarKH"] = user.Avatar.ToString();
                     return RedirectToAction("Dashboard", "TaiKhoan");
                 }
                 else

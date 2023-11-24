@@ -11,13 +11,18 @@ namespace ShopDungCuTheThao.Models
     public class ChiTietDonHang
     {
         [Key]
-        public int ID { get; set; }
+        public int OrderDetailsID { get; set; }
         [Required]
         public int OrderID { get; set; }
         [Required]
-        public int ProductID { get; set; }
+        public int ID { get; set; }
         public double Price { get; set; }
+        public DateTime? CreateDate { get; set; }
         public int Quantity { get; set; }
-        public double Amount { get; set; }
+        public double Total { get; set; }
+        [ForeignKey("OrderID")]
+        public DonHang DonHang { get; set; }
+        [ForeignKey("ID")]
+        public SanPham SanPham { get; set; }
     }
 }

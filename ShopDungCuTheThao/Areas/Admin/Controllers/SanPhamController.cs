@@ -52,7 +52,16 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             var cultureInfo = new CultureInfo("vi-VN");
             return View(list);
         }
-
+        public ActionResult Status(int id)
+        {
+            SanPham sanPham = db.sanPham.Find(id);
+            int Status = (sanPham.Status == 1) ? 2 : 1;
+            sanPham.Status = Status;
+            sanPham.UpdateAt = DateTime.Now;
+            db.Entry(sanPham).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
         // GET: Admin/SanPham/Details/5
         public ActionResult Details(int? id)
         {

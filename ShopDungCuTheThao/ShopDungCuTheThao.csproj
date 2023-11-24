@@ -1420,12 +1420,14 @@
     <Compile Include="Areas\Admin\Controllers\AuthController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaseController.cs" />
     <Compile Include="Areas\Admin\Controllers\DashboardController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DonHangController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLBaiVietController.cs" />
     <Compile Include="Areas\Admin\Controllers\RedirectToLoginAttribute.cs" />
     <Compile Include="Areas\Admin\Controllers\SanPhamController.cs" />
     <Compile Include="Context\DbContextLocal.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\GioiThieuController.cs" />
     <Compile Include="Controllers\LienHeController.cs" />
@@ -1449,11 +1451,13 @@
     <Compile Include="Models\LoaiSanPham.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ManageUserViewModel.cs" />
+    <Compile Include="Models\MuaHangVM.cs" />
     <Compile Include="Models\ProductCatogory.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\Roles.cs" />
     <Compile Include="Models\SanPham.cs" />
     <Compile Include="Models\ShopDungCuTheThaoDB.cs" />
+    <Compile Include="Models\TransactStatus.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1658,6 +1662,10 @@
     <Content Include="Areas\Admin\Content\assets\vendors\mdi\fonts\materialdesignicons-webfont.ttf" />
     <Content Include="Areas\Admin\Content\assets\vendors\mdi\fonts\materialdesignicons-webfont.woff" />
     <Content Include="Areas\Admin\Content\assets\vendors\mdi\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="Areas\Admin\Views\DonHang\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\ChangeStatus.cshtml" />
+    <Content Include="Areas\Admin\Views\DonHang\Delete.cshtml" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -1685,6 +1693,7 @@
     <Content Include="Views\TaiKhoan\UpdatePassword.cshtml" />
     <Content Include="Views\GioHang\GioHang.cshtml" />
     <Content Include="Views\Category\Details.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1696,9 +1705,11 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\Orders\" />
     <Folder Include="Areas\Admin\Views\QLBaiViet\" />
     <Folder Include="Public\fontawesome\" />
     <Folder Include="Public\js\" />
+    <Folder Include="Views\Location\" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />

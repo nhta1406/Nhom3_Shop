@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using ShopDungCuTheThao.Models;
+@model List<GioHang>
+@*<table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.iName</td>
+                    <td>@item.iQuantity</td>
+                    <td>@item.iPrice</td>
+                    <td>@item.totalMoney</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>Shipping Address</h2>*@
+
+@using (Html.BeginForm("Checkout", "Checkout", FormMethod.Post))
+{
+    <div class="container bg-white">
+        <div class="row">
+            <div class="col-md-5 order-md-2" style="background-color:lightgrey">
+                <table class="table">
+                    <h2>THÔNG TIN ĐƠN HÀNG</h2>
+                    <thead>
+                        <tr>
+                            <th style="text-align:center">Sản Phẩm</th>
+                            <th style="text-align:center">Thành Tiền</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.iName <strong>x @item.iQuantity</strong></td>
+                                <td>@item.iPrice</td>
+                            </tr>
+                            <tr>
+                                <td>Tổng Đơn Hàng</td>
+                                <td>@item.totalMoney</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Đặt Hàng</button>
+            </div>
+            <div class="col-md-7 order-md-1">
+                <form class="needs-validation" novalidate="">
+                    <h2>THÔNG TIN ĐƠN HÀNG</h2>
+                    <hr />
+                    <div class="mb-3">
+                        <label for="text">Họ Và Tên*</label>
+                        <input type="text" class="form-control" name="Name" placeholder="" value="@Session["FullName"]">
+                    </div>
+                    <div class="mb-3">
+                        <label for="number">Phone*</label>
+                        <input type="tel" class="form-control" id="phone" placeholder="0xxxx" >
+                        <div class="invalid-feedback"> Please enter a valid phone  for shipping updates. </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email">Email*</label>
+                        <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                        <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address">Địa Chỉ*</label>
+                        <input type="text" class="form-control" name="Address" required="">
+                        <div class="invalid-feedback"> Không Để Trống Địa Chỉ. </div>
+                    </div>
+                </form>
+                <hr class="mb-4">
+                <hr class="mb-4">
+            </div>
+        </div>
+    </div>
+    <hr class="mb-4">
+}
+

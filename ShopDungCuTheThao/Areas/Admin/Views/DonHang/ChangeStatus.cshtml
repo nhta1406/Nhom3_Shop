@@ -1,0 +1,88 @@
+﻿@model ShopDungCuTheThao.Models.DonHang
+    <div class="modal-header bg-white">
+        <h5 class="modal-title" id="myModalLabel">Change Status</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body bg-white">
+        <div class="card bg-white">
+            <div class="card-body">
+                <h4 class="card-title" style="color:black">THÔNG TIN ĐƠN HÀNG @Model.OrderID</h4>
+                <div class="table-responsive">
+                    <table class="product-info-table m-t-20">
+                        <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>@Model.OrderID</td>
+                            </tr>
+                            <tr>
+                                <td>Ngày Mua Hàng</td>
+                                <td>@Model.OrderDate</td>
+                            </tr>
+                            <tr>
+                                <td>Khách Hàng</td>
+                                <td>@Model.Name</td>
+                            <tr>
+                                <td>Số Điện Thoại</td>
+                                <td>@Model.Accounts.Phone</td>
+                            </tr>
+                            <tr>
+                                <td>Địa Chỉ</td>
+                                <td>@Model.Address</td>
+                            </tr>
+                            <tr>
+                                <td>Tổng Tiền</td>
+                                <td>@Model.TotalMoney.ToString("#,##0")VNĐ</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        @using (Html.BeginForm("ChangeStatus", "DonHang", new { id = Model.OrderID }, FormMethod.Post))
+        {
+            <div class="card bg-white">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Chọn Trạng Thái Đơn Hàng</label>
+                                @Html.EditorFor(model => model.TransactStatusID, new { htmlAttributes = new { @class = "form-control white-text", style = "color: black; background-color: white;" } })
+                                @Html.ValidationMessageFor(model => model.TransactStatusID, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <input name="Paid" id="paidCheckbox" type="checkbox" />
+                                <label for="paidCheckbox">Đơn Hàng Đã Thanh Toán</label>
+                                @Html.ValidationMessageFor(model => model.Paid, "", new { @class = "text-danger" })
+                            </div>
+                            <button type="submit" class="btn btn-success">Lưu Thay Đổi</button>
+                        </div>
+                        <div class="col-md-2">
+                            <h3>Chú Thích</h3>
+                            <div class="form-group">
+                                <label>1.Chờ Lấy Hàng</label>
+                            </div>
+                            <div class="form-group">
+                                <label>2.Chờ Xác Nhận</label>
+                            </div>
+                            <div class="form-group">
+                                <label>3.Đang Giao</label>
+                            </div>
+                            <div class="form-group">
+                                <label>4.Đã Giao Dịch Thành Công</label>
+                            </div>
+                            <div class="form-group">
+                                <label>5.Đã Hủy</label>
+                            </div>
+                            <div class="form-group">
+                                <label>6.Trả Hàng</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+

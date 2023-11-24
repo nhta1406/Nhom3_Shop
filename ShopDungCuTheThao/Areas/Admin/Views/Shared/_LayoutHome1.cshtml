@@ -93,7 +93,7 @@
                         <span class="menu-icon">
                             <i class="mdi mdi-laptop"></i>
                         </span>
-                        <span class="menu-title">Quản Lí Sản Phẩm</span>
+                        <span class="menu-title">Quản Lý Sản Phẩm</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="ui-basic-sanpham">
@@ -147,6 +147,21 @@
                             <li class="nav-item"><a class="nav-link" href="@Url.Action("Create","AdminRoles")">Thêm Quyền</a></li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item menu-items">
+                    <a class="nav-link" data-toggle="collapse" href="#ui-basic-DonHang" aria-expanded="true" aria-controls="ui-basic-DonHang">
+                        <span class="menu-icon">
+                            <i class="fa-thin fa-user" style="color: #ffffff;"></i>
+                        </span>
+                        <span class="menu-title">Quản Lý Đơn Hàng</span>
+                        <i class="menu-arrow"></i>
+                    </a>
+                    <div class="collapse" id="ui-basic-DonHang">
+                        <ul class="nav flex-column sub-menu">
+                            <li class="nav-item"><a class="nav-link" href="@Url.Action("Index","DonHang")">Danh Sách Đơn Hàng</a></li>
+                        </ul>
+                    </div>
+
                 </li>
                 <li class="nav-item menu-items">
                     <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">

@@ -19,7 +19,6 @@ namespace ShopDungCuTheThao.Controllers
                 var listproduct = db.loaiSanPham.Where(m => m.Status == 1)
                          .OrderByDescending(m => m.CreateAt)
                          .ToList();
-                ViewBag.test = db.loaiSanPham.Count();
                 return View(listproduct);
             }
             else

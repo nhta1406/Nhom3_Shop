@@ -504,9 +504,9 @@
         }
         .tsp{position:relative;right:350px}
         .ten {position: relative;left: 20px}
-        .M-AAFK{position:relative;right:40px}
-        .EOdsa-{position:relative;left:60px}
-        #money{position:relative;left:60px}
+        .M-AAFK{position:relative;right:140px}
+        .EOdsa-{position:relative;left:-40px}
+        #money{position:relative;left:-40px}
     </style>
 </head>
 <body style="background-color:gainsboro;height:1600px">
@@ -570,8 +570,8 @@
                                 </div>
                                 <div class="G7E4B7">
                                     <div>
+                                        <span class="M-AAFK vWt6ZL">@item.iPrice ₫</span>
                                         <span class="M-AAFK vWt6ZL">@item.iPriceSale ₫</span>
-                                        
                                     </div>
                                 </div>
                                 <div class="MRh9G6">
@@ -590,7 +590,15 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="ofQLuG"><span id="money">₫52.000</span></div>
+                                @if (item.iPriceSale > 0)
+                                {
+                                    <div class="ofQLuG"><span id="money">@item.iPriceSale ₫</span></div>
+                                }
+                                else
+                                {
+                                    <div class="ofQLuG"><span id="money">@item.iPrice ₫</span></div>
+                                }
+                                <a class="btn-buy" id="btn_buy" href="@Url.Action("Index","Checkout")"><i class="fa fa-shopping-cart"></i> Mua Ngay</a>
                             </div>
                         </div>
                         <hr />
