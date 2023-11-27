@@ -13,17 +13,18 @@
     <link rel="stylesheet" href="~/Areas/Admin/Content/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="shortcut icon" href="~/Areas/Admin/Content/assets/images/favicon.png" />
-    <style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    @*<style>
         label {
             color: black;
         }
-    </style>
+    </style>*@
 </head>
 <body>
     @RenderBody()
     <div class="container-scroller">
-        <nav class="sidebar sidebar-offcanvas" id="sidebar" >
-            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top" >
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
                 <a class="sidebar-brand brand-logo" href="index.html"><img src="~/Areas/Admin/Content/assets/images/logo.svg" alt="logo" /></a>
                 <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="~/Areas/Admin/Content/assets/images/logo-mini.svg" alt="logo" /></a>
             </div>
@@ -32,7 +33,15 @@
                     <div class="profile-desc">
                         <div class="profile-pic">
                             <div class="count-indicator">
-                                <img class="img-xs rounded-circle " src="~/Areas/Admin/Public/img/@Session["Avatar"]" alt="">
+                                @if (Session["Avatar"] != null)
+                                {
+                                    <img class="img-xs rounded-circle " src="~/Areas/Admin/Public/img/@Session["Avatar"]" alt="">
+
+                                }
+                                else
+                                {
+                                    <img class="img-xs rounded-circle " src="~/Areas/Admin/Public/img/avtadmin.jpg" alt="">
+                                }
                                 <span class="count bg-success"></span>
                             </div>
                             <div class="profile-name">
@@ -108,7 +117,7 @@
                         <span class="menu-icon">
                             <i class="mdi mdi-laptop"></i>
                         </span>
-                        <span class="menu-title">Quản Lý Loại Sản Phẩm</span>
+                        <span class="menu-title">Quản Lý Danh Mục</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="ui-basic-loaisanpham">
@@ -345,7 +354,15 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                                 <div class="navbar-profile">
-                                    <img class="img-xs rounded-circle" src="~/Areas/Admin/Public/img/@Session["Avatar"]" alt="">
+                                    @if (Session["Avatar"] != null)
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                        <img class="img-xs rounded-circle" src="~/Areas/Admin/Public/img/avtadmin.jpg" alt="">
+
+                                    }
                                     <p class="mb-0 d-none d-sm-block navbar-profile-name">@Session["UserNameAdmin"]</p>
                                     <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                                 </div>
@@ -366,7 +383,7 @@
                                 @using (Html.BeginForm("Logout", "Auth", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                                 {
                                     @Html.AntiForgeryToken()
-                                    <a class="dropdown-item preview-item"href="javascript: document.getElementById('logoutForm').submit()">
+                                    <a class="dropdown-item preview-item" href="javascript: document.getElementById('logoutForm').submit()">
                                         <div class="preview-thumbnail">
                                             <div class="preview-icon bg-dark rounded-circle">
                                                 <i class="mdi mdi-logout text-danger"></i>
@@ -394,7 +411,7 @@
             </nav>
             <!-- partial -->
             <div class="main-panel">
-                <div class="content-wrapper "style="background-color:aliceblue">
+                <div class="content-wrapper " style="background-color:aliceblue">
                     @RenderSection("Index", required: false)
                     @RenderSection("IndexSanPham", required: false)
                     @RenderSection("EditSanPham", required: false)

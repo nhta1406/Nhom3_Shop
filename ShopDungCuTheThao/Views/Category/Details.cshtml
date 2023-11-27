@@ -16,6 +16,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
+        .box .nz-div .tde, .box .nz-div h1.tde, .box .nz-div h3.tde {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.nz-div .tde, .nz-div h1.tde, .nz-div h3.tde {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: bold;
+}
         body .container1 header {
             margin: auto;
         }
@@ -111,6 +127,28 @@
             top: 70px;
             z-index: 98;
         }
+        .product-info ul li {
+            list-style: none;
+            overflow: hidden;
+        }
+        .product-info .price-big .price-new {
+            font-size: 20px;
+        }
+        .product-info .price-big .price-old {
+            display: inline;
+            font-size: 16px;
+        }
+
+        .price-big .price .price-old {
+            display: inline;
+        }
+
+        .price .price-old, .price .price-tax {
+            color: #555;
+            font-size: 14px;
+            text-decoration: line-through;
+            font-weight: normal;
+        }
     </style>
 </head>
 <body style="background-color:gainsboro">
@@ -134,7 +172,6 @@
                                                 <img src="~/Public/img/@item.IMG" alt="Máy chạy bộ điện HQ-9900 đa năng, chính hãng, giá tốt nhất!" id="product_thumb" class="img-responsive" itemprop="image">
                                             </a>
                                         </div>
-
                                     </div>
                                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                                         <div class="product-info">
@@ -143,7 +180,12 @@
                                                 <ul>
                                                     <li>
                                                         <h2><strong>@item.Name</strong></h2>
-                                                        <div class="stars"><div class="ratings"><div class="empty-stars"></div><div class="full-stars" style="width:100%"></div></div> (Điểm 5/5 trên 1 <a href="#ProductRating" rel="nofollow">đánh giá</a>)</div>
+                                                        <div class="stars">
+                                                            <div class="ratings">
+                                                                <div class="empty-stars"></div>
+                                                            <div class="full-stars" style="width:100%"></div>
+                                                             </div>
+                                                        </div>
                                                     </li>
 
                                                     <li class="price-big">
@@ -156,7 +198,7 @@
                                                             <span itemprop="priceValidUntil" content="2023-12-30"></span>
                                                             <link itemprop="availability" href="http://schema.org/InStock">Trong kho
                                                         </div>
-                                                        <div class="price"><span class="price-old">32,900,000đ</span>  <span class="price-new">21,450,000đ</span></div>
+                                                        <div class="price"><span class="price-old">@item.Price.ToString("#,##0 đ")</span>  <span class="price-new">@item.PriceSale.ToString("#,##0 đ")</span></div>
                                                     </li>
                                                     <li>
                                                         <ul class="list_attribute">
@@ -355,103 +397,19 @@
                             </div>
                             <div class="box-content">
                                 <div class="entry-content">
-
                                     <div class="tab-content text-left">
                                         <div id="main-content">
                                             <div class="tab-content" id="content-description">
                                                 <div class="content-detail dtshow">
-                                                    <h2 style="text-align: justify;"><strong>Thông tin: @item.Name</strong></h2>
+                                                    @*<h2 style="text-align: justify;"><strong>Thông tin: @item.Name</strong></h2>*@
 
-                                                    <p style="text-align: justify;">- Mã sản phẩm: 552.</p>
+                                                    <p style="text-align: justify;">Mã sản phẩm: @item.Detail.</p>    
 
-                                                    <p style="text-align: justify;">- Thương hiệu: Bowflex.</p>
+                                                    @*<h3 style="text-align: justify;"><strong>Mua tạ tay Bowflex 552 chính hãng, uy tín tại Thiên Trường</strong></h3>*@
 
-                                                    <p style="text-align: justify;">- Công nghệ: USA.</p>
-
-                                                    <p style="text-align: justify;">- Xuất xứ: Trung Quốc.</p>
-
-                                                    <p style="text-align: justify;">- Màu sắc: đen + đỏ.</p>
-
-                                                    <p style="text-align: center;"><img alt="Hình ảnh tạ tay Bowflex 552" src="https://www.thethaothientruong.vn/uploads/2023/hinh-anh-ta-tay-bowflex-552.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/hinh-anh-ta-tay-bowflex-552.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: justify;">- Kích thước mỗi quả tạ: 20.32 x 22.86 x 40 cm.</p>
-
-                                                    <p style="text-align: justify;">- Trọng lượng tạ từ 5 - 52.5 Lbs (tương đương 2.27 - 24Kg) cho mỗi quả.</p>
-
-                                                    <p style="text-align: center;"><img alt="Tạ Bowflex 552 điều chỉnh trọng lượng" src="https://www.thethaothientruong.vn/uploads/2023/ta-tay-bowflex-552-dieu-chinh-trong-luong.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/ta-tay-bowflex-552-dieu-chinh-trong-luong.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: justify;">- Bảo hành: 1 năm.</p>
-
-                                                    <p style="text-align: justify;">- Giá bán 1 bộ 2 quả: 5.350,000 đồng.</p>
-
-                                                    <h3 style="text-align: justify;"><strong>Hình ảnh tạ tay điều chỉnh Bowflex 552</strong></h3>
-
-                                                    <p style="text-align: center;"><img alt="Tạ tay Bowflex 552" src="https://www.thethaothientruong.vn/uploads/2023/ta-tay-bowflex-552.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/ta-tay-bowflex-552.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: center;"><em>Tạ tay điều chỉnh Bowflex 552</em></p>
-
-                                                    <p style="text-align: center;"><img alt="Tạ tay Bowflex 552" longdesc="Tạ tay Bowflex 552" src="https://www.thethaothientruong.vn/uploads/2021/ta-tay-bowfex-552-3.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2021/ta-tay-bowfex-552-3.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: center;"><em>Hình ảnh lắp đặt thực tế tạ&nbsp;Bowflex 552</em></p>
-
-                                                    <p style="text-align: center;"><em><img alt="Tạ tay Bowflex 552 kèm giá đỡ" src="https://www.thethaothientruong.vn/uploads/2023/ta-tay-bowflex-552-kem-gia-do.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/ta-tay-bowflex-552-kem-gia-do.jpg" style="display: block;"></em></p>
-
-                                                    <p style="text-align: center;"><em>Tạ tay Bowflex 552 kèm giá đỡ</em></p>
-
-                                                    <h3 style="text-align: justify;"><b>Phân tích đặc điểm cấu tạo tạ tay Bowflex 552</b></h3>
-
-                                                    <p style="text-align: justify;">- <a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-tay-bowflex-552.html"><strong>Tạ tay Bowflex 552</strong></a> được thiết kế nhỏ gọn, có tính thẩm mỹ cao và tiện sử dụng.</p>
-
-                                                    <p style="text-align: center;"><img alt="Cấu tạo tạ tay điều chỉnh Bowflex 552" src="https://www.thethaothientruong.vn/uploads/2023/cau-tao-ta-tay-bowflex-552.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/cau-tao-ta-tay-bowflex-552.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: justify;">- Với quả tạ tay Bowflex 552 thì bạn chỉ cần quay số là có thể điều chỉnh, thay đổi trọng lượng trên quả tạ từ 2,2 đến 24 kg,<a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/"> tập thể hình&nbsp;</a>một cách dễ dàng.</p>
-
-                                                    <p style="text-align: center;"><img alt="Thay đổi trọng lượng tạ Bowflex 552 bằng cách quay số" src="https://www.thethaothientruong.vn/uploads/2023/quay-so-chinh-trong-luong-ta-tay-bowflex-552.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/quay-so-chinh-trong-luong-ta-tay-bowflex-552.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: justify;">- Thanh đòn tạ được từ thép không gỉ, mạ crom sáng bóng có thêm các đường khía nhám tăng độ ma sát khi cầm.</p>
-
-                                                    <p style="text-align: justify;">- Chốt tạ thông minh theo công nghệ khóa hiện đại có thể xoay 360 độ theo 2 chiều giúp&nbsp;cố định trọng lượng tạ,&nbsp;&nbsp;đảm bảo an toàn tuyệt đối khi sử dụng.</p>
-
-                                                    <p style="text-align: center;"><img alt="Chốt tạ Bowflex 552" src="https://www.thethaothientruong.vn/uploads/2023/dieu-chinh-ta-tay-bowflex-552.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/dieu-chinh-ta-tay-bowflex-552.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: justify;">- Bánh tạ có lõi đục từ thép nguyên khối, bên ngoài được bọc nhựa chịu lực tốt và có độ đàn hồi cao.&nbsp;</p>
-
-                                                    <p style="text-align: justify;">- Khay để bánh tạ được làm bằng PP có độ bền cao, vô cùng chắc chắn và chống mài mòn.</p>
-
-                                                    <p style="text-align: justify;">- <strong>1 bộ tạ tay Bowflex 552</strong> gồm 2 quả tạ có trọng lượng mỗi bên là 24 kg.</p>
-
-                                                    <p style="text-align: center;"><img alt="Các mức trọng lượng tạ tay Bowflex 552" src="https://www.thethaothientruong.vn/uploads/2023/cac-muc-ta-tay-bowflex-552.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/cac-muc-ta-tay-bowflex-552.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: center;"><i>Mô phỏng điều chỉnh các mức tạ tay trên sản phẩm Bowflex 552</i></p>
-
-                                                    <p style="text-align: center;"><img alt="Cách cầm tạ tay Bowflex 552" src="https://www.thethaothientruong.vn/uploads/2023/cach-dung-ta-tay-bowflex-552.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/cach-dung-ta-tay-bowflex-552.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: center;"><img alt="Tập tạ tay Bowflx 552" src="https://www.thethaothientruong.vn/uploads/2023/tap-ta-tay-bowflex-552-1.jpg" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/2023/tap-ta-tay-bowflex-552-1.jpg" style="display: block;"></p>
-
-                                                    <p style="text-align: center;"><em>Tập luyện với tạ tay Bowflex 552</em></p>
-
-                                                    <ul>
-                                                        <li>
-                                                            <p style="text-align: justify;">Xem thêm: <a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/">Tạ tay</a>.</p>
-                                                        </li>
-                                                    </ul>
-
-                                                    <h3 style="text-align: justify;"><strong>Mua tạ tay Bowflex 552 chính hãng, uy tín tại Thiên Trường</strong></h3>
-
-                                                    <p style="text-align: justify;">Tại sao các bạn nên mua sản phẩm của thể thao Thiên Trường?</p>
-
-                                                    <p style="text-align: justify;">- Thể thao Thiên Trường là đơn vị cung cấp <a href="https://www.thethaothientruong.vn/">dụng cụ thể dục</a>&nbsp;theo hình thức tại kho, sản phẩm từ nhà sản xuất đến với khách hàng với chi phí thấp nhất và chất lượng tốt nhất.</p>
-
-                                                    <p style="text-align: justify;">Tôi không ở Hà Nội và TP.HCM, vậy làm thế nào có thể mua được sản phẩm của cửa hàng?</p>
-
-                                                    <p style="text-align: justify;">- Thể thao Thiên Trường chúng tôi đảm bảo việc vận chuyển hàng hoá siêu tốc và các bạn có thể gửi tiền qua ngân hàng và chúng tôi sẽ gửi hàng tới tận nhà bạn. Các bạn muốn mua sản phẩm chỉ cần hoàn thành đăng ký mua hàng, chúng tôi sẽ liên lạc với bạn để giao hàng trong thời gian sớm nhất.</p>
-
-                                                    <p style="text-align: justify;">Mua hàng các sản phẩm online của Thiên Trường có an toàn không?</p>
-
-                                                    <p style="text-align: justify;">- Tuyệt đối an toàn, khi mua hàng tại Thiên Trường các bạn hoàn toàn yên tâm, tránh những rủi ro không mong muốn như chuyển hàng chậm, chuyển hàng sai mẫu mã kích cỡ. Với những cam kết mạnh mẽ của mình hi vọng quý khách hàng sẽ cảm thấy thoải mái nhất khi mua hàng của công ty chúng tôi.</p>
+                                                    <p style="text-align: justify;">@item.MetaDesc</p>
 
                                                     <p class="dtcvmodetail" style="display: none;" onclick="expand()"><span>Đọc thêm <i>▾</i></span></p>
-                                                    <p class="dtchide" style="display: block;" onclick="collapse()"><span>Rút gọn <i>▴</i></span></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -553,114 +511,6 @@
 
                                                     <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/don-ganh-ta-22m-lap-ta-phi-50.html">Đòn gánh tạ 2,2m lắp tạ phi 50</a></h4>
                                                     <div class="price"><span class="price-new">1,800,000đ</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" style="width: 268px;">
-                                        <div class="item">
-                                            <ul>
-                                                <li>
-                                                    <img alt="Tạ tay nhựa (10.000/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/Ta-tay-nhua.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-tay-nhua.html">Tạ tay nhựa (10.000/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">10,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Bánh tạ gang (28.000/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/banh-ta-gang.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/banh-ta-gang.html">Bánh tạ gang (28.000/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">28,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Đòn tạ tay" src="https://www.thethaothientruong.vn/uploads/thumbs/don-ta-tay.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/don-ta-tay-ngan.html">Đòn tạ tay</a></h4>
-                                                    <div class="price"><span class="price-new">150,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Tạ bánh nhựa (8.500/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/tabanhnhua.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-banh-nhua.html">Tạ bánh nhựa (8.500/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">8,500đ</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 268px;">
-                                        <div class="item">
-                                            <ul>
-                                                <li>
-                                                    <img alt="Tạ tay Brosman (70.000/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/Ta-tay-Brosman.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-tay-brosman.html">Tạ tay Brosman (70.000/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">70,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Tạ tay điều chỉnh Bowflex 1090 (40,8kg / 1 quả)" src="https://www.thethaothientruong.vn/uploads/thumbs/ta-tay-dieu-chinh-bowflex-1090.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-tay-dieu-chinh-bowflex-1090.html">Tạ tay điều chỉnh Bowflex 1090 (40,8kg / 1 quả)</a></h4>
-                                                    <div class="price"><span class="price-old">9,450,000đ</span>  <span class="price-new">7,800,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Tạ gang lỗ phi 50 (30.000/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/Ta-gang-lo-phi-50.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-gang-lo-phi-50.html">Tạ gang lỗ phi 50 (30.000/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">30,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Bộ tạ tập tay Bowflex 552" src="https://www.thethaothientruong.vn/uploads/thumbs/Bo-ta-tap-tay-Bowflex-552.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/bo-ta-tap-tay-bowflex-552.html">Bộ tạ tập tay Bowflex 552</a></h4>
-                                                    <div class="price"><span class="price-old">14,950,000đ</span>  <span class="price-new">11,315,000đ</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 268px;">
-                                        <div class="item">
-                                            <ul>
-                                                <li>
-                                                    <img alt="Bóng tạ thể lực" src="https://www.thethaothientruong.vn/uploads/thumbs/Bong-ta-tap-the-luc.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/bong-ta-the-luc.html">Bóng tạ thể lực</a></h4>
-                                                    <div class="price"><span class="price-new">345,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Đòn gánh tạ 2,2m lắp tạ phi 50" src="https://www.thethaothientruong.vn/uploads/thumbs/Don-ganh-ta-22m-lap-ta-phi-50.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/don-ganh-ta-22m-lap-ta-phi-50.html">Đòn gánh tạ 2,2m lắp tạ phi 50</a></h4>
-                                                    <div class="price"><span class="price-new">1,800,000đ</span></div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 268px;">
-                                        <div class="item">
-                                            <ul>
-                                                <li>
-                                                    <img alt="Tạ tay nhựa (10.000/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/Ta-tay-nhua.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-tay-nhua.html">Tạ tay nhựa (10.000/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">10,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Bánh tạ gang (28.000/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/banh-ta-gang.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/banh-ta-gang.html">Bánh tạ gang (28.000/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">28,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Đòn tạ tay" src="https://www.thethaothientruong.vn/uploads/thumbs/don-ta-tay.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/don-ta-tay-ngan.html">Đòn tạ tay</a></h4>
-                                                    <div class="price"><span class="price-new">150,000đ</span></div>
-                                                </li>
-                                                <li>
-                                                    <img alt="Tạ bánh nhựa (8.500/Kg)" src="https://www.thethaothientruong.vn/uploads/thumbs/tabanhnhua.jpg" width="85" height="70">
-
-                                                    <h4><a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/ta-banh-nhua.html">Tạ bánh nhựa (8.500/Kg)</a></h4>
-                                                    <div class="price"><span class="price-new">8,500đ</span></div>
                                                 </li>
                                             </ul>
                                         </div>
@@ -778,6 +628,7 @@
         color: #B10707;
         font-size: 14px;
         font-weight: bold;
+        padding-left:5px;
     }
     #sidebar .widget .widget-title {
         font-size: 16px;

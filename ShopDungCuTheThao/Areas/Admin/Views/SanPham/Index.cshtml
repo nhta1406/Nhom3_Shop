@@ -2,6 +2,21 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            toastr.success('@TempData["SuccessMessage"]');
+        });
+    </script>
 }
 @section IndexSanPham {
     <div class="card bg-white">

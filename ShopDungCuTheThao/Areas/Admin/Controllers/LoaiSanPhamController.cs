@@ -56,15 +56,13 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug=XString.Str_Slug(loaiSanPham.Name);
                 loaiSanPham.Slug= slug;
                 loaiSanPham.CreateAt = DateTime.Now;
-                if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out int userId))
-                {
-                    loaiSanPham.CreateBy = userId;
-                    loaiSanPham.UpdateBy = userId;
-                }
+                loaiSanPham.CreateBy = Session["UserNameAdmin"].ToString();
+                loaiSanPham.Status = 1;
                 ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "CateID", "Name", 0);
                 ViewBag.ListOrder = new SelectList(db.loaiSanPham.ToList(), "Orders", "Name", 0);
                 db.loaiSanPham.Add(loaiSanPham);
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Loại Sản phẩm đã được tạo thành công.";
                 return RedirectToAction("Index","LoaiSanPham");
             }
             return View(loaiSanPham);
@@ -90,12 +88,15 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CateID,Name,ParentID,Orders,MetaKey,MetaDesc,CreateBy,Slug,CreateAt,UpdateBy,UpdateAt,Status")] LoaiSanPham loaiSanPham)
+        public ActionResult Edit(LoaiSanPham loaiSanPham)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(loaiSanPham).State = EntityState.Modified;
+                loaiSanPham.UpdateAt = DateTime.Now;
+                loaiSanPham.UpdateBy = Session["UserNameAdmin"].ToString();
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Loại Sản phẩm đã được sửa thành công.";
                 return RedirectToAction("Index");
             }
             return View(loaiSanPham);
@@ -124,6 +125,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             LoaiSanPham loaiSanPham = db.loaiSanPham.Find(id);
             db.loaiSanPham.Remove(loaiSanPham);
             db.SaveChanges();
+            TempData["SuccessMessage"] = "Loại Sản phẩm đã xóa tạo thành công.";
             return RedirectToAction("Index");
         }
 

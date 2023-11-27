@@ -20,9 +20,9 @@ namespace ShopDungCuTheThao.Models
         public int Number { get; set; }
         public double Price { get; set; }
         public double PriceSale { get; set; }
-        public int? CreateBy { get; set; }
+        public string CreateBy { get; set; }
         public DateTime? CreateAt { get; set; }
-        public int? UpdateBy { get; set; }
+        public string UpdateBy { get; set; }
         public DateTime? UpdateAt { get; set; }
         public int Status { get; set; }
         public string CatName { get; set; }

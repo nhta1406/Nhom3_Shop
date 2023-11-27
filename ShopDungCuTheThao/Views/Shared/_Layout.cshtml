@@ -134,7 +134,14 @@
                 <li>
                     <div class="hover-container" style="padding-top: 15px; padding-left: 20px;">
                         <a class="hover-container" href="@Url.Action("Dashboard", "TaiKhoan")" style=" text-decoration: none;">
-                            <img src="~/Public/avatar/@Session["AvatarKH"]" class="img-xs rounded-circle" style="width:25px;height:25px">
+                            @if (Session["AvatarKH"] == null)
+                            {
+                                <img class="img-xs rounded-circle" src="~/Public/avatar/defaultAVT.jpg" alt="" style="width: 25px; height: 25px;">
+                            }
+                            else
+                            {
+                                <img class="img-xs rounded-circle" src="~/Public/avatar/@Session["AvatarKH"]" alt="" style="width: 25px; height: 25px;">
+                            }
                             <span class="hover-text" style="padding-left:5px">@Session["UserName"]</span>
                         </a>
                         <div class="tooltip">

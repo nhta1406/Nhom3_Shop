@@ -10,6 +10,9 @@ using System;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
 using System.Collections.Generic;
+using System.IO;
+using System.Web;
+using System.Net.PeerToPeer;
 
 namespace ShopDungCuTheThao.Controllers
 {
@@ -63,11 +66,22 @@ namespace ShopDungCuTheThao.Controllers
                     Session["UserID"] = user.AccountID.ToString();
                     Session["UserName"] = user.UserName.ToString();
                     Session["FullName"] = user.Name.ToString();
-                    if (user.Phone != null && user.Email != null && user.Avatar != null) 
+                    if (user.Phone != null) 
                     {
                         Session["Phone"] = user.Phone.ToString();
+                    }
+                    if (user.Email != null)
+                    {
                         Session["Email"] = user.Email.ToString();
+
+                    }
+                    if (user.Avatar != null)
+                    {
                         Session["AvatarKH"] = user.Avatar.ToString();
+                    }
+                    if (user.Birthday != null)
+                    {
+                        Session["Birthday"] = user.Birthday.ToString();
                     }
                     return RedirectToAction("Dashboard", "TaiKhoan");
                 }
@@ -183,12 +197,86 @@ namespace ShopDungCuTheThao.Controllers
                     {
                         user.Phone = Session["Phone"].ToString();
                     }
-                    user.Birthday= model.Birthday;
+                    if (user.Birthday == null) 
+                    {
+                        user.Birthday = model.Birthday;
+                    }
+                    else
+                    {
+                        user.Birthday = Convert.ToDateTime(Session["Birthday"]);
+                    }
                     await db.SaveChangesAsync();
                 }
                 return RedirectToAction("Dashboard", "TaiKhoan");
             }
+            else
+            {
+                ModelState.AddModelError("", "Vui lòng nhập đầy đủ thông tin.");
+                return View(model);
+            }
+        }
+        //public ActionResult UpdateAvatar()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> UpdateAvatar(Models.UpdateAvatar model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        string userId = (string)Session["UserName"];
+        //        var user = await db.taiKhoan.FirstOrDefaultAsync(a => a.UserName == userId && a.RoleID == 2);
+        //        if (user != null)
+        //        {
+        //            user.Avatar = model.Avatar;
+        //            await db.SaveChangesAsync();
+        //        }
+        //        return RedirectToAction("Dashboard", "TaiKhoan");
+        //    }
+        //    return View(model);
+        //}
+        public ActionResult UploadAvatar()
+        {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult UploadAvatar(HttpPostedFileBase avatarFile, int accountId)
+        {
+            if (avatarFile != null && avatarFile.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(avatarFile.FileName);
+                var uniqueFileName = GetUniqueFileName(fileName);
+                var filePath = Path.Combine(Server.MapPath("~/Public/avatar/"), uniqueFileName);
+                avatarFile.SaveAs(filePath);
+                var avatarPath =uniqueFileName;
+
+                var account = db.taiKhoan.FirstOrDefault(x => x.AccountID == accountId);
+                if (account != null)
+                {
+                    account.Avatar = avatarPath;
+                    Session["AvatarKH"] = account.Avatar;
+                    db.SaveChanges();
+                    return Json(new { success = true, filePath = avatarPath });
+                }
+                else
+                {
+                    return Json(new { success = false, error = "Account not found." });
+                }
+            }
+            else
+            {
+                return Json(new { success = false, error = "No file uploaded." });
+            }
+        }
+        private string GetUniqueFileName(string fileName)
+        {
+            var extension = Path.GetExtension(fileName);
+            var uniqueFileName = string.Format("{0}{1}", Guid.NewGuid().ToString("N"), extension);
+            return uniqueFileName;
+        }
+
     }
 }

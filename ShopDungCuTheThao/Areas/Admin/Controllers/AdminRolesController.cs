@@ -53,6 +53,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             {
                 db.phanQuyen.Add(roles);
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Phân Quyền đã được tạo thành công.";
                 return RedirectToAction("Index");
             }
 
@@ -85,6 +86,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             {
                 db.Entry(roles).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Phân Quyền đã được sửa thành công.";
                 return RedirectToAction("Index");
             }
             return View(roles);
@@ -113,6 +115,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             Roles roles = db.phanQuyen.Find(id);
             db.phanQuyen.Remove(roles);
             db.SaveChanges();
+            TempData["SuccessMessage"] = "Phân Quyền đã được xóa thành công.";
             return RedirectToAction("Index");
         }
 

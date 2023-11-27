@@ -16,9 +16,16 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
     [RedirectToLogin]
     public class SanPhamController : Controller
     {
+        //public  INotyfService notyfService { get; }
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
 
         // GET: Admin/SanPham
+        //private readonly IToastNotification _toastNotification;
+
+        //public SanPhamController(IToastNotification toastNotification)
+        //{
+        //    _toastNotification = toastNotification;
+        //}
         public ActionResult Index()
         {
             var list = db.sanPham.Join(
@@ -96,11 +103,8 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug = XString.Str_Slug(model.Name);
                 model.Slug = slug;
                 model.CreateAt = DateTime.Now;
-                if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out int userId))
-                {
-                    model.CreateBy = userId;
-                    model.UpdateBy = userId;
-                }
+                model.CreateAt = DateTime.Now;
+                model.CreateBy = Session["UserNameAdmin"].ToString();
                 var Img = Request.Files["fileimg"];
                 string[] FileExtension = { ".jpg", ".png", ".gif" };
                 if (Img.ContentLength != 0)
@@ -116,6 +120,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 ViewBag.ListCat = new SelectList(db.loaiSanPham.ToList(), "CateID", "Name", 0);
                 db.sanPham.Add(model);
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Sản phẩm đã được tạo thành công.";
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -151,10 +156,10 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 string slug = XString.Str_Slug(model.Name);
                 model.Slug = slug;
                 model.UpdateAt = DateTime.Now;
-                if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out int userId))
-                {
-                    model.UpdateBy = userId;
-                }
+                //if (Session["UserNameAdmin"] != null && int.TryParse(Session["UserNameAdmin"].ToString(), out int userId))
+                //{
+                //    model.UpdateBy = userId;
+                //}
                 if (fileimg != null && fileimg.ContentLength > 0)
                 {
                     string[] FileExtension = { ".jpg", ".png", ".gif" };
@@ -168,7 +173,10 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                     }
                 }
                 db.Entry(model).State = EntityState.Modified;
+                model.UpdateAt = DateTime.Now;
+                model.UpdateBy = Session["UserNameAdmin"].ToString();
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Sản phẩm đã được sửa thành công.";
                 return RedirectToAction("Index");
             }
             return View(model);
@@ -197,6 +205,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             SanPham sanPham = db.sanPham.Find(id);
             db.sanPham.Remove(sanPham);
             db.SaveChanges();
+            TempData["SuccessMessage"] = "Sản phẩm đã được xóa thành công.";
             return RedirectToAction("Index");
         }
 

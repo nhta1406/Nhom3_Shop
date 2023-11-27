@@ -20,10 +20,10 @@ namespace ShopDungCuTheThao.Models
         public string MetaKey { get; set; }
         [Required]
         public string MetaDesc { get; set; }
-        public int? CreateBy { get; set; }
+        public string CreateBy { get; set; }
         public string Slug { get; set; }
         public DateTime? CreateAt { get; set; }
-        public int? UpdateBy { get; set; }
+        public string UpdateBy { get; set; }
         public DateTime? UpdateAt { get; set; }
         public int Status { get; set; }
     }

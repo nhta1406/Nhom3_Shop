@@ -3,6 +3,21 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
+    <style>
+        .table-hover tbody tr:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            toastr.success('@TempData["SuccessMessage"]');
+        });
+    </script>
 }
 @section IndexLoaiSanPham {
     <div class="card bg-white">
@@ -56,25 +71,22 @@
             <table class="table">
                 <tr>
                     <th>
-                        Tên Loại 
-                    </th>
-                    <th>
                         ID
                     </th>
                     <th>
-                        Thứ Tự
+                        Tên Loại
                     </th>
                     <th>
-                        TỪ KHÓA
+                        Từ Khóa
                     </th>
                     <th>
-                        Mô Tả Loại
-                    </th>
-                    <th>
-                        Tạo Bởi
+                        Mô Tả
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Slug)
+                    </th>
+                    <th>
+                        Tạo Bởi
                     </th>
                     <th>
                         Tạo Vào Lúc
@@ -96,13 +108,10 @@
                     <tr>
                         <td>
 
+                            @Html.DisplayFor(modelItem => item.CateID)
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ParentID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Orders)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.MetaKey)
@@ -111,43 +120,19 @@
                             @Html.DisplayFor(modelItem => item.MetaDesc)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.CreateBy)
-                        </td>
-                        <td>
                             @Html.DisplayFor(modelItem => item.Slug)
                         </td>
                         <td>
-                            @if (item.CreateAt != null)
-                            {
-                                var CreateAtAtString = item.CreateAt.ToString();
-                                if (CreateAtAtString.Length > 10)
-                                {
-                                    <span>@CreateAtAtString.Substring(0, 10)</span>
-                                }
-                                else
-                                {
-                                    @CreateAtAtString
-                                }
-                            }
-                            @*@Html.DisplayFor(modelItem => item.CreateAt)*@
+                            @Html.DisplayFor(modelItem => item.CreateBy)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateAt)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.UpdateBy)
                         </td>
                         <td>
-                            @if (item.UpdateAt != null)
-                            {
-                                var UpdateAtAtString = item.CreateAt.ToString();
-                                if (UpdateAtAtString.Length > 10)
-                                {
-                                    <span>@UpdateAtAtString.Substring(0, 10)</span>
-                                }
-                                else
-                                {
-                                    @UpdateAtAtString
-                                }
-                            }
-                            @*@Html.DisplayFor(modelItem => item.UpdateAt)*@
+                            @Html.DisplayFor(modelItem => item.UpdateAt)
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Status)
@@ -163,5 +148,5 @@
             </table>
         </div>
     </div>
-    }
+}
     }

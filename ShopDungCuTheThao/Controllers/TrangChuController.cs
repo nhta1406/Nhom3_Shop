@@ -12,6 +12,7 @@ namespace ShopDungCuTheThao.Controllers
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
         public ActionResult Index()
         {
+            ViewBag.Test = db.sanPham.Count();
             if (User.Identity.IsAuthenticated)
             {
                 var username = User.Identity.Name;
