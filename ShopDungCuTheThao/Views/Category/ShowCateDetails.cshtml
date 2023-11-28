@@ -1,0 +1,1153 @@
+﻿@model IEnumerable< ShopDungCuTheThao.Models.LoaiSanPham>
+@{
+    ViewBag.Title = "ShowCateDetails";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+    <style>
+        #mainnav {
+            /* background: rgb(255, 255, 255);*/
+            border-top: 1px solid rgb(245, 245, 245);
+            height: 46px;
+            white-space: nowrap;
+            position: relative;
+            left: 120px;
+        }
+
+            #mainnav li :hover {
+                background-color: #e52222;
+                color: white !important;
+            }
+
+            #mainnav .nav li a {
+                padding: 11px 25px;
+                font-size: 13px;
+                display: block;
+            }
+
+            #mainnav .nav li.menu-item-47 a {
+                padding: 7px 15px !important;
+            }
+
+            #mainnav .nav span {
+                border: 0 none;
+                font-family: inherit;
+                font-size: 100%;
+                font-style: inherit;
+                font-weight: inherit;
+                margin: 0;
+                outline: 0 none;
+                padding: 0;
+                vertical-align: baseline;
+            }
+
+            #mainnav .nav li {
+                overflow: hidden
+            }
+
+        .sub-menu {
+            display: none;
+        }
+
+        .haschild:hover .sub-menu {
+            display: block;
+        }
+
+            .haschild:hover .sub-menu li {
+                background-color: #e52222;
+            }
+
+                .haschild:hover .sub-menu li a {
+                    color: black;
+                }
+    </style>
+    <style>
+        #mainnav {
+            /* background: rgb(255, 255, 255);*/
+            border-top: 1px solid rgb(245, 245, 245);
+            height: 46px;
+            white-space: nowrap;
+            position: relative;
+            left: 120px;
+        }
+
+            #mainnav li :hover {
+                background-color: #e52222;
+                color: white !important;
+            }
+
+            #mainnav .nav li a {
+                padding: 11px 25px;
+                font-size: 13px;
+                display: block;
+            }
+
+            #mainnav .nav li.menu-item-47 a {
+                padding: 7px 15px !important;
+            }
+
+            #mainnav .nav span {
+                border: 0 none;
+                font-family: inherit;
+                font-size: 100%;
+                font-style: inherit;
+                font-weight: inherit;
+                margin: 0;
+                outline: 0 none;
+                padding: 0;
+                vertical-align: baseline;
+            }
+
+            #mainnav .nav li {
+                overflow: hidden
+            }
+
+        .sub-menu {
+            display: none;
+        }
+
+        .haschild:hover .sub-menu {
+            display: block;
+        }
+
+            .haschild:hover .sub-menu li {
+                background-color: #e52222;
+            }
+
+                .haschild:hover .sub-menu li a {
+                    color: black;
+                }
+    </style>
+}
+
+<div id="mainwrap">
+    <div id="mainnav" class="hidden">
+        <div class="container">
+            <div class="navbar-header">
+                <button data-effect="off-canvas-effect-4" data-nav="#t3-off-canvas" data-pos="left" type="button" class="btn-inverse off-canvas-toggle visible-sm visible-xs">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="mobile-search visible-sm visible-xs">
+                    <form method="post" action="https://www.thethaothientruong.vn/shop/search/">
+                        <input class="form-control field" name="site_search" id="s" placeholder="tìm kiếm sản phẩm..." type="text">
+                        <input class="btn-search" src="https://www.thethaothientruong.vn/public/frontend/images/icon-search.png" alt="Tìm kiếm" type="image">
+                    </form>
+                </div>
+            </div>
+            <nav class="hidden-sm hidden-xs">
+                <ul class="nav"><li class="menu-item-47"><a class="" href="https://www.thethaothientruong.vn"><i class="fa fa-home"></i></a></li><li class="menu-item-1"><a class="" href="https://www.thethaothientruong.vn/may-chay-bo/">Máy Chạy Bộ</a></li><li class="menu-item-9 haschild"><a class="parent " href="https://www.thethaothientruong.vn/may-tap-the-duc/"><span>Máy Tập Thể Dục <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-3"><a class="" href="https://www.thethaothientruong.vn/may-tap-the-duc/may-tap-co-bung/">Máy Tập Cơ Bụng</a></li><li class="menu-item-2"><a class="" href="https://www.thethaothientruong.vn/may-tap-the-duc/xe-dap-the-duc/">Xe Đạp Tập Thể Dục</a></li><li class="menu-item-79"><a class="" href="https://www.thethaothientruong.vn/	thiet-bi-phuc-hoi-chuc-nang">Thiết Bị Phục Hồi Chức Năng</a></li><li class="menu-item-51"><a class="" href="https://www.thethaothientruong.vn/may-tap-the-duc/may-tap-co-chan-di-bo/">Máy Tập Chân</a></li></ul></li><li class="menu-item-4 haschild"><a class="parent " href="https://www.thethaothientruong.vn/dung-cu-the-hinh/"><span>Dụng Cụ Tập Gym <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-88"><a class="" href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ghe-tap-ta/">Ghế Tập Tạ</a></li><li class="menu-item-48"><a class="" href="https://www.thethaothientruong.vn/dung-cu-the-hinh/gian-tap-ta/">Giàn Tạ Đa Năng</a></li><li class="menu-item-52"><a class="" href="https://www.thethaothientruong.vn/dung-cu-the-hinh/xa-don-xa-kep/">Xà Đơn - Xà Kép</a></li><li class="menu-item-53"><a class="" href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ta-tay-ta-tap-tay/">Tạ Tay - Tạ Đơn</a></li><li class="menu-item-54"><a class="" href="https://www.thethaothientruong.vn/dung-cu-the-hinh/ghe-cong-tap-bung/">Ghế Tập Bụng</a></li><li class="menu-item-55"><a class="" href="https://www.thethaothientruong.vn/dung-cu-the-hinh/dung-cu-tap-the-hinh-khac/">Phụ Kiện Tập Gym</a></li></ul></li><li class="menu-item-11 haschild"><a class="parent " href="https://www.thethaothientruong.vn/dung-cu-vo-thuat-the-luc/"><span>Dụng Cụ Võ Thuật <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-94"><a class="" href="https://www.thethaothientruong.vn/dung-cu-vo-thuat-the-luc/tru-bao-cat-dam-boc">Trụ &amp; Bao Cát Đấm Bốc</a></li><li class="menu-item-95"><a class="" href="https://www.thethaothientruong.vn/dung-cu-vo-thuat-the-luc/gang-tay-boxing">Găng Tay Boxing</a></li><li class="menu-item-96"><a class="" href="https://www.thethaothientruong.vn/dung-cu-vo-thuat-the-luc/dich-da-dam-boxing">Đích Đá - Đích Đấm Boxing</a></li><li class="menu-item-97"><a class="" href="https://www.thethaothientruong.vn/dung-cu-vo-thuat-the-luc/bao-ho-vo-thuat/">Thiết Bị Bảo Hộ Võ Thuật</a></li><li class="menu-item-98"><a class="" href="https://www.thethaothientruong.vn/dung-cu-vo-thuat-the-luc/dung-cu-the-luc/">Dụng Cụ Tập Thể Lực</a></li><li class="menu-item-99"><a class="" href="https://www.thethaothientruong.vn/dung-cu-vo-thuat-the-luc/con-nhi-khuc/">Côn Nhị Khúc</a></li></ul></li><li class="menu-item-18 haschild"><a class="parent " href="https://www.thethaothientruong.vn/mon-bong-ban/"><span>Dụng Cụ Bóng Bàn <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-33"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ban/ban-bong-ban/">Bàn Bóng Bàn</a></li><li class="menu-item-36"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ban/vot-va-mat-bong-ban/">Vợt Bóng Bàn</a></li><li class="menu-item-100"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ban/cot-vot-bong-ban/">Cốt Vợt Bóng Bàn</a></li><li class="menu-item-90"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ban/mat-vot-bong-ban/">Mặt Vợt Bóng Bàn</a></li><li class="menu-item-34"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ban/luoi-va-qua-bong-ban/">Lưới và Quả Bóng Bàn</a></li><li class="menu-item-35"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ban/may-ban-bong-ban-va-dung-cu-khac/">Máy Bắn Bóng Bàn</a></li></ul></li><li class="menu-item-8 haschild"><a class="parent " href="https://www.thethaothientruong.vn/thiet-bi-day-hoc/"><span>Thiết Bị Dạy Học <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-93"><a class="" href="https://www.thethaothientruong.vn/mon-giao-duc-the-chat-thong-tu-37-38-39-moi-nhat/">MÔN GIÁO DỤC THỂ CHẤT THÔNG TƯ 37.38.39 (MỚI NHẤT)</a></li></ul></li><li class="menu-item-10 haschild"><a class="parent " href="https://www.thethaothientruong.vn/dung-cu-the-thao-ngoai-troi/"><span>Dụng Cụ Ngoài Trời <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-105"><a class="" href="https://www.thethaothientruong.vn/may-tap-cong-vien-hq/">Máy Tập Công Viên HQ</a></li><li class="menu-item-101"><a class="" href="https://www.thethaothientruong.vn/may-tap-cong-vien-vifa-tru-doi/">Máy Tập Công Viên Vifa (Trụ Đôi)</a></li><li class="menu-item-102"><a class="" href="https://www.thethaothientruong.vn/may-tap-cong-vien-vifa-tru-don-d140/">Máy Tập Công Viên Vifa (Trụ Đơn D140)</a></li><li class="menu-item-104"><a class="" href="https://www.thethaothientruong.vn/may-tap-chung-cu-san-vuon-vifa">Máy Tập Chung Cư - Sân Vườn Vifa</a></li><li class="menu-item-103"><a class="" href="https://www.thethaothientruong.vn/may-tap-cong-vien-vifa-tru-don-d114">Máy Tập Công Viên Vifa (Trụ Đơn D114)</a></li><li class="menu-item-106"><a class="" href="https://www.thethaothientruong.vn/may-tap-cong-vien-sodex-sport/">Máy Tập Công Viên Sodex Sport</a></li></ul></li><li class="menu-item-46 haschild"><a class="parent " href="#"><span>Danh Mục Khác <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-6"><a class="" href="https://www.thethaothientruong.vn/ghe-massage/">Ghế Massage</a></li><li class="menu-item-107 haschild"><a class="parent " href="https://www.thethaothientruong.vn/bi-lac-bi-a/"><span>Bi Lắc - Bi A <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-108"><a class="" href="https://www.thethaothientruong.vn/bi-lac-bi-a/ban-bi-lac/">Bàn Bi Lắc</a></li></ul></li><li class="menu-item-5 haschild"><a class="parent " href="https://www.thethaothientruong.vn/dung-cu-tap-yoga/"><span>Dụng Cụ Tập Yoga <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-22"><a class="" href="https://www.thethaothientruong.vn/dung-cu-tap-yoga/tham-tap-yoga-bong-yoga/">Thảm Tập Yoga</a></li><li class="menu-item-7"><a class="" href="https://www.thethaothientruong.vn/dung-cu-tap-yoga/bong-tap-yoga/">Bóng Tập Yoga</a></li></ul></li><li class="menu-item-56 haschild"><a class="parent " href="https://www.thethaothientruong.vn/dung-cu-phong-tap/"><span>Dụng Cụ Phòng Gym <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-57"><a class="" href="https://www.thethaothientruong.vn/dung-cu-phong-tap/phong-tap-hang-viet-nam/">Phòng Tập Hàng Việt Nam</a></li><li class="menu-item-58"><a class="" href="https://www.thethaothientruong.vn/dung-cu-phong-tap/phong-tap-impulse/">Máy Tập Gym Impulse</a></li></ul></li><li class="menu-item-16 haschild"><a class="parent " href="https://www.thethaothientruong.vn/mon-bong-da/"><span>Dụng Cụ Bóng Đá <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-59"><a class="" href="https://www.thethaothientruong.vn/mon-bong-da/qua-bong-da/">Quả Bóng Đá</a></li><li class="menu-item-60"><a class="" href="https://www.thethaothientruong.vn/mon-bong-da/khung-thanh-va-luoi-bong-da/">Khung Thành và Lưới Bóng Đá</a></li><li class="menu-item-61"><a class="" href="https://www.thethaothientruong.vn/mon-bong-da/phu-kien-bong-da/">Phụ Kiện Bóng Đá</a></li></ul></li><li class="menu-item-20 haschild"><a class="parent " href="https://www.thethaothientruong.vn/mon-cau-long/"><span>Dụng Cụ Cầu Lông <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-62"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/vot-cau-long-proace/">Vợt Cầu Lông Proace</a></li><li class="menu-item-64"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/vot-cau-long-yonex-tap-luyen/">Vợt Cầu Lông Tập Luyện</a></li><li class="menu-item-65"><a class="" href="https://www.thethaothientruong.vn/may-cang-vot-cau-long/">Máy Căng Vợt Cầu Lông</a></li><li class="menu-item-66"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/tru-luoi-va-may-cang-vot/">Trụ - Lưới Cầu Lông</a></li><li class="menu-item-67"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/qua-cau-long/">Quả Cầu Lông</a></li><li class="menu-item-68"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/day-dan-vot-cau-long/">Dây Đan Vợt Cầu Lông</a></li><li class="menu-item-69"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/phu-kien-tham-san-cau-long/">Thảm Sân Cầu Lông</a></li><li class="menu-item-32"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/vot-cau-long-fleet/">Vợt Cầu Lông Fleet</a></li><li class="menu-item-31"><a class="" href="https://www.thethaothientruong.vn/mon-cau-long/vot-cau-long-yonex/">Vợt Cầu Lông Yonex</a></li></ul></li><li class="menu-item-27 haschild"><a class="parent " href="https://www.thethaothientruong.vn/mon-bong-ro/"><span>Dụng Cụ Bóng Rổ <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-71"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ro/tru-vanh-va-luoi-bong-ro/">Trụ - Vành - Lưới Bóng Rổ</a></li><li class="menu-item-70"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ro/qua-bong-ro/">Quả Bóng Rổ</a></li><li class="menu-item-23"><a class="" href="https://www.thethaothientruong.vn/mon-bong-ro/phu-kien-bong-ro-khac/">Phụ Kiện Bóng Rổ</a></li></ul></li><li class="menu-item-19 haschild"><a class="parent " href="https://www.thethaothientruong.vn/mon-bong-chuyen/"><span>Dụng Cụ Bóng Chuyền <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-37"><a class="" href="https://www.thethaothientruong.vn/mon-bong-chuyen/qua-bong-chuyen/">Quả Bóng Chuyền</a></li><li class="menu-item-40"><a class="" href="https://www.thethaothientruong.vn/mon-bong-chuyen/tru-va-luoi-bong-chuyen/">Trụ và Lưới Bóng Chuyền</a></li><li class="menu-item-44"><a class="" href="https://www.thethaothientruong.vn/mon-bong-chuyen/phu-kien-bong-chuyen/">Phụ Kiện Bóng Chuyền</a></li></ul></li><li class="menu-item-29"><a class="" href="https://www.thethaothientruong.vn/dung-cu-mon-bong-chay/">Dụng Cụ Bóng Chày</a></li><li class="menu-item-28 haschild"><a class="parent " href="https://www.thethaothientruong.vn/mon-tennis/"><span>Dụng Cụ Tennis - Pickleball <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-45"><a class="" href="https://www.thethaothientruong.vn/mon-tennis/tru-luoi-phu-kien-tennis/">Trụ Tennis - Lưới Tennis</a></li><li class="menu-item-72"><a class="" href="https://www.thethaothientruong.vn/mon-tennis/bong-tennis/">Bóng Tennis</a></li><li class="menu-item-89"><a class="" href="https://www.thethaothientruong.vn/mon-tennis/vot-tennis/">Vợt Tennis</a></li><li class="menu-item-110 haschild"><a class="parent " href="https://www.thethaothientruong.vn/vot-pickleball"><span>Vợt Pickleball <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-111"><a class="" href="https://www.thethaothientruong.vn/vot-pickleball/ama-sport">Pickleball AMA Sport</a></li><li class="menu-item-112"><a class="" href="https://www.thethaothientruong.vn/vot-pickleball/pickleball-niupipo">Pickleball Niupipo</a></li><li class="menu-item-115"><a class="" href="https://www.thethaothientruong.vn/vot-pickleball/boer-sport/">Pickleball Boer Sport</a></li></ul></li><li class="menu-item-113"><a class="" href="https://www.thethaothientruong.vn/tru-luoi-pickleball">Trụ Lưới Pickleball</a></li><li class="menu-item-114"><a class="" href="https://www.thethaothientruong.vn/bong-pickleball">Bóng Pickleball</a></li></ul></li><li class="menu-item-25 haschild"><a class="parent " href="https://www.thethaothientruong.vn/mon-boi-loi/"><span>Dụng Cụ Bơi Lội <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-73"><a class="" href="https://www.thethaothientruong.vn/mon-boi-loi/kinh-boi/">Kính Bơi</a></li><li class="menu-item-42"><a class="" href="https://www.thethaothientruong.vn/mon-boi-loi/mu-boi-bit-tai-boi/">Mũ Bơi</a></li><li class="menu-item-43"><a class="" href="https://www.thethaothientruong.vn/mon-boi-loi/be-boi-phao-boi/">Bể Bơi - Phao Bơi</a></li></ul></li><li class="menu-item-30 haschild"><a class="parent " href="https://www.thethaothientruong.vn/cup-va-huy-chuong/"><span>Cúp - Huy Chương - Kỷ Niệm Chương <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-38"><a class="" href="https://www.thethaothientruong.vn/cup-the-thao/">Cúp Thể Thao</a></li><li class="menu-item-39"><a class="" href="https://www.thethaothientruong.vn/cup-pha-le/">Cúp Pha Lê</a></li><li class="menu-item-41"><a class="" href="https://www.thethaothientruong.vn/huy-chuong-the-thao/">Huy Chương Thể Thao</a></li><li class="menu-item-83"><a class="" href="https://www.thethaothientruong.vn/ky-niem-chuong-mica/">Kỷ Niệm Chương Mica</a></li><li class="menu-item-82"><a class="" href="https://www.thethaothientruong.vn/ky-niem-chuong-italia/">Kỷ Niệm Chương Italia</a></li><li class="menu-item-81"><a class="" href="https://www.thethaothientruong.vn/ky-niem-chuong-luxury/">Kỷ Niệm Chương Luxury</a></li><li class="menu-item-74"><a class="" href="https://www.thethaothientruong.vn/co-luu-niem/">Cờ Lưu Niệm</a></li></ul></li><li class="menu-item-21 haschild"><a class="parent " href="https://www.thethaothientruong.vn/cham-soc-tham-my/"><span>Dụng Cụ Tập Thể Dục Thẩm Mỹ <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-76"><a class="" href="https://www.thethaothientruong.vn/cham-soc-tham-my/adidas/">Dụng Cụ Thể Thao Adidas</a></li></ul></li><li class="menu-item-109 haschild"><a class="parent " href="https://www.thethaothientruong.vn/dung-cu-svd-nha-thi-dau"><span>Dụng Cụ SVĐ - Nhà Thi Đấu <span class="caret"></span></span></a><ul class="nav"><li class="menu-item-24"><a class="" href="https://www.thethaothientruong.vn/mat-san-bai/">Sàn Thể Thao</a></li><li class="menu-item-91"><a class="" href="https://www.thethaothientruong.vn/ghe-khan-dai/">Ghế Khán Đài</a></li></ul></li><li class="menu-item-26"><a class="" href="https://www.thethaothientruong.vn/bang-diem/">Bảng Điểm Thể Thao</a></li></ul></li></ul>
+            </nav>
+        </div>
+    </div>	    <div id="main-body" class="clearfix">
+        <div class="breadcrumb" vocab="https://schema.org/" typeof="BreadcrumbList">
+            <div class="container">
+                <span property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" href="https://www.thethaothientruong.vn/"><span property="name">Trang chủ</span></a>
+                    <meta property="position" content="1">
+                </span> /
+
+                <span property="itemListElement" typeof="ListItem">
+                    <a property="item" typeof="WebPage" href="https://www.thethaothientruong.vn/may-tap-the-duc/"><span property="name">Máy Tập Thể Dục</span></a>
+                    <meta property="position" content="2">
+                </span> /
+                <span property="itemListElement" typeof="ListItem">
+                    <span property="name">Máy Tập Cơ Bụng</span>
+                    <meta property="position" content="3">
+                </span>
+
+
+            </div>
+        </div><div class="container">
+            <div id="layout-colleft">
+                <div id="sidebar">
+                    <div class="title-boloc visible-sm visible-xs"><a class="toogle-menu-filter">Bộ lọc <span class="pull-right"><i class="fa fa-plus"></i></span></a></div>
+                    <div class="boxfixed attribute-check ">
+                        <div class="filter-bar">
+                            <div class="box-produce">
+
+                                <div class="choosedfilter">
+                                    <span>Lọc: </span>
+                                    <div class="choosed">
+                                    </div>
+                                    <div>hoặc <a href="https://www.thethaothientruong.vn/may-tap-the-duc/may-tap-co-bung/" class="del">Máy Tập Cơ Bụng</a></div>
+                                </div>
+
+                                <div class="box-filter-check">
+                                    <div class="attribute-check">
+                                        <div id="chooseatt_0" class="attribute-block">
+                                            <div class="label-title"><span>Sắp xếp</span></div>
+                                            <div class="att-scroll">
+                                                <ul>
+                                                    <li><input type="radio" id="sort_ordering_desc" name="sort_by" class="sort_by" value="ordering-desc" checked="checked"> <label for="sort_ordering_desc">Bán chạy nhất</label></li>
+                                                    <li><input type="radio" id="sort_id_desc" name="sort_by" class="sort_by" value="id-desc"> <label for="sort_id_desc">Sản phẩm mới</label></li>
+                                                    <li><input type="radio" id="sort_price_asc" name="sort_by" class="sort_by" value="price-asc"> <label for="sort_price_asc">Giá tăng dần</label></li>
+                                                    <li><input type="radio" id="sort_price_desc" name="sort_by" class="sort_by" value="price-desc"> <label for="sort_price_desc">Giá giảm dần</label></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <div id="chooseatt_28" class="attribute-block clearfix">
+                                            <div class="label-title"><span>Phân loại</span></div>
+                                            <div class="att-scroll">
+                                                <ul>
+                                                    <li>
+                                                        <input type="radio" data-name="Dạng gập" name="28-attribute-check" id="sradio282" value="at_2">
+                                                        <label for="sradio282" class="label1">Dạng gập</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" data-name="Dạng trượt" name="28-attribute-check" id="sradio283" value="at_3">
+                                                        <label for="sradio283" class="label1">Dạng trượt</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" data-name="Con lăn" name="28-attribute-check" id="sradio2825" value="at_25">
+                                                        <label for="sradio2825" class="label1">Con lăn</label>
+                                                    </li>
+                                                </ul><input type="hidden" name="val_select[]" class="val_select" value="">
+                                            </div>
+                                        </div>
+
+                                        <div id="chooseatt_6" class="attribute-block clearfix">
+                                            <div class="label-title"><span>Mức giá</span></div>
+                                            <div class="att-scroll">
+                                                <ul>
+                                                    <li>
+                                                        <input type="radio" data-name="Dưới 500,000đ" name="6-attribute-check" id="sradio67" value="at_7">
+                                                        <label for="sradio67" class="label1">Dưới 500,000đ</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" data-name="500,000đ - 1 triệu" name="6-attribute-check" id="sradio68" value="at_8">
+                                                        <label for="sradio68" class="label1">500,000đ - 1 triệu</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" data-name="Từ 1 - 3 triệu" name="6-attribute-check" id="sradio69" value="at_9">
+                                                        <label for="sradio69" class="label1">Từ 1 - 3 triệu</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" data-name="Từ 3 - 5 triệu" name="6-attribute-check" id="sradio610" value="at_10">
+                                                        <label for="sradio610" class="label1">Từ 3 - 5 triệu</label>
+                                                    </li>
+                                                </ul><input type="hidden" name="val_select[]" class="val_select" value="">
+                                            </div>
+                                        </div>
+
+                                        <div id="chooseatt_18" class="attribute-block clearfix">
+                                            <div class="label-title"><span>Xuất xứ</span></div>
+                                            <div class="att-scroll">
+                                                <ul>
+                                                    <li>
+                                                        <input type="radio" data-name="Trung Quốc" name="18-attribute-check" id="sradio1819" value="at_19">
+                                                        <label for="sradio1819" class="label1">Trung Quốc</label>
+                                                    </li>
+                                                    <li>
+                                                        <input type="radio" data-name="Việt Nam" name="18-attribute-check" id="sradio1850" value="at_50">
+                                                        <label for="sradio1850" class="label1">Việt Nam</label>
+                                                    </li>
+                                                </ul><input type="hidden" name="val_select[]" class="val_select" value="">
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <script type="text/javascript">
+                                jQuery(document).ready(function () {
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_6 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 6;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_6 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_7 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 7;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_7 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_8 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 8;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_8 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_9 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 9;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_9 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_10 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 10;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_10 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_18 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 18;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_18 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_19 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 19;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_19 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_50 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 50;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_50 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_28 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 28;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_28 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_2 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 2;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_2 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_3 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 3;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_3 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    var select_att = null;
+                                    $('.attribute-check #chooseatt_25 input[type=radio]').click(function () {
+                                        select_att = this.value;
+                                        var type_attribute = 25;
+                                        $('#close_' + this.value).removeClass('hidden');
+                                        $('#chooseatt_25 .val_select').val(select_att);
+                                        var dataname = $(this).attr("data-name");
+                                        filter(dataname, type_attribute);
+                                    });
+
+                                    $('input[type=radio][name=sort_by]').change(function () {
+                                        filter(0, 0);
+                                    });
+                                });
+
+                                function remove_choosed(attribute_id) {
+                                    $('.choosed a[data-type="' + attribute_id + '"]').remove();
+                                    $('#chooseatt_' + attribute_id + ' .val_select').val('');
+                                    $('#chooseatt_' + attribute_id + ' input:radio').attr("checked", false);
+
+                                    //if( $('.choosed').empty() )
+                                    if ($('.choosed').html().trim()) {
+                                        $('#loader').removeClass('hidden');
+                                        var attribute = $("input[name='val_select[]']").map(function () { return $(this).val(); }).get();
+                                        var catid = 53;
+                                        var sort_by = $(".attribute-block input[type='radio'].sort_by:checked").val();
+                                        $.post("https://www.thethaothientruong.vn/product/filter/", { attribute: attribute, catid: catid, sort_by: sort_by },
+                                            function (data) {
+                                                $('#loader').addClass('hidden');
+                                                $('.pagination').remove();
+                                                html = data.return_data;
+                                                $(".product-grid .mod-products").html(html);
+                                            }, "json");
+                                    }
+                                    else {
+                                        window.location.reload();
+                                    }
+                                }
+
+                                function filter(dataname, type_attribute) {
+                                    if (dataname !== 0 && type_attribute !== 0) {
+                                        $('.choosed a[data-type="' + type_attribute + '"]').remove();
+                                        var td_productCode = '<a onclick="remove_choosed(' + type_attribute + ')" data-type="' + type_attribute + '" data-id=""><span>' + dataname + '</span><i class="fa fa-times"></i></a>';
+
+                                        $('.choosed').prepend(td_productCode);
+                                    }
+                                    //alert(1);
+
+                                    //var addedProductCodes = [];  //Move to above function
+                                    //addedProductCodes.push(td_productCode);
+                                    /* var td_productCode = '<a href="#" class="data-type-'+type_attribute+'" data-id=""><span>'+dataname+'</span><i class="fa fa-times"></i></a>';
+                                    var index = $.inArray(td_productCode, addedProductCodes);
+                                    if (index >= 0) {
+                                        alert("You already added this Product");
+                                    } else {
+                                    $('.choosed').prepend(td_productCode);
+                                        addedProductCodes.push(td_productCode);
+                                    }
+                                    */
+                                    $('#loader').removeClass('hidden');
+                                    var attribute = $("input[name='val_select[]']").map(function () { return $(this).val(); }).get();
+                                    var catid = 53;
+                                    var sort_by = $(".attribute-block input[type='radio'].sort_by:checked").val();
+
+                                    $.post("https://www.thethaothientruong.vn/product/filter/", { attribute: attribute, catid: catid, sort_by: sort_by },
+                                        function (data) {
+                                            $('#loader').addClass('hidden');
+                                            $('.pagination').remove();
+                                            html = data.return_data;
+                                            $(".product-grid .mod-products").html(html);
+                                            $('#load_more').addClass('hidden');
+                                        }, "json");
+                                }
+
+
+
+                            </script>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="main-content">
+                    <div class="clearfix">
+                        <div class="nz-div">
+                            @foreach (var pro in Model)
+                            {
+                                <h1 class="tde"><span class="null">@pro.Name</span></h1>
+                            }
+                            </div>
+                        <div class="box">
+                            <div class="product-grid">
+                                <div class="mod-products">
+                                    @foreach (var pro in Model)
+                                    {
+                                        @Html.Action("CateHome", "Category", new { @cateID =pro.CateID })
+                                    }
+                                    </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+        border: 0 none;
+        font-family: inherit;
+        font-size: 100%;
+        font-style: inherit;
+        font-weight: inherit;
+        margin: 0;
+        outline: 0 none;
+        padding: 0;
+        vertical-align: baseline;
+    }
+
+    #main-body {
+        background: #F1F1F1;
+    }
+
+    .clearfix {
+        clear: both;
+    }
+
+    #mainnav {
+        border-top: 1px solid #F5F5F5;
+        height: 46px;
+        white-space: nowrap;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    #loader {
+        background: rgba(0, 0, 0, 0) url(../images/fancybox_overlay.png) repeat scroll 0 0;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 20000;
+    }
+
+    .hidden {
+        display: none !important;
+    }
+
+    .container {
+        width: 1280px;
+    }
+
+        .container-fluid > .navbar-collapse, .container-fluid > .navbar-header, .container > .navbar-collapse, .container > .navbar-header {
+            margin-right: 0;
+            margin-left: 0;
+        }
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+        display: block;
+    }
+
+    .off-canvas-toggle {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+    }
+
+    .off-canvas-toggle {
+        border: none;
+        background: #c9252c;
+        border-radius: 2px;
+    }
+
+    .off-canvas-toggle {
+        border-radius: 0;
+        padding: 0 !important;
+        width: 36px;
+        height: 36px;
+        line-height: 38px;
+        margin: 0 0 5px;
+        float: left;
+    }
+
+    .off-canvas-toggle {
+        z-index: 100;
+    }
+
+    .visible-lg, .visible-md, .visible-sm, .visible-xs {
+        display: none !important;
+    }
+
+    .mobile-search.visible-xs {
+        float: right;
+        margin: 6px 10px;
+    }
+
+    .visible-lg, .visible-md, .visible-sm, .visible-xs {
+        display: none !important;
+    }
+
+    article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+        display: block;
+    }
+
+    .off-canvas-toggle i {
+        font-size: 24px;
+        color: #FFF;
+        margin: 6px;
+    }
+
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .mobile-search.visible-xs {
+        float: right;
+        margin: 6px 10px;
+    }
+
+    .visible-lg, .visible-md, .visible-sm, .visible-xs {
+        display: none !important;
+    }
+
+    .mobile-search.visible-xs input.form-control {
+        width: 200px;
+        box-shadow: none;
+        height: 30px;
+        line-height: 30px;
+        vertical-align: top;
+        font-size: 12px;
+        border: none;
+        border-radius: 2px;
+    }
+
+    .mobile-search.visible-xs input.btn-search {
+        display: inline-block;
+        float: left;
+        border: none;
+        margin-left: -30px;
+    }
+
+    .mobile-search.visible-xs input {
+        float: left;
+    }
+
+    input, button, select, textarea {
+        border: 1px solid #ebeef2;
+        color: #666;
+        outline: medium none;
+        padding: 5px;
+    }
+
+    button, input, select, textarea {
+        font-family: inherit;
+        font-size: inherit;
+        line-height: inherit;
+    }
+
+    .nav {
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+    }
+
+    ul, ol {
+        padding: 0;
+        margin: 0;
+    }
+
+    #mainnav .nav li {
+        float: left;
+    }
+
+    .nav > li {
+        position: relative;
+        display: block;
+    }
+
+    #mainnav .nav li.menu-item-47 a {
+        padding: 7px 15px !important;
+    }
+
+        #mainnav .nav li.menu-item-47 a i {
+            color: #c9252c;
+        }
+
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+
+    element.style {
+    }
+
+    .breadcrumb {
+        margin: 0;
+        font-size: 13px;
+        padding: 10px 0;
+        color: #666;
+        background: #F1F1F1;
+    }
+
+    .breadcrumb {
+        padding: 8px 15px;
+        margin-bottom: 20px;
+        list-style: none;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+    }
+
+    element.style {
+    }
+
+    #main-body {
+        background: #F1F1F1;
+    }
+
+    .clearfix {
+        clear: both;
+    }
+
+    .container {
+        width: 1280px;
+    }
+
+    .breadcrumb a {
+        color: #666;
+    }
+
+    a {
+        color: #0076BC;
+        text-decoration: none;
+    }
+
+    .clearfix {
+        clear: both;
+    }
+
+    a {
+        color: #0076BC;
+        text-decoration: none;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    img {
+        vertical-align: middle;
+    }
+
+    img {
+        border: 0;
+    }
+
+    #layout-colleft #sidebar {
+        float: left;
+        width: 260px;
+        padding-right: 20px;
+    }
+
+    #layout-colleft #main-content {
+        float: right;
+        width: 990px;
+    }
+
+    .title-boloc {
+        border: 1px solid #EEE;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        padding: 6px 15px;
+        border-radius: 2px;
+        background: #FFF;
+    }
+
+    .visible-lg, .visible-md, .visible-sm, .visible-xs {
+        display: none !important;
+    }
+
+    .title-boloc a {
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        text-transform: uppercase;
+        display: block;
+    }
+
+    a {
+        color: #0076BC;
+        text-decoration: none;
+    }
+
+    .pull-right {
+        float: right;
+    }
+
+    .pull-right {
+        float: right !important;
+    }
+
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .boxfixed.attribute-check {
+        display: block;
+    }
+
+    .choosedfilter {
+        display: block;
+        background: #fff;
+        padding: 14px 10px 8px !important;
+        position: relative;
+        border-bottom: 1px solid #c9252c;
+    }
+
+    .box-filter-check {
+        border-left: 1px solid #EEE;
+        border-right: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
+        margin-bottom: 15px;
+    }
+
+    .box-filter-check {
+        background: #FFF;
+    }
+
+    .choosed {
+        display: inline;
+    }
+
+    .choosedfilter a.del {
+        background: none;
+        display: inline;
+        font-size: 14px;
+        color: #4a90e2;
+        line-height: normal;
+    }
+
+    .box-filter-check {
+        border-left: 1px solid #EEE;
+        border-right: 1px solid #EEE;
+        border-bottom: 1px solid #EEE;
+        margin-bottom: 15px;
+    }
+
+    .attribute-check {
+        margin-bottom: 20px;
+    }
+
+    .attribute-check {
+        font-size: 14px;
+        font-weight: normal;
+        color: #000;
+    }
+
+    .attribute-block {
+        padding: 10px;
+    }
+
+    .attribute-block {
+        border-bottom: 1px solid #EEE;
+        padding: 15px;
+    }
+
+    .attribute-check .label-title {
+        font-size: 14px;
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+
+    .attribute-check .label-title {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .att-scroll {
+        display: block !important;
+    }
+
+    ul, ol {
+        padding: 0;
+        margin: 0;
+    }
+
+
+    element.style {
+    }
+
+    .att-scroll li {
+        list-style: none;
+        margin-bottom: 10px;
+    }
+
+    element.style {
+    }
+
+    input[type=checkbox], input[type=radio] {
+        margin: 4px 0 0;
+        margin-top: 1px\9;
+        line-height: normal;
+    }
+
+    input[type=checkbox], input[type=radio] {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 0;
+    }
+
+    input, button, select, textarea {
+        border: 1px solid #ebeef2;
+        color: #666;
+        outline: medium none;
+        padding: 5px;
+    }
+
+    label {
+        display: inline-block;
+        max-width: 100%;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
+
+    #layout-colleft #main-content {
+        float: right;
+        width: 990px;
+    }
+
+    div.nz-div {
+        border-bottom: 2px solid #9e0b0f;
+        margin-bottom: 0;
+        display: block;
+        background: #FFF;
+        border-bottom: 1px solid #EEE;
+    }
+
+    .nz-div .tde span, .nz-div h1.tde span, .nz-div h3.tde span {
+        background: #c9252c;
+        padding: 10px 20px 10px 20px;
+        color: #FFF;
+        position: relative;
+        display: inline-block;
+        margin: 0;
+    }
+
+    .nz-div .tde, .nz-div h1.tde, .nz-div h3.tde {
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .box {
+        margin-bottom: 20px;
+        background: #FFF;
+        border-radius: 3px;
+    }
+
+    .product-grid {
+        overflow: hidden;
+        position: relative;
+    }
+
+    .mod-products {
+        overflow: hidden;
+    }
+
+    #layout-colleft .mod-products .product-cols {
+        width: 25%;
+    }
+
+    #layout-colleft .mod-products .product-cols {
+        width: 25%;
+        padding: 10px;
+    }
+
+    .mod-products .product-cols {
+        width: 20%;
+        border: 1px solid #EEE;
+        border-left: none;
+        border-top: none;
+        padding: 15px;
+    }
+
+    .product-grid .product-block {
+        margin-bottom: 0;
+    }
+
+    .product-grid .product-block {
+        margin-bottom: 20px;
+    }
+
+    .product-block {
+        margin: 0;
+        position: relative;
+        text-align: center;
+    }
+
+    .product-cols .thumbnail-item {
+        position: relative;
+        border: 1px solid #FFF;
+    }
+
+    .thumbnail-item {
+        position: relative;
+    }
+
+    a {
+        color: #0076BC;
+        text-decoration: none;
+    }
+
+    .product-sale-percent {
+        border-radius: 50%;
+        color: #ffffff;
+        font-size: 13px;
+        font-weight: bold;
+        height: 32px;
+        line-height: 32px;
+        position: absolute;
+        left: 0;
+        text-align: center;
+        text-transform: uppercase;
+        top: 0;
+        width: 32px;
+        z-index: 2;
+        background: #c9252c;
+    }
+
+    .img-responsive {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+    }
+
+    .carousel-inner > .item > a > img, .carousel-inner > .item > img, .img-responsive, .thumbnail a > img, .thumbnail > img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .product-meta {
+        height: 110px;
+    }
+
+    .product-meta {
+        height: 170px;
+    }
+
+    .product-meta {
+        height: 140px;
+    }
+
+    .product-meta {
+        min-height: 90px;
+        padding: 5px;
+    }
+
+    .product-block .name {
+        line-height: 18px;
+        margin: 10px 0;
+        /* height: 40px; */
+        text-transform: none;
+        font-size: 14px;
+        overflow: hidden;
+    }
+
+    h3, .h3 {
+        font-size: 18px;
+    }
+
+    h1, h2, h3, h4 {
+        line-height: 1.4;
+        font-weight: bold;
+    }
+
+    .product-block .name a {
+        color: #3e474b;
+        display: block;
+        font-weight: normal;
+        text-decoration: none;
+    }
+
+    a {
+        color: #0076BC;
+        text-decoration: none;
+    }
+
+    .product-block .stars {
+        color: #666;
+        font-size: 13px;
+    }
+
+    .product-block .ratings {
+        font-size: 16px;
+    }
+
+    .ratings {
+        margin-top: -8px;
+    }
+
+    .ratings {
+        position: relative;
+        vertical-align: middle;
+        display: inline-block;
+        color: #b1b1b1;
+        overflow: hidden;
+        font-size: 26px;
+    }
+
+    .full-stars {
+        position: absolute;
+        left: 0;
+        top: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #f48948;
+    }
+
+    .product-block .price {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    .price, span.sdt {
+        color: #B10707;
+        font-size: 14px;
+        font-weight: bold;
+    }
+
+        .price .price-old, .price .price-tax {
+            color: #555;
+            font-size: 14px;
+            text-decoration: line-through;
+            font-weight: normal;
+        }
+
+    .box-content {
+        padding: 20px;
+    }
+
+    .category-description {
+        margin: 0;
+    }
+
+    .category-description {
+        height: 250px;
+        overflow: hidden;
+        padding: 15px 0;
+        position: relative;
+        font-size: 15px;
+    }
+
+    .mod-products .product-cols {
+        float: left;
+    }
+
+    .product-cols {
+        background: #FFF;
+    }
+</style>

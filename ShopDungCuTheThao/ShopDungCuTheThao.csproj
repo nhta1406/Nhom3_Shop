@@ -1466,6 +1466,7 @@
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\ManageUserViewModel.cs" />
     <Compile Include="Models\MuaHangVM.cs" />
+    <Compile Include="Models\ParentCategory.cs" />
     <Compile Include="Models\ProductCatogory.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Models\Roles.cs" />
@@ -1710,6 +1711,12 @@
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.7.1.min.map" />
+    <Content Include="Views\Category\ByParentId.cshtml" />
+    <Content Include="Views\Category\ProductCategory.cshtml" />
+    <Content Include="Views\Category\ParentCategory.cshtml" />
+    <Content Include="Views\Category\GetNameCate.cshtml" />
+    <Content Include="Views\Category\ShowCateDetails.cshtml" />
+    <Content Include="Views\Category\CateHome.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

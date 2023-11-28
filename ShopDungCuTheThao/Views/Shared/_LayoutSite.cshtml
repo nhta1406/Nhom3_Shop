@@ -9,6 +9,7 @@
     <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <style>
         .top-navbar {
@@ -69,18 +70,85 @@
             top: 70px;
             z-index: 98;
         }
+
+        .nav {
+            padding-left: 0px;
+            margin-bottom: 0px;
+            list-style: none;
+        }
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #mainnav {
+            /* background: rgb(255, 255, 255);*/
+            border-top: 1px solid rgb(245, 245, 245);
+            height: 46px;
+            white-space: nowrap;
+            position: relative;
+            left: 120px;
+        }
+
+            #mainnav li :hover {
+                background-color: #e52222;
+                color: white !important;
+            }
+
+            #mainnav .nav li a {
+                padding: 11px 25px;
+                font-size: 13px;
+                display: block;
+            }
+
+            #mainnav .nav li.menu-item-47 a {
+                padding: 7px 15px !important;
+            }
+
+            #mainnav .nav span {
+                border: 0 none;
+                font-family: inherit;
+                font-size: 100%;
+                font-style: inherit;
+                font-weight: inherit;
+                margin: 0;
+                outline: 0 none;
+                padding: 0;
+                vertical-align: baseline;
+            }
+
+            #mainnav .nav li {
+                overflow: hidden
+            }
+
+        .sub-menu {
+            display: none;
+        }
+
+        .haschild:hover .sub-menu {
+            display: block;
+        }
+
+            .haschild:hover .sub-menu li {
+                background-color: #e52222;
+            }
+
+                .haschild:hover .sub-menu li a {
+                    color: black;
+                }
     </style>
 </head>
 
 <body style="background-color: #F5f5f5">
     <nav class="top-navbar navbar-fixed">
-        <div class="container" >
-            <a href="@Url.Action("Index","TrangChu")" class="navbar-brand d-flex align-items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
-                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
-                    <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
-                </svg>
-            </a>
+        <div class="container">
+            @*<a href="@Url.Action("Index","TrangChu")" class="navbar-brand d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
+                        <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
+                        <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
+                    </svg>
+                </a>*@
             <ul class="nav navbar-nav">
                 <li><a href="@Url.Action("Index","TrangChu")">TRANG CHỦ</a></li>
             </ul>
@@ -111,7 +179,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse" style="padding:0;">
                 <ul class="nav navbar-nav">
-                    <li><img src="..\Public\img\logo.png" width="220px" height="60px" /></li>
+                    <li><img src="..\Public\img\logo.png" width="220" height="60" /></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
@@ -122,10 +190,10 @@
                 @if (Session["UserID"] == null)
                 {
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("Register", "TaiKhoan")">Đăng Kí</a></li>
+                        <li><a href="@Url.RouteUrl("Register","Register")">Đăng Kí</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="@Url.Action("Login", "TaiKhoan")"><i class="fa-solid fa-user"></i></a></li>
+                        <li><a href="@Url.RouteUrl("Login","Login")"><i class="fa-solid fa-user"></i></a></li>
                     </ul>
                 }
                 else
@@ -168,6 +236,19 @@
                 }
             </div>
         </div>
+        <hr />
+        <div id="mainnav" class="hidden-sm hidden-xs">
+            <div class="container5">
+                <ul class="nav">
+                    <li class="menu-item-47">
+                        <a class="" href="@Url.Action("Index","TrangChu")">
+                            <i class="fa fa-home" style="color: #e52222"></i>
+                        </a>
+                    </li>
+                     @Html.Action("ParentCategory", "Category")
+                </ul>
+            </div>
+        </div>
         <style>
             .hover-container {
                 position: relative;
@@ -203,24 +284,24 @@
     </nav>
     <div style="clear: both;"></div>
     @*<div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="~/Public/img/ban-bong-ban.jpg" class="d-block w-100" alt="">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="~/Public/img/ghe-massage.jpg" class="d-block w-100" alt="">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="~/Public/img/may-chay-bo-tai-nha.jpg" class="d-block w-100" alt="">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/Public/img/ban-bong-ban.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Public/img/ghe-massage.jpg" class="d-block w-100" alt="">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Public/img/may-chay-bo-tai-nha.jpg" class="d-block w-100" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>*@
+        </div>*@
     <br />
 </body>
 

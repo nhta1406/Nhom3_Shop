@@ -26,5 +26,7 @@ namespace ShopDungCuTheThao.Models
         public string UpdateBy { get; set; }
         public DateTime? UpdateAt { get; set; }
         public int Status { get; set; }
+        [ForeignKey("ParentID")]
+        public ParentCategory ParentCategory { get; set; }
     }
 }

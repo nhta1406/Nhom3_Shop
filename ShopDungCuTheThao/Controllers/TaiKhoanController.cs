@@ -46,8 +46,6 @@ namespace ShopDungCuTheThao.Controllers
             }
             return View();
         }
-        [AllowAnonymous]
-        [Route("dang-nhap.html",Name ="DangNhap")]
         public ActionResult Login()
         {
             return View();
@@ -55,7 +53,7 @@ namespace ShopDungCuTheThao.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(Models.LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(Models.LoginViewModel model, string returnUrl = null)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +112,7 @@ namespace ShopDungCuTheThao.Controllers
                         Password = hashedPassword,
                         RoleID = 2,
                         Salt = salt,
-                        Phone = "",
+                        Phone = null,
                         CreateAt = DateTime.Now,
                         Status = 1,
                 };
@@ -122,7 +120,7 @@ namespace ShopDungCuTheThao.Controllers
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index", "TrangChu");
             }
-            return View(model);
+            return View( model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]

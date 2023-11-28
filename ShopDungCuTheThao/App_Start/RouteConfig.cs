@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Fluent.Infrastructure.FluentModel;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Contexts;
@@ -13,22 +15,33 @@ namespace ShopDungCuTheThao
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            // routes.MapRoute(
+            //    "User_Login",
+            //    "TaiKhoan/Login",
+            //    new { Controller = "TaiKhoan", action = "Login", id = UrlParameter.Optional }
+            //);
+            // routes.MapRoute(
+            //    "User_Logout",
+            //    "TaiKhoan/Logout",
+            //    new { Controller = "TaiKhoan", action = "Logout", id = UrlParameter.Optional }
+            // );
+            // routes.MapRoute(
+            //    "User_SignUp",
+            //    "User/SignUp",
+            //    new { Controller = "TaiKhoan", action = "SignUp", id = UrlParameter.Optional }
+            //);
+
+
             routes.MapRoute(
-               "User_Login",
-               "TaiKhoan/Login",
-               new { Controller = "TaiKhoan", action = "Login", id = UrlParameter.Optional }
-           );
-            routes.MapRoute(
-               "User_Logout",
-               "TaiKhoan/Logout",
-               new { Controller = "TaiKhoan", action = "Logout", id = UrlParameter.Optional }
+                name: "Login",
+                url: "login",
+                defaults: new { controller = "TaiKhoan", action = "Login" }
             );
             routes.MapRoute(
-               "User_SignUp",
-               "User/SignUp",
-               new { Controller = "TaiKhoan", action = "SignUp", id = UrlParameter.Optional }
-           );
-
+                name: "Register",
+                url: "register",
+                defaults: new { controller = "TaiKhoan", action = "Register", id = UrlParameter.Optional }
+            );
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

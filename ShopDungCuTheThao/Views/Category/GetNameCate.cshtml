@@ -1,0 +1,18 @@
+﻿@model IEnumerable<ShopDungCuTheThao.Models.LoaiSanPham>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+        @foreach (var category in Model)
+        {
+            <li class="menu-item-@category.CateID">
+                <a class="" href="@Url.Action("ShowCateDetails", "Category", new { cateID = category.CateID })">@category.Name</a>
+            </li>
+        }
+</html>

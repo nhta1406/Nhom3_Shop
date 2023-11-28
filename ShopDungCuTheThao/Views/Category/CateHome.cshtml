@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ShopDungCuTheThao.Models.SanPham>
+@foreach (var item in Model)
+{
+    <div class="product-cols">
+        <div class="product-block product-2725">
+            <div class="thumbnail-item">
+                <a href="@Url.Action("Details", "Category", new { ID = item.ID })" title="Con lăn tập bụng 2024">
+                    <span class="product-sale-percent">-31%</span>
+                    <img alt="Con lăn tập bụng 2024" title="Con lăn tập bụng 2024" data-original="" src="~/Public/img/@item.IMG" class="lazy img-responsive" width="225" height="187" style="display: inline-block;">
+                </a>
+            </div>
+            <div class="product-meta">
+                <h3 class="name">
+                    <a href="@Url.Action("Details", "Category", new { ID = item.ID })" title="Con lăn tập bụng 2024">@item.Name</a>
+                </h3>
+                <div class="stars">
+                    <div class="ratings">
+                        <div class="empty-stars"></div>
+                        <div class="full-stars" style="width:100%"></div>
+                    </div>
+                </div>
+                <div class="price">
+                    <span class="price-old">@item.Price.ToString("#,##0 đ")</span><span class="price-new">@item.PriceSale.ToString("#,##0 đ")</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}

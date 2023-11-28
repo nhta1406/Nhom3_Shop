@@ -23,5 +23,6 @@ namespace ShopDungCuTheThao.Models
         public DbSet<Roles> phanQuyen { get; set; }
         public DbSet<SanPham> sanPham { get; set; }
         public DbSet<TransactStatus> transactStatuses { get; set; }
+        public DbSet<ParentCategory> parentCategories { get; set; }
     }
 }
