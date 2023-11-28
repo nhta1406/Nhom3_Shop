@@ -9,6 +9,7 @@
     <link href="~/lib/font-awesome/css/fontawesome.css" rel="stylesheet" />
     <link href="~/lib/font-awesome/css/fontawesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <style>
@@ -70,18 +71,85 @@
             top: 70px;
             z-index: 98;
         }
+
+        .nav {
+            padding-left: 0px;
+            margin-bottom: 0px;
+            list-style: none;
+        }
+
+        ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #mainnav {
+            /* background: rgb(255, 255, 255);*/
+            border-top: 1px solid rgb(245, 245, 245);
+            height: 46px;
+            white-space: nowrap;
+            position: relative;
+            left: 120px;
+        }
+
+            #mainnav li :hover {
+                background-color: #e52222;
+                color: white !important;
+            }
+
+            #mainnav .nav li a {
+                padding: 11px 25px;
+                font-size: 13px;
+                display: block;
+            }
+
+            #mainnav .nav li.menu-item-47 a {
+                padding: 7px 15px !important;
+            }
+
+            #mainnav .nav span {
+                border: 0 none;
+                font-family: inherit;
+                font-size: 100%;
+                font-style: inherit;
+                font-weight: inherit;
+                margin: 0;
+                outline: 0 none;
+                padding: 0;
+                vertical-align: baseline;
+            }
+
+            #mainnav .nav li {
+                overflow: hidden
+            }
+
+        .sub-menu {
+            display: none;
+        }
+
+        .haschild:hover .sub-menu {
+            display: block;
+        }
+
+            .haschild:hover .sub-menu li {
+                background-color: #e52222;
+            }
+
+                .haschild:hover .sub-menu li a {
+                    color: black;
+                }
     </style>
 </head>
 
 <body style="background-color:gainsboro">
     <nav class="top-navbar navbar-fixed">
-        <div class="container" >
-            <a href="@Url.Action("Index","TrangChu")" class="navbar-brand d-flex align-items-center">
+        <div class="container">
+            @*<a href="@Url.Action("Index","TrangChu")" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill me-2" viewBox="0 0 16 16">
                     <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z" />
                     <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z" />
                 </svg>
-            </a>
+            </a>*@
             <ul class="nav navbar-nav">
                 <li><a href="@Url.Action("Index","TrangChu")">TRANG CHỦ</a></li>
             </ul>
@@ -112,7 +180,7 @@
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse" style="padding:0;">
                 <ul class="nav navbar-nav">
-                    <li><img src="..\Public\img\logo.png" width="220px" height="60px" /></li>
+                    <li><img src="..\Public\img\logo.png" width="220" height="60" /></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">
@@ -161,6 +229,153 @@
                     </ul>
                 }
             </div>
+        </div>
+        <hr />
+        <div id="mainnav" class="hidden-sm hidden-xs">
+            <div class="container5">
+            <ul class="nav">
+                <li class="menu-item-47">
+                    <a class="" href="@Url.Action("Index","TrangChu")">
+                        <i class="fa fa-home" style="color: #e52222"></i>
+                    </a>
+                </li>
+                <li class="menu-item-1">
+                    <a class="" href="#" style="color:black">Máy Chạy Bộ</a>
+                </li>
+                <li class="menu-item-9 haschild">
+                    <a class="parent " href="#">
+                        <span class="toggle-submenu" style="color:black">Máy Tập Thể Dục  <i class="fa-solid fa-caret-down"></i><span class="caret"></span></span>
+                    </a>
+                        <ul class="nav sub-menu">
+                            <li class="menu-item-3">
+                                <a class="" href="#">Máy Tập Cơ Bụng</a>
+                            </li>
+                            <li class="menu-item-2">
+                                <a class="" href="#">Xe Đạp Tập Thể Dục</a>
+                            </li>
+                            <li class="menu-item-79">
+                                <a class="" href="#">Thiết Bị Phục Hồi Chức Năng</a>
+                            </li>
+                            <li class="menu-item-51">
+                                <a class="" href="#">Máy Tập Chân</a>
+                            </li>
+                        </ul>
+                </li>
+                <li class="menu-item-4 haschild">
+                    <a class="parent " href="#">
+                        <span class="toggle-submenu" style="color:black">Dụng Cụ Tập Gym <i class="fa-solid fa-caret-down"></i><span class="caret"></span></span>
+                    </a>
+                    <ul class="nav sub-menu">
+                        <li class="menu-item-88">
+                            <a class="" href="#">Ghế Tập Tạ</a>
+                        </li>
+                        <li class="menu-item-48">
+                            <a class="" href="#">Giàn Tạ Đa Năng</a>
+                        </li>
+                        <li class="menu-item-52">
+                            <a class="" href="#">Xà Đơn - Xà Kép</a>
+                        </li>
+                        <li class="menu-item-53">
+                            <a class="" href="#">Tạ Tay - Tạ Đơn</a>
+                        </li>
+                        <li class="menu-item-54">
+                            <a class="" href="#">Ghế Tập Bụng</a>
+                        </li>
+                        <li class="menu-item-55">
+                            <a class="" href="#">Phụ Kiện Tập Gym</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-11 haschild">
+                    <a class="parent " href="#">
+                        <span class="toggle-submenu" style="color:black">Dụng Cụ Võ Thuật <i class="fa-solid fa-caret-down"></i><span class="caret"></span></span>
+                    </a>
+                    <ul class="nav sub-menu"">
+                        <li class="menu-item-94">
+                            <a class="" href="#">Trụ &amp; Bao Cát Đấm Bốc</a>
+                        </li>
+                        <li class="menu-item-95">
+                            <a class="" href="#">Găng Tay Boxing</a>
+                        </li>
+                        <li class="menu-item-96">
+                            <a class="" href="#">Đích Đá - Đích Đấm Boxing</a>
+                        </li>
+                        <li class="menu-item-97">
+                            <a class="" href="#">Thiết Bị Bảo Hộ Võ Thuật</a>
+                        </li>
+                        <li class="menu-item-98">
+                            <a class="" href="#">Dụng Cụ Tập Thể Lực</a>
+                        </li>
+                        <li class="menu-item-99">
+                            <a class="" href="#">Côn Nhị Khúc</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-18 haschild">
+                    <a class="parent " href="#">
+                        <span class="toggle-submenu" style="color:black">Dụng Cụ Bóng Bàn <i class="fa-solid fa-caret-down"></i><span class="caret"></span></span>
+                    </a>
+                    <ul class="nav sub-menu">
+                        <li class="menu-item-33">
+                            <a class="" href="#">Bàn Bóng Bàn</a>
+                        </li>
+                        <li class="menu-item-36">
+                            <a class="" href="#">Vợt Bóng Bàn</a>
+                        </li><li class="menu-item-100">
+                            <a class="" href="#">Cốt Vợt Bóng Bàn</a>
+                        </li>
+                        <li class="menu-item-90">
+                            <a class="" href="#">Mặt Vợt Bóng Bàn</a>
+                        </li>
+                        <li class="menu-item-34">
+                            <a class="" href="#">Lưới và Quả Bóng Bàn</a>
+                        </li>
+                        <li class="menu-item-35">
+                            <a class="" href="#">Máy Bắn Bóng Bàn</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-8 haschild">
+                    <a class="parent " href="#">
+                        <span class="toggle-submenu" style="color:black">Thiết Bị Dạy Học <i class="fa-solid fa-caret-down"></i><span class="caret"></span></span>
+                    </a>
+                    <ul class="nav sub-menu">
+                        <li class="menu-item-93">
+                            <a class="" href="#">MÔN GIÁO DỤC THỂ CHẤT (MỚI NHẤT)</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-10 haschild">
+                    <a class="parent"  href="#">
+                        <span class="toggle-submenu" style="color:black">Dụng Cụ Ngoài Trời <i class="fa-solid fa-caret-down"></i><span class="caret"></span></span></a>
+                    <ul class="nav sub-menu">
+                        <li class="menu-item-105">
+                            <a class="" href="#">Máy Tập Công Viên HQ</a>
+                        </li>
+                        <li class="menu-item-101">
+                            <a class="" href="#">Máy Tập Công Viên Vifa (Trụ Đôi)</a>
+                        </li>
+                        <li class="menu-item-102">
+                            <a class="" href="#">Máy Tập Công Viên Vifa (Trụ Đơn D140)</a>
+                        </li>
+                        <li class="menu-item-104">
+                            <a class="" href="#">Máy Tập Chung Cư - Sân Vườn Vifa</a>
+                        </li>
+                        <li class="menu-item-103">
+                            <a class="" href="#">Máy Tập Công Viên Vifa (Trụ Đơn D114)</a>
+                        </li>
+                        <li class="menu-item-106">
+                            <a class="" href="#">Máy Tập Công Viên Sodex Sport</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="menu-item-8 haschild">
+                    <a class="parent " href="#">
+                        <span class="toggle-submenu" style="color:black"> Danh Mục Khác <span class="caret"></span></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         </div>
         <style>
             .hover-container {
