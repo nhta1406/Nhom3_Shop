@@ -31,7 +31,10 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                     FormsAuthentication.SetAuthCookie(model.UserName, false);
                     Session["AdminID"] = user.AccountID.ToString();
                     Session["UserNameAdmin"] = user.UserName.ToString();
-                    Session["Avatar"] = user.Avatar.ToString();
+                    if (user.Avatar != null)
+                    {
+                        Session["Avatar"] = user.Avatar.ToString();
+                    }
                     return RedirectToAction("Index", "Dashboard");
                 }
                 else

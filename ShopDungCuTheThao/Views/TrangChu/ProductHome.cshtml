@@ -5,63 +5,20 @@
 </div>
 @foreach (var pro in Model)
 {
-    <style>
-        .thumbnail {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-            .thumbnail .caption {
-                text-align: center;
-            }
-
-            .thumbnail img {
-                max-width: 100%;
-                height: auto;
-                margin-bottom: 10px;
-            }
-    </style>
-    <div class="col-lg-4 col-md-3 col-sm-3 col-xs-12">
-        <div class="thumbnail">
-            <a href="#"><img src="~/Public/img/@pro.IMG" style="height: 170px; object-fit: cover;" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook"></a>
-            <div class="caption">
-                <a href="@Url.Action("Details","Category", new { @ID = pro.ID })"><h4 class="text-center" style="text-decoration:none">@pro.Name</h4></a>
-                @if (pro.PriceSale != 0)
-                {
-                    <div class="price text-center">
-                        <span class="price-old" style="color:red" id="salePrice_@pro.ID"></span>
-                        <del class="price-new" style="color:dimgray" id="originalPrice_@pro.ID"></del>
-                    </div>
-                }
-                else
-                {
-                    <span class="price-old" style="color:red" id="originalPrice_@pro.ID"></span>
-                }
-                <script>
-                        var originalPriceValue = @pro.Price;
-                        var salePriceValue = @pro.PriceSale;
-                        var originalPriceElement = document.getElementById("originalPrice_@pro.ID");
-                        var salePriceElement = document.getElementById("salePrice_@pro.ID");
-                        originalPriceElement.textContent = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(originalPriceValue);
-                        salePriceElement.textContent = new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(salePriceValue);
-                </script>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <p class="text-center">
-                        <a href="@Url.Action("ThemGioHang","GioHang", new {@ID=pro.ID,@strURL=Request.Url.ToString()})" class="btn btn-primary" role="button">
-                            <input type="submit" value"Add To Cart" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </a>
-                    </p>
-                }
-                else
-                {
-                    <p class="text-center">
-                        <a href="@Url.Action("Login","TaiKhoan", new {@ID=pro.ID,@strURL=Request.Url.ToString()})" class="btn btn-primary" role="button">
-                            <input type="submit" value"Add To Cart" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </a>
-                    </p>
-                }
+    <div class="product-cols ">
+        <div class="product-block">
+            <div class="thumbnail-item">
+                <a href="https://www.thethaothientruong.vn/dung-cu-the-hinh/gian-tap-ta/gia-de-ta.html" title="Giá để tạ">
+                    <span class="product-sale-percent">-16%</span>
+                    <img alt="Giá để tạ" title="Giá để tạ" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/thumbs/gia-de-ta.jpg" width="250" height="208" src="~/Public/img/@pro.IMG" style="display: inline;">
+                </a>
+            </div>
+            <div class="product-meta">
+                <div class="product-name">
+                    <h3 class="name"><a href="" title="Giá để tạ">@pro.Name</a></h3>
+                    <div class="stars"><div class="ratings"><div class="empty-stars"></div><div class="full-stars" style="width:100%"></div></div> (1 đánh giá)</div>
+                    <div class="price"><span class="price-old">@pro.Price</span>  <span class="price-new">@pro.Price</span></div>
+                </div>
             </div>
         </div>
     </div>

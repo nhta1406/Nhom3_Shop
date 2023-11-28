@@ -11,6 +11,16 @@
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
+@if (TempData["SuccessMessage"] != null)
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            toastr.success('@TempData["SuccessMessage"]');
+        });
+    </script>
+}
 @section IndexAdminRoles {
     <div class="card bg-white">
         <div class="card-header">
@@ -181,6 +191,6 @@
             </tbody>
         </div>
     </div>
- }
+}
 
 </html>

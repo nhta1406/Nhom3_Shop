@@ -61,6 +61,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 accounts.Status = 1;
                 db.taiKhoan.Add(accounts);
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Tài Khoản đã được tạo thành công.";
                 return RedirectToAction("Index");
             }
 
@@ -95,6 +96,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             {
                 db.Entry(accounts).State = EntityState.Modified;
                 db.SaveChanges();
+                TempData["SuccessMessage"] = "Tài Khoản đã được sửa thành công.";
                 return RedirectToAction("Index");
             }
             ViewBag.RoleID = new SelectList(db.phanQuyen, "RoleID", "RoleName", accounts.RoleID);
@@ -124,6 +126,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             Accounts accounts = db.taiKhoan.Find(id);
             db.taiKhoan.Remove(accounts);
             db.SaveChanges();
+            TempData["SuccessMessage"] = "Tài Khoản đã được xóa thành công.";
             return RedirectToAction("Index");
         }
 

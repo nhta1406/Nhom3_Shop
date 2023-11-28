@@ -48,6 +48,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 donHang.Paid = 1;
             }
             db.SaveChanges();
+            TempData["SuccessMessage"] = "Đơn Hàng đã được thay đổi thành công.";
             return RedirectToAction("Index", "Dashboard");
         }
 
@@ -92,6 +93,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
             DonHang donHang = db.donHang.Find(id);
             db.donHang.Remove(donHang);
             db.SaveChanges();
+            TempData["SuccessMessage"] = "Đơn Hàng đã được xóa thành công.";
             return RedirectToAction("Index");
         }
 
