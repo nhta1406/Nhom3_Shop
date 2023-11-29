@@ -1,5 +1,5 @@
-﻿@model IEnumerable<ShopDungCuTheThao.Models.Accounts>
-
+﻿@model PagedList.IPagedList<ShopDungCuTheThao.Models.Accounts>
+@using PagedList.Mvc;
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
 }
@@ -37,40 +37,40 @@
                 <table class="table">
                     <tr>
                         <th width="3%">
-                            @Html.DisplayNameFor(model => model.Role.RoleName)
+                            <label>RoleName</label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Name)
+                            <label>Name</label>
                         </th>
                         <th width="5%">
-                            @Html.DisplayNameFor(model => model.Email)
+                            <label>Email</label>
                         </th>
                         <th width="8%">
-                            @Html.DisplayNameFor(model => model.Phone)
+                            <label>Phone</label>
                         </th>
                         <th width="10%">
-                            @Html.DisplayNameFor(model => model.UserName)
+                            <label>UserName</label>
                         </th>
-                        <th width="15%">
-                            @Html.DisplayNameFor(model => model.Password)
+                        <th width="10%">
+                            <label>Password</label>
                         </th>
                         <th width="8%">
-                            @Html.DisplayNameFor(model => model.Birthday)
+                            <label>Birthday</label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Avatar)
+                            <label>Avatar</label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Address)
+                            <label>Address</label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Salt)
+                            <label>Salt</label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.CreateAt)
+                            <label>CreateAt</label>
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.Status)
+                            <label>Status</label>
                         </th>
                         <th></th>
                     </tr>
@@ -105,7 +105,7 @@
                             <td>
                                 @if (item.Password.Length > 8)
                                 {
-                                    <span>@item.Password.Substring(0, 15)...</span>
+                                    <span>@item.Password.Substring(0, 10)...</span>
                                 }
                                 else
                                 {
@@ -129,7 +129,19 @@
                                 @*@Html.DisplayFor(modelItem => item.Birthday)*@
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Avatar)
+                                @if (item.Avatar != null)
+                                {
+                                    var Avartarstring = item.Avatar.ToString();
+                                    if (Avartarstring.Length > 5)
+                                    {
+                                        <span>@Avartarstring.Substring(0, 5)...</span>
+                                    }
+                                    else
+                                    {
+                                        @Avartarstring
+                                    }
+                                }
+
                             </td>
                             <td>
                                 @if (item.Address != null)
@@ -191,6 +203,32 @@
             </tbody>
         </div>
     </div>
+    <br />
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })">Previous</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })">Next</a>
+            </li>
+        </ul>
+    </nav>
 }
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+    }
 
+    .page-link {
+        background-color: lightblue;
+    }
+</style>
 </html>

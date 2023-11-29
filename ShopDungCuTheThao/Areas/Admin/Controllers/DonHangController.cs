@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using Org.BouncyCastle.Asn1.X509;
 using ShopDungCuTheThao.Models;
-
+using PagedList;
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
     [RedirectToLogin]
@@ -18,10 +18,13 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
 
         // GET: Admin/DonHang
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
+            int pageNumber = page ?? 1;
+            int pageSize = 10; 
             var donHang1 = db.donHang.Include(d => d.Accounts).Include(c => c.TransactStatus);
-            return View(donHang1.ToList());
+            IPagedList<DonHang> pagedListDonHang = donHang1.ToPagedList(pageNumber, pageSize);
+            return View(pagedListDonHang);
         }
         public ActionResult ChangeStatus(int? id)
         {

@@ -11,7 +11,7 @@
             </div>
             <div class="product-meta">
                 <div class="product-name">
-                    <h3 class="name"><a href="" title="Giá để tạ">@pro.Name</a></h3>
+                    <h3 class="name"><a href="@Url.Action("Details","Category",new { @ID = pro.ID })" title="Giá để tạ">@pro.Name</a></h3>
                     <div class="stars"><div class="ratings"><div class="empty-stars"></div><div class="full-stars" style="width:100%"></div></div> (1 đánh giá)</div>
                     <div class="price"><span class="price-old">@pro.Price.ToString("#,##0 đ")</span>  <span class="price-new">@pro.Price.ToString("#,##0 đ")</span></div>
                 </div>

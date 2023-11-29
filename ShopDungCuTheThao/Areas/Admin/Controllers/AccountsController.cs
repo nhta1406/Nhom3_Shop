@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 using ShopDungCuTheThao.Models;
 
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
@@ -15,10 +16,13 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
         private ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
 
         // GET: Admin/Accounts
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            var taiKhoan = db.taiKhoan.Include(a => a.Role);
-            return View(taiKhoan.ToList());
+            int pageNumber = page ?? 1;
+            int pageSize = 5; 
+            var taiKhoan = db.taiKhoan.Include(a => a.Role).OrderBy(a => a.CreateAt); 
+            IPagedList<Accounts> pagedListTaiKhoan = taiKhoan.ToPagedList(pageNumber, pageSize);
+            return View(pagedListTaiKhoan);
         }
 
         // GET: Admin/Accounts/Details/5

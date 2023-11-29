@@ -11,6 +11,7 @@ using System.Drawing;
 using System.IO;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
+using PagedList;
 namespace ShopDungCuTheThao.Areas.Admin.Controllers
 {
     [RedirectToLogin]
@@ -26,7 +27,7 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
         //{
         //    _toastNotification = toastNotification;
         //}
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var list = db.sanPham.Join(
                 db.loaiSanPham,
@@ -55,9 +56,11 @@ namespace ShopDungCuTheThao.Areas.Admin.Controllers
                 )
                 .Where(m => m.Status != 0).ToList()
                 .OrderByDescending(m=>m.CreateAt);
-            // Sử dụng CultureInfo để định dạng giá trị tiền tệ
+            int pageSize = 6;
+            int pageNumber = page ?? 1; 
+            IPagedList<ProductCatogory> pagedList = list.ToPagedList(pageNumber, pageSize);
             var cultureInfo = new CultureInfo("vi-VN");
-            return View(list);
+            return View(pagedList);
         }
         public ActionResult Status(int id)
         {

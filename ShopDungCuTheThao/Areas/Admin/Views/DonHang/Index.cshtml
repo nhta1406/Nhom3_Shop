@@ -1,5 +1,5 @@
-﻿@model IEnumerable<ShopDungCuTheThao.Models.DonHang>
-
+﻿@model PagedList.IPagedList<ShopDungCuTheThao.Models.DonHang>
+@using PagedList.Mvc;
 @{
     Layout = "~/Areas/Admin/Views/Shared/_LayoutHome1.cshtml";
 }
@@ -82,7 +82,24 @@
                 </tbody>
             </table>
         </div>
+
     </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber - 1 })">Previous</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("Index", new { page = i })">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("Index", new { page = Model.PageNumber + 1 })">Next</a>
+            </li>
+        </ul>
+    </nav>
 }
 @section Index {
     <script>
@@ -94,5 +111,15 @@
         });
     </script>
 }
+<style>
+    .pagination {
+        display: flex;
+        justify-content: center;
+    }
+
+    .page-link {
+        background-color: lightblue;
+    }
+</style>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

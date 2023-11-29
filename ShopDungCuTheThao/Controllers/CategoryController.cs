@@ -52,7 +52,6 @@ namespace ShopDungCuTheThao.Controllers
             var categories = db.loaiSanPham.Where(p => p.ParentID == parentId).ToList();
             return PartialView(categories);
         }
-
         public ActionResult ShowCateDetails(int cateID)
         {
             var categories = db.loaiSanPham.Where(p => p.CateID == cateID).ToList();
