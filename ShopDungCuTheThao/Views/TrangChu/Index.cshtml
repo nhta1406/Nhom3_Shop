@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSite.cshtml";
-    <style>
+    @*<style>
         .item {
             width: 121px;
             height: 153px;
@@ -26,9 +26,8 @@
             body .container .col-lg-9 {
                 width: 85%;
             }
-    </style>
+    </style>*@
 }
-@*@ViewBag.Test*@
 <body>
     <div id="mainwrap">
         <div id="mainnav" class="hidden">
@@ -110,7 +109,7 @@
                     {
                         <div id="widget-28" class="desktop-product-category">
                             <div class="heading">
-                                <h2><a href="">@pro.Name</a></h2>
+                                <h2><a href="@Url.Action("ShowCateDetails", "Category", new {cateID=pro.CateID})">@pro.Name</a></h2>
                                 <span class="pull-right"><a class="view-all" href="">Xem thêm</a></span>
                             </div>
                             <div class="products">

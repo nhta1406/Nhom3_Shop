@@ -4,12 +4,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
+using System.Web.UI;
+using PagedList;
 
 namespace ShopDungCuTheThao.Controllers
 {
     public class CategoryController : Controller
     {
         ShopDungCuTheThaoDB db = new ShopDungCuTheThaoDB();
+        public ActionResult Search(string searchString)
+        {
+            ViewBag.SearchString = searchString;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var productList = db.sanPham.Where(s => s.Name.ToUpper().Contains(searchString.ToUpper())).ToList();
+                ViewBag.SearchString = searchString;
+                return View(productList);
+            }
+            return View();
+        }
         public ActionResult Details(int ID)
         {
             var productList = db.sanPham.Where(s => s.ID == ID).ToList();
@@ -38,6 +52,7 @@ namespace ShopDungCuTheThao.Controllers
             var categories = db.loaiSanPham.Where(p => p.ParentID == parentId).ToList();
             return PartialView(categories);
         }
+
         public ActionResult ShowCateDetails(int cateID)
         {
             var categories = db.loaiSanPham.Where(p => p.CateID == cateID).ToList();
