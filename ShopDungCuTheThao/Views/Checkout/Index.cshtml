@@ -1,33 +1,9 @@
-﻿@{
+﻿@using ShopDungCuTheThao.Models;
+@model List<GioHang>
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutSite.cshtml";
 }
-@using ShopDungCuTheThao.Models;
-@model List<GioHang>
-@*<table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>@item.iName</td>
-                    <td>@item.iQuantity</td>
-                    <td>@item.iPrice</td>
-                    <td>@item.totalMoney</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-
-    <h2>Shipping Address</h2>*@
-
 @using (Html.BeginForm("Checkout", "Checkout", FormMethod.Post))
 {
     <div class="container bg-white">
@@ -67,7 +43,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="number">Phone*</label>
-                        <input type="tel" class="form-control" id="phone" placeholder="0xxxx" >
+                        <input type="tel" class="form-control" id="phone" placeholder="0xxxx">
                         <div class="invalid-feedback"> Please enter a valid phone  for shipping updates. </div>
                     </div>
                     <div class="mb-3">

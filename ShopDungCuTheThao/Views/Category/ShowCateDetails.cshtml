@@ -1,123 +1,8 @@
-﻿@model IEnumerable< ShopDungCuTheThao.Models.LoaiSanPham>
+﻿@model IEnumerable<ShopDungCuTheThao.Models.LoaiSanPham>
 @{
     ViewBag.Title = "ShowCateDetails";
     Layout = "~/Views/Shared/_LayoutSite.cshtml";
-    <style>
-        #mainnav {
-            /* background: rgb(255, 255, 255);*/
-            border-top: 1px solid rgb(245, 245, 245);
-            height: 46px;
-            white-space: nowrap;
-            position: relative;
-            left: 120px;
-        }
-
-            #mainnav li :hover {
-                background-color: #e52222;
-                color: white !important;
-            }
-
-            #mainnav .nav li a {
-                padding: 11px 25px;
-                font-size: 13px;
-                display: block;
-            }
-
-            #mainnav .nav li.menu-item-47 a {
-                padding: 7px 15px !important;
-            }
-
-            #mainnav .nav span {
-                border: 0 none;
-                font-family: inherit;
-                font-size: 100%;
-                font-style: inherit;
-                font-weight: inherit;
-                margin: 0;
-                outline: 0 none;
-                padding: 0;
-                vertical-align: baseline;
-            }
-
-            #mainnav .nav li {
-                overflow: hidden
-            }
-
-        .sub-menu {
-            display: none;
-        }
-
-        .haschild:hover .sub-menu {
-            display: block;
-        }
-
-            .haschild:hover .sub-menu li {
-                background-color: #e52222;
-            }
-
-                .haschild:hover .sub-menu li a {
-                    color: black;
-                }
-    </style>
-    <style>
-        #mainnav {
-            /* background: rgb(255, 255, 255);*/
-            border-top: 1px solid rgb(245, 245, 245);
-            height: 46px;
-            white-space: nowrap;
-            position: relative;
-            left: 120px;
-        }
-
-            #mainnav li :hover {
-                background-color: #e52222;
-                color: white !important;
-            }
-
-            #mainnav .nav li a {
-                padding: 11px 25px;
-                font-size: 13px;
-                display: block;
-            }
-
-            #mainnav .nav li.menu-item-47 a {
-                padding: 7px 15px !important;
-            }
-
-            #mainnav .nav span {
-                border: 0 none;
-                font-family: inherit;
-                font-size: 100%;
-                font-style: inherit;
-                font-weight: inherit;
-                margin: 0;
-                outline: 0 none;
-                padding: 0;
-                vertical-align: baseline;
-            }
-
-            #mainnav .nav li {
-                overflow: hidden
-            }
-
-        .sub-menu {
-            display: none;
-        }
-
-        .haschild:hover .sub-menu {
-            display: block;
-        }
-
-            .haschild:hover .sub-menu li {
-                background-color: #e52222;
-            }
-
-                .haschild:hover .sub-menu li a {
-                    color: black;
-                }
-    </style>
 }
-
 <div id="mainwrap">
     <div id="mainnav" class="hidden">
         <div class="container">
@@ -156,314 +41,315 @@
 
             </div>
         </div><div class="container">
-            <div id="layout-colleft">
-                <div id="sidebar">
-                    <div class="title-boloc visible-sm visible-xs"><a class="toogle-menu-filter">Bộ lọc <span class="pull-right"><i class="fa fa-plus"></i></span></a></div>
-                    <div class="boxfixed attribute-check ">
-                        <div class="filter-bar">
-                            <div class="box-produce">
+                  <div id="layout-colleft">
+                      <div id="sidebar">
+                          <div class="title-boloc visible-sm visible-xs"><a class="toogle-menu-filter">Bộ lọc <span class="pull-right"><i class="fa fa-plus"></i></span></a></div>
+                          <div class="boxfixed attribute-check ">
+                              <div class="filter-bar">
+                                  <div class="box-produce">
 
-                                <div class="choosedfilter">
-                                    <span>Lọc: </span>
-                                    <div class="choosed">
-                                    </div>
-                                    <div>hoặc <a href="https://www.thethaothientruong.vn/may-tap-the-duc/may-tap-co-bung/" class="del">Máy Tập Cơ Bụng</a></div>
-                                </div>
+                                      <div class="choosedfilter">
+                                          <span>Lọc: </span>
+                                          <div class="choosed">
+                                          </div>
+                                          <div>hoặc <a href="https://www.thethaothientruong.vn/may-tap-the-duc/may-tap-co-bung/" class="del">Máy Tập Cơ Bụng</a></div>
+                                      </div>
 
-                                <div class="box-filter-check">
-                                    <div class="attribute-check">
-                                        <div id="chooseatt_0" class="attribute-block">
-                                            <div class="label-title"><span>Sắp xếp</span></div>
-                                            <div class="att-scroll">
-                                                <ul>
-                                                    <li><input type="radio" id="sort_ordering_desc" name="sort_by" class="sort_by" value="ordering-desc" checked="checked"> <label for="sort_ordering_desc">Bán chạy nhất</label></li>
-                                                    <li><input type="radio" id="sort_id_desc" name="sort_by" class="sort_by" value="id-desc"> <label for="sort_id_desc">Sản phẩm mới</label></li>
-                                                    <li><input type="radio" id="sort_price_asc" name="sort_by" class="sort_by" value="price-asc"> <label for="sort_price_asc">Giá tăng dần</label></li>
-                                                    <li><input type="radio" id="sort_price_desc" name="sort_by" class="sort_by" value="price-desc"> <label for="sort_price_desc">Giá giảm dần</label></li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                      <div class="box-filter-check">
+                                          <div class="attribute-check">
+                                              <div id="chooseatt_0" class="attribute-block">
+                                                  <div class="label-title"><span>Sắp xếp</span></div>
+                                                  <div class="att-scroll">
+                                                      <ul>
+                                                          <li><input type="radio" id="sort_ordering_desc" name="sort_by" class="sort_by" value="ordering-desc" checked="checked"> <label for="sort_ordering_desc">Bán chạy nhất</label></li>
+                                                          <li><input type="radio" id="sort_id_desc" name="sort_by" class="sort_by" value="id-desc"> <label for="sort_id_desc">Sản phẩm mới</label></li>
+                                                          <li><input type="radio" id="sort_price_asc" name="sort_by" class="sort_by" value="price-asc"> <label for="sort_price_asc">Giá tăng dần</label></li>
+                                                          <li><input type="radio" id="sort_price_desc" name="sort_by" class="sort_by" value="price-desc"> <label for="sort_price_desc">Giá giảm dần</label></li>
+                                                      </ul>
+                                                  </div>
+                                              </div>
 
-                                        <div id="chooseatt_28" class="attribute-block clearfix">
-                                            <div class="label-title"><span>Phân loại</span></div>
-                                            <div class="att-scroll">
-                                                <ul>
-                                                    <li>
-                                                        <input type="radio" data-name="Dạng gập" name="28-attribute-check" id="sradio282" value="at_2">
-                                                        <label for="sradio282" class="label1">Dạng gập</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" data-name="Dạng trượt" name="28-attribute-check" id="sradio283" value="at_3">
-                                                        <label for="sradio283" class="label1">Dạng trượt</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" data-name="Con lăn" name="28-attribute-check" id="sradio2825" value="at_25">
-                                                        <label for="sradio2825" class="label1">Con lăn</label>
-                                                    </li>
-                                                </ul><input type="hidden" name="val_select[]" class="val_select" value="">
-                                            </div>
-                                        </div>
+                                              <div id="chooseatt_28" class="attribute-block clearfix">
+                                                  <div class="label-title"><span>Phân loại</span></div>
+                                                  <div class="att-scroll">
+                                                      <ul>
+                                                          <li>
+                                                              <input type="radio" data-name="Dạng gập" name="28-attribute-check" id="sradio282" value="at_2">
+                                                              <label for="sradio282" class="label1">Dạng gập</label>
+                                                          </li>
+                                                          <li>
+                                                              <input type="radio" data-name="Dạng trượt" name="28-attribute-check" id="sradio283" value="at_3">
+                                                              <label for="sradio283" class="label1">Dạng trượt</label>
+                                                          </li>
+                                                          <li>
+                                                              <input type="radio" data-name="Con lăn" name="28-attribute-check" id="sradio2825" value="at_25">
+                                                              <label for="sradio2825" class="label1">Con lăn</label>
+                                                          </li>
+                                                      </ul><input type="hidden" name="val_select[]" class="val_select" value="">
+                                                  </div>
+                                              </div>
 
-                                        <div id="chooseatt_6" class="attribute-block clearfix">
-                                            <div class="label-title"><span>Mức giá</span></div>
-                                            <div class="att-scroll">
-                                                <ul>
-                                                    <li>
-                                                        <input type="radio" data-name="Dưới 500,000đ" name="6-attribute-check" id="sradio67" value="at_7">
-                                                        <label for="sradio67" class="label1">Dưới 500,000đ</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" data-name="500,000đ - 1 triệu" name="6-attribute-check" id="sradio68" value="at_8">
-                                                        <label for="sradio68" class="label1">500,000đ - 1 triệu</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" data-name="Từ 1 - 3 triệu" name="6-attribute-check" id="sradio69" value="at_9">
-                                                        <label for="sradio69" class="label1">Từ 1 - 3 triệu</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" data-name="Từ 3 - 5 triệu" name="6-attribute-check" id="sradio610" value="at_10">
-                                                        <label for="sradio610" class="label1">Từ 3 - 5 triệu</label>
-                                                    </li>
-                                                </ul><input type="hidden" name="val_select[]" class="val_select" value="">
-                                            </div>
-                                        </div>
+                                              <div id="chooseatt_6" class="attribute-block clearfix">
+                                                  <div class="label-title"><span>Mức giá</span></div>
+                                                  <div class="att-scroll">
+                                                      <ul>
+                                                          <li>
+                                                              <input type="radio" data-name="Dưới 500,000đ" name="6-attribute-check" id="sradio67" value="at_7">
+                                                              <label for="sradio67" class="label1">Dưới 500,000đ</label>
+                                                          </li>
+                                                          <li>
+                                                              <input type="radio" data-name="500,000đ - 1 triệu" name="6-attribute-check" id="sradio68" value="at_8">
+                                                              <label for="sradio68" class="label1">500,000đ - 1 triệu</label>
+                                                          </li>
+                                                          <li>
+                                                              <input type="radio" data-name="Từ 1 - 3 triệu" name="6-attribute-check" id="sradio69" value="at_9">
+                                                              <label for="sradio69" class="label1">Từ 1 - 3 triệu</label>
+                                                          </li>
+                                                          <li>
+                                                              <input type="radio" data-name="Từ 3 - 5 triệu" name="6-attribute-check" id="sradio610" value="at_10">
+                                                              <label for="sradio610" class="label1">Từ 3 - 5 triệu</label>
+                                                          </li>
+                                                      </ul><input type="hidden" name="val_select[]" class="val_select" value="">
+                                                  </div>
+                                              </div>
 
-                                        <div id="chooseatt_18" class="attribute-block clearfix">
-                                            <div class="label-title"><span>Xuất xứ</span></div>
-                                            <div class="att-scroll">
-                                                <ul>
-                                                    <li>
-                                                        <input type="radio" data-name="Trung Quốc" name="18-attribute-check" id="sradio1819" value="at_19">
-                                                        <label for="sradio1819" class="label1">Trung Quốc</label>
-                                                    </li>
-                                                    <li>
-                                                        <input type="radio" data-name="Việt Nam" name="18-attribute-check" id="sradio1850" value="at_50">
-                                                        <label for="sradio1850" class="label1">Việt Nam</label>
-                                                    </li>
-                                                </ul><input type="hidden" name="val_select[]" class="val_select" value="">
-                                            </div>
-                                        </div>
+                                              <div id="chooseatt_18" class="attribute-block clearfix">
+                                                  <div class="label-title"><span>Xuất xứ</span></div>
+                                                  <div class="att-scroll">
+                                                      <ul>
+                                                          <li>
+                                                              <input type="radio" data-name="Trung Quốc" name="18-attribute-check" id="sradio1819" value="at_19">
+                                                              <label for="sradio1819" class="label1">Trung Quốc</label>
+                                                          </li>
+                                                          <li>
+                                                              <input type="radio" data-name="Việt Nam" name="18-attribute-check" id="sradio1850" value="at_50">
+                                                              <label for="sradio1850" class="label1">Việt Nam</label>
+                                                          </li>
+                                                      </ul><input type="hidden" name="val_select[]" class="val_select" value="">
+                                                  </div>
+                                              </div>
 
-                                    </div>
+                                          </div>
 
-                                </div>
+                                      </div>
 
-                            </div>
-                            <script type="text/javascript">
-                                jQuery(document).ready(function () {
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_6 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 6;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_6 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                  </div>
+                                  <script type="text/javascript">
+                                      jQuery(document).ready(function () {
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_6 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 6;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_6 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_7 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 7;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_7 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_7 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 7;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_7 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_8 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 8;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_8 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_8 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 8;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_8 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_9 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 9;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_9 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_9 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 9;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_9 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_10 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 10;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_10 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_10 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 10;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_10 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_18 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 18;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_18 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_18 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 18;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_18 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_19 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 19;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_19 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_19 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 19;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_19 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_50 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 50;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_50 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_50 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 50;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_50 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_28 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 28;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_28 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_28 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 28;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_28 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_2 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 2;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_2 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_2 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 2;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_2 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_3 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 3;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_3 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_3 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 3;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_3 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    var select_att = null;
-                                    $('.attribute-check #chooseatt_25 input[type=radio]').click(function () {
-                                        select_att = this.value;
-                                        var type_attribute = 25;
-                                        $('#close_' + this.value).removeClass('hidden');
-                                        $('#chooseatt_25 .val_select').val(select_att);
-                                        var dataname = $(this).attr("data-name");
-                                        filter(dataname, type_attribute);
-                                    });
+                                          var select_att = null;
+                                          $('.attribute-check #chooseatt_25 input[type=radio]').click(function () {
+                                              select_att = this.value;
+                                              var type_attribute = 25;
+                                              $('#close_' + this.value).removeClass('hidden');
+                                              $('#chooseatt_25 .val_select').val(select_att);
+                                              var dataname = $(this).attr("data-name");
+                                              filter(dataname, type_attribute);
+                                          });
 
-                                    $('input[type=radio][name=sort_by]').change(function () {
-                                        filter(0, 0);
-                                    });
-                                });
+                                          $('input[type=radio][name=sort_by]').change(function () {
+                                              filter(0, 0);
+                                          });
+                                      });
 
-                                function remove_choosed(attribute_id) {
-                                    $('.choosed a[data-type="' + attribute_id + '"]').remove();
-                                    $('#chooseatt_' + attribute_id + ' .val_select').val('');
-                                    $('#chooseatt_' + attribute_id + ' input:radio').attr("checked", false);
+                                      function remove_choosed(attribute_id) {
+                                          $('.choosed a[data-type="' + attribute_id + '"]').remove();
+                                          $('#chooseatt_' + attribute_id + ' .val_select').val('');
+                                          $('#chooseatt_' + attribute_id + ' input:radio').attr("checked", false);
 
-                                    //if( $('.choosed').empty() )
-                                    if ($('.choosed').html().trim()) {
-                                        $('#loader').removeClass('hidden');
-                                        var attribute = $("input[name='val_select[]']").map(function () { return $(this).val(); }).get();
-                                        var catid = 53;
-                                        var sort_by = $(".attribute-block input[type='radio'].sort_by:checked").val();
-                                        $.post("https://www.thethaothientruong.vn/product/filter/", { attribute: attribute, catid: catid, sort_by: sort_by },
-                                            function (data) {
-                                                $('#loader').addClass('hidden');
-                                                $('.pagination').remove();
-                                                html = data.return_data;
-                                                $(".product-grid .mod-products").html(html);
-                                            }, "json");
-                                    }
-                                    else {
-                                        window.location.reload();
-                                    }
-                                }
+                                          //if( $('.choosed').empty() )
+                                          if ($('.choosed').html().trim()) {
+                                              $('#loader').removeClass('hidden');
+                                              var attribute = $("input[name='val_select[]']").map(function () { return $(this).val(); }).get();
+                                              var catid = 53;
+                                              var sort_by = $(".attribute-block input[type='radio'].sort_by:checked").val();
+                                              $.post("https://www.thethaothientruong.vn/product/filter/", { attribute: attribute, catid: catid, sort_by: sort_by },
+                                                  function (data) {
+                                                      $('#loader').addClass('hidden');
+                                                      $('.pagination').remove();
+                                                      html = data.return_data;
+                                                      $(".product-grid .mod-products").html(html);
+                                                  }, "json");
+                                          }
+                                          else {
+                                              window.location.reload();
+                                          }
+                                      }
 
-                                function filter(dataname, type_attribute) {
-                                    if (dataname !== 0 && type_attribute !== 0) {
-                                        $('.choosed a[data-type="' + type_attribute + '"]').remove();
-                                        var td_productCode = '<a onclick="remove_choosed(' + type_attribute + ')" data-type="' + type_attribute + '" data-id=""><span>' + dataname + '</span><i class="fa fa-times"></i></a>';
+                                      function filter(dataname, type_attribute) {
+                                          if (dataname !== 0 && type_attribute !== 0) {
+                                              $('.choosed a[data-type="' + type_attribute + '"]').remove();
+                                              var td_productCode = '<a onclick="remove_choosed(' + type_attribute + ')" data-type="' + type_attribute + '" data-id=""><span>' + dataname + '</span><i class="fa fa-times"></i></a>';
 
-                                        $('.choosed').prepend(td_productCode);
-                                    }
-                                    //alert(1);
+                                              $('.choosed').prepend(td_productCode);
+                                          }
+                                          //alert(1);
 
-                                    //var addedProductCodes = [];  //Move to above function
-                                    //addedProductCodes.push(td_productCode);
-                                    /* var td_productCode = '<a href="#" class="data-type-'+type_attribute+'" data-id=""><span>'+dataname+'</span><i class="fa fa-times"></i></a>';
-                                    var index = $.inArray(td_productCode, addedProductCodes);
-                                    if (index >= 0) {
-                                        alert("You already added this Product");
-                                    } else {
-                                    $('.choosed').prepend(td_productCode);
-                                        addedProductCodes.push(td_productCode);
-                                    }
-                                    */
-                                    $('#loader').removeClass('hidden');
-                                    var attribute = $("input[name='val_select[]']").map(function () { return $(this).val(); }).get();
-                                    var catid = 53;
-                                    var sort_by = $(".attribute-block input[type='radio'].sort_by:checked").val();
+                                          //var addedProductCodes = [];  //Move to above function
+                                          //addedProductCodes.push(td_productCode);
+                                          /* var td_productCode = '<a href="#" class="data-type-'+type_attribute+'" data-id=""><span>'+dataname+'</span><i class="fa fa-times"></i></a>';
+                                          var index = $.inArray(td_productCode, addedProductCodes);
+                                          if (index >= 0) {
+                                              alert("You already added this Product");
+                                          } else {
+                                          $('.choosed').prepend(td_productCode);
+                                              addedProductCodes.push(td_productCode);
+                                          }
+                                          */
+                                          $('#loader').removeClass('hidden');
+                                          var attribute = $("input[name='val_select[]']").map(function () { return $(this).val(); }).get();
+                                          var catid = 53;
+                                          var sort_by = $(".attribute-block input[type='radio'].sort_by:checked").val();
 
-                                    $.post("https://www.thethaothientruong.vn/product/filter/", { attribute: attribute, catid: catid, sort_by: sort_by },
-                                        function (data) {
-                                            $('#loader').addClass('hidden');
-                                            $('.pagination').remove();
-                                            html = data.return_data;
-                                            $(".product-grid .mod-products").html(html);
-                                            $('#load_more').addClass('hidden');
-                                        }, "json");
-                                }
+                                          $.post("https://www.thethaothientruong.vn/product/filter/", { attribute: attribute, catid: catid, sort_by: sort_by },
+                                              function (data) {
+                                                  $('#loader').addClass('hidden');
+                                                  $('.pagination').remove();
+                                                  html = data.return_data;
+                                                  $(".product-grid .mod-products").html(html);
+                                                  $('#load_more').addClass('hidden');
+                                              }, "json");
+                                      }
 
 
 
-                            </script>
-                        </div>
-
-                    </div>
-                </div>
-                <div id="main-content">
-                    <div class="clearfix">
-                        <div class="nz-div">
-                            @foreach (var pro in Model)
-                            {
-                                <h1 class="tde"><span class="null">@pro.Name</span></h1>
-                            }
-                            </div>
-                        <div class="box">
-                            <div class="product-grid">
-                                <div class="mod-products">
-                                    @foreach (var pro in Model)
-                                    {
-                                        @Html.Action("CateHome", "Category", new { @cateID =pro.CateID })
-                                    }
-                                    </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+                                  </script>
+                              </div>
+                              @{
+                                  var pagedList = Model as PagedList.IPagedList<ShopDungCuTheThao.Models.SanPham>;
+                              }
+                          </div>
+                      </div>
+                          <div id="main-content">
+                              <div class="clearfix">
+                                  <div class="nz-div">
+                                      @foreach (var pro in Model)
+                                      {
+                                          <h1 class="tde"><span class="null">@pro.Name</span></h1>
+                                      }
+                                  </div>
+                                  <div class="box">
+                                      <div class="product-grid">
+                                          @foreach (var pro in Model)
+                                          {
+                                              <div class="mod-products">
+                                                  @Html.Action("CateHome", "Category", new { @cateID = pro.CateID })
+                                              </div>
+                                          }
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                  </div>
         </div>
     </div>
 </div>

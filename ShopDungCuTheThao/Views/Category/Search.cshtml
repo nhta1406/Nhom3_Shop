@@ -1,0 +1,192 @@
+﻿@model IEnumerable<ShopDungCuTheThao.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutSite.cshtml";
+}
+<div class="container">
+
+    <div class="box">
+
+        <div class="clearfix">
+            <div class="nz-div" style="margin: 0 0;">
+                <h3 class="tde"><span class="null">Kết quả tìm kiếm: @ViewBag.SearchString</span></h3>
+            </div>
+        </div>
+        <div class="box-content">
+            <div class="search-item">
+                @foreach (var pro in Model)
+                { 
+                <h4 class="name"><a href="https://www.thethaothientruong.vn/may-chay-bo/may-chay-bo-dien/bang-chay-reebok-reo13411.html">@pro.Name</a></h4>
+                    <div class="item">
+                        <a href="https://www.thethaothientruong.vn/may-chay-bo/may-chay-bo-dien/bang-chay-reebok-reo13411.html" title="Máy chạy bộ điện Reebok REO-13411">
+                            <img alt="Máy chạy bộ điện Reebok REO-13411" title="Máy chạy bộ điện Reebok REO-13411" src="~/Public/img/@pro.IMG" class="img-responsive">
+                        </a>
+
+                        <p class="description">@pro.MetaDesc</p>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+</div>
+<style>
+    a {
+        color: #0076BC;
+        text-decoration: none;
+    }
+    .search-item img {
+        width: 100px;
+        height: auto;
+        float: left;
+        margin-right: 15px;
+    }
+
+    .img-responsive {
+        display: inline-block;
+        width: 100%;
+        height: auto;
+    }
+    .search-item .item {
+        overflow: hidden;
+    }
+    .search-item p {
+        font-size: 13px;
+        color: #666;
+        margin-top: 5px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+    .search-item p {
+        font-size: 13px;
+        color: #666;
+        margin-top: 5px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+    .container {
+        width: 1280px;
+    }
+
+    .box {
+        margin-bottom: 20px;
+        background: #FFF;
+        border-radius: 3px;
+    }
+
+    .clearfix {
+        clear: both;
+    }
+
+    .box-content {
+        padding: 20px;
+    }
+
+    .box div.nz-div {
+        border-bottom: 1px solid #EEE;
+    }
+
+    .box div.nz-div {
+        margin: 0;
+    }
+
+    div.nz-div {
+        border-bottom: 2px solid #9e0b0f;
+        margin-bottom: 0;
+        display: block;
+        background: #FFF;
+        border-bottom: 1px solid #EEE;
+    }
+
+    .box .nz-div .tde, .box .nz-div h1.tde, .box .nz-div h3.tde {
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    .nz-div .tde, .nz-div h1.tde, .nz-div h3.tde {
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+        display: inline-block;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .box .nz-div .tde span, .box .nz-div h1.tde span, .box .nz-div h3.tde span {
+        background: #FFF;
+        color: #333;
+    }
+
+    .nz-div .tde span, .nz-div h1.tde span, .nz-div h3.tde span {
+        background: #c9252c;
+        padding: 10px 20px 10px 20px;
+        color: #FFF;
+        position: relative;
+        display: inline-block;
+        margin: 0;
+    }
+
+    .search-item {
+        margin-bottom: 20px;
+    }
+
+        .search-item h4 {
+            margin-bottom: 15px;
+            font-size: 14px;
+            display: block;
+        }
+
+    h4, .h4 {
+        font-size: 14px;
+    }
+
+    h1, h2, h3, h4 {
+        line-height: 1.4;
+        font-weight: bold;
+    }
+
+    a {
+        color: #0076BC;
+        text-decoration: none;
+    }
+</style>
+
+
+@*@foreach (var pro in Model)
+{
+    <div class="product-cols">
+        <div class="product-block">
+            <div class="thumbnail-item">
+                <a href="@Url.Action("Details", "Category", new { ID = pro.ID })" title="@pro.Name">
+                    <span class="product-sale-percent">-16%</span>
+                    <img alt="@pro.Name" title="@pro.Name" class="lazy" data-original="https://www.thethaothientruong.vn/uploads/thumbs/gia-de-ta.jpg" width="250" height="208" src="~/Public/img/@pro.IMG" style="display: inline;">
+                </a>
+            </div>
+            <div class="product-meta">
+                <div class="product-name">
+                    <h3 class="name"><a href="" title="@pro.Name">@pro.Name</a></h3>
+                    <div class="stars">
+                        <div class="ratings">
+                            <div class="empty-stars"></div>
+                            <div class="full-stars" style="width:100%"></div>
+                        </div>
+                        (1 đánh giá)
+                    </div>
+                    <div class="price">
+                        <span class="price-old">@pro.Price.ToString("#,##0 đ")</span>
+                        <span class="price-new">@pro.Price.ToString("#,##0 đ")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}*@

@@ -47,6 +47,11 @@ namespace ShopDungCuTheThao
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "TrangChu", action = "Index", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "CateHome",
+                url: "Category/CateHome/{cateID}/{page}",
+                defaults: new { controller = "Category", action = "CateHome", cateID = UrlParameter.Optional, page = UrlParameter.Optional }
+            );
         }
     }
 }

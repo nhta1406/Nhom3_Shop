@@ -26,3 +26,24 @@
         </div>
     </div>
 }
+<hr />
+@*<div class="nz-div">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item @(Model.PageNumber == 1 ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ShowCateDetails", new {cateID=ViewBag.CateID, page = Model.PageNumber - 1 })">Previous</a>
+            </li>
+            @for (int i = 1; i <= Model.PageCount; i++)
+            {
+                <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                    <a class="page-link" href="@Url.Action("ShowCateDetails", new {cateID=ViewBag.CateID, page = i })">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.PageNumber == Model.PageCount ? "disabled" : "")">
+                <a class="page-link" href="@Url.Action("ShowCateDetails", new { cateID=ViewBag.CateID,page = Model.PageNumber + 1 })">Next</a>
+            </li>
+        </ul>
+    </nav>
+</div>*@
+
+
