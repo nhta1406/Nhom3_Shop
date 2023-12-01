@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ShopDungCuTheThao.Models.ParentCategory>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+@foreach (var item in Model)
+{
+    <li class="menu-item-4 haschild">
+        <a class="parent " href="@Url.Action("ByParentID", "Category", new {parentId= item.ParentID})">
+            <span class="toggle-submenu" style="color:black">@item.Name <i class="fa-solid fa-caret-down"></i><span class="caret"></span></span>
+        </a>
+        <ul class="nav sub-menu">
+            @Html.Action("GetNameCate", "Category", new { parentID = item.ParentID })
+        </ul>
+    </li>
+}
+</html>

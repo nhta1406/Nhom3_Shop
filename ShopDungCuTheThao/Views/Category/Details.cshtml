@@ -1,6 +1,4 @@
 ﻿@model List<ShopDungCuTheThao.Models.SanPham>
-
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -32,6 +30,61 @@
     text-transform: uppercase;
     font-weight: bold;
 }
+        #mainnav {
+            /* background: rgb(255, 255, 255);*/
+            border-top: 1px solid rgb(245, 245, 245);
+            height: 46px;
+            white-space: nowrap;
+            position: relative;
+            left: 120px;
+        }
+
+            #mainnav li :hover {
+                background-color: #e52222;
+                color: white !important;
+            }
+
+            #mainnav .nav li a {
+                padding: 11px 25px;
+                font-size: 13px;
+                display: block;
+            }
+
+            #mainnav .nav li.menu-item-47 a {
+                padding: 7px 15px !important;
+            }
+
+            #mainnav .nav span {
+                border: 0 none;
+                font-family: inherit;
+                font-size: 100%;
+                font-style: inherit;
+                font-weight: inherit;
+                margin: 0;
+                outline: 0 none;
+                padding: 0;
+                vertical-align: baseline;
+            }
+
+            #mainnav .nav li {
+                overflow: hidden
+            }
+
+        .sub-menu {
+            display: none;
+        }
+
+        .haschild:hover .sub-menu {
+            display: block;
+        }
+
+            .haschild:hover .sub-menu li {
+                background-color: #e52222;
+            }
+
+                .haschild:hover .sub-menu li a {
+                    color: black;
+                }
         body .container1 header {
             margin: auto;
         }
@@ -309,7 +362,7 @@
                                                         <input type="hidden" name="quantity" value="1">
                                                         <input type="hidden" name="price" value="21450000" id="input_price">
 
-                                                        <a class="btn-buy" id="btn_buy" href="@Url.Action("Index","Checkout")"><i class="fa fa-shopping-cart"></i> Mua Ngay</a>
+                                                        <a class="btn-buy" id="btn_buy" href="@Url.Action("ThemGioHang", "GioHang", new { ID = item.ID, @strUrl = Request.Url.ToString() })"><i class="fa fa-shopping-cart"></i> Mua Ngay</a>
                                                     </form>
                                                 </div>
 

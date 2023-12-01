@@ -17,14 +17,14 @@ namespace ShopDungCuTheThao.Controllers
             {
                 var username = User.Identity.Name;
                 ViewBag.Username = username;
-                var listproduct = db.loaiSanPham.Where(m => m.Status == 1)
+                var listproduct = db.loaiSanPham.Take(3).Where(m => m.Status == 1)
                          .OrderByDescending(m => m.CreateAt)
                          .ToList();
                 return View(listproduct);
             }
             else
             {
-                var listproduct = db.loaiSanPham.Where(m => m.Status == 1)
+                var listproduct = db.loaiSanPham.Take(3).Where(m => m.Status == 1)
                          .OrderByDescending(m => m.CreateAt)
                          .ToList();
                 ViewBag.test = db.loaiSanPham.Count();
@@ -33,7 +33,7 @@ namespace ShopDungCuTheThao.Controllers
         }
         public ActionResult ProductHome(int catid,string namecat)
         {
-            var listproduct = db.sanPham.Where(m => m.Status == 1 && m.CateID == catid)
+            var listproduct = db.sanPham.Take(10).Where(m => m.Status == 1 && m.CateID == catid)
                                         .OrderByDescending(m => m.CreateAt)
                                         .ToList();
             ViewBag.CatName = namecat;
